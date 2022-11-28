@@ -1,0 +1,57 @@
+1 занятие:
+
+1. Типы архитектур Clean, N-Tier (Time 5:18):
+https://www.youtube.com/watch?v=j6u7Pw6dyUw&list=PLdo4fOcmZ0oVlqu_V8EXUDDnPsYwemxjn&index=74
+
+https://learn.microsoft.com/ru-ru/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
+
+
+https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/
+
+микросервисы: https://learn.microsoft.com/en-us/azure/architecture/microservices/design/api-design
+
+REST:
+https://habr.com/ru/post/38730/
+
+
+2. Создание проекта БД в VS, публикация, добавление первой таблицы и связей посредством скрипта.
+
+3. Пакеты:
+Autofac,
+Moq, 
+Automapper,
+JsonSerilization,
+jQuerry,
+Botstrap,
+Nunit
+
+Функционал,
+Авторизация,
+Локализация,
+Работа по ролям.
+
+
+Паттерны:
+UnitOfWork
+Repository
+
+ADO, Entity Framework Core (EF Core).
+
+ПРинципы SOLID:
+
+Нормализация БД:
+https://habr.com/ru/post/254773/
+
+
+ДЗ:
+самостоятельно наполнить БД оставшимися сущностями
+видео о HTTP (жизненный цикл запроса):
+https://deworker.pro/edu/series/http-basics/http-lifecycle
+
+https://developer.mozilla.org/ru/docs/Web/HTTP
+
+
+
+
+
+

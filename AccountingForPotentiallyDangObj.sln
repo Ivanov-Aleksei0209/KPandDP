@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D625B8D5-D8EB-4FB7-B82A-89C1C7E4F904}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AC2BE152-13A3-405A-AD59-E36F87781B07}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AccountingForPotentiallyDangObj.DataBase", "src\AccountingForPotentiallyDangObj.DataBase\AccountingForPotentiallyDangObj.DataBase.sqlproj", "{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE} = {D625B8D5-D8EB-4FB7-B82A-89C1C7E4F904}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67376E34-3A5E-4E2E-831E-7C1139530A09}
+	EndGlobalSection
+EndGlobal
