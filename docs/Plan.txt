@@ -2,8 +2,12 @@
 
 1. Типы архитектур Clean, N-Tier (Time 5:18):
 https://www.youtube.com/watch?v=j6u7Pw6dyUw&list=PLdo4fOcmZ0oVlqu_V8EXUDDnPsYwemxjn&index=74
+Дополнительно просмотрено https://www.youtube.com/watch?v=WYh5khUsv_o (Многослойная архитектура - NTier vs NLayer)
+				  https://www.youtube.com/watch?v=fWdBH0TkQtU&list=PLQC2_0cDcSKAcuWNsWAwF8GT_lCU9QZNs&index=37 (принципы SOLID)	
+				  https://www.youtube.com/watch?v=FK-Br0_d3Og&list=PLQC2_0cDcSKAcuWNsWAwF8GT_lCU9QZNs&index=38 (Clean Architecture)
+				  
 
-https://learn.microsoft.com/ru-ru/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures
+https://learn.microsoft.com/ru-ru/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures - статья слишком сложна для понимания
 
 
 https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/
