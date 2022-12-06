@@ -49,4 +49,88 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="JournalNumber" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="355bdd0c-3f67-4796-92ff-d7b4524ff178" ChangeDateTime="12/06/2022 16:36:10">
+    <Property Name="ElementName" Value="[dbo].[PDO].[journalPDO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JournalPdoId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7ae67105-1072-463a-8cf1-a0b5bc82035a" ChangeDateTime="12/06/2022 16:36:15">
+    <Property Name="ElementName" Value="[dbo].[PDO].[registrationNumber]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RegistrationNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e0bd57d6-4f6d-480a-9735-6e5800ede66c" ChangeDateTime="12/06/2022 16:36:18">
+    <Property Name="ElementName" Value="[dbo].[PDO].[type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Type" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ff35060a-fd0c-491d-8c80-6075ef184596" ChangeDateTime="12/06/2022 16:36:21">
+    <Property Name="ElementName" Value="[dbo].[PDO].[dateOfRegistration]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DateOfRegistration" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cda2fcf5-6eb5-44dc-ab38-44a1cd124831" ChangeDateTime="12/06/2022 16:36:24">
+    <Property Name="ElementName" Value="[dbo].[PDO].[yearOfManufacture]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="YearOfManufacture" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="75cd93ab-4184-445b-ba80-e71d0fbd7903" ChangeDateTime="12/06/2022 16:36:27">
+    <Property Name="ElementName" Value="[dbo].[PDO].[technicalSpecifications]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TechnicalSpecifications" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b7bf65be-aa1f-4996-99de-1a0996d45d65" ChangeDateTime="12/06/2022 16:36:31">
+    <Property Name="ElementName" Value="[dbo].[PDO].[serviceLife]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServiceLife" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3bbed41a-bc72-40cc-8cf0-43ac1817e1cd" ChangeDateTime="12/06/2022 16:36:34">
+    <Property Name="ElementName" Value="[dbo].[PDO].[informationAboutTheTechnicalInspection]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InformationAboutTheTechnicalInspection" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c775a3d9-ec6a-4a77-8584-b00214536ba9" ChangeDateTime="12/06/2022 16:36:37">
+    <Property Name="ElementName" Value="[dbo].[PDO].[inspector]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Inspector" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="88c32efe-5bd1-409a-bf73-212e7f013ce1" ChangeDateTime="12/06/2022 16:36:41">
+    <Property Name="ElementName" Value="[dbo].[PDO].[technicalConditional]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TechnicalConditional" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9bdb3221-5acf-43f6-b7c2-96eb0bfd89d1" ChangeDateTime="12/06/2022 16:36:44">
+    <Property Name="ElementName" Value="[dbo].[PDO].[owner_Subject]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Owner_Subject" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0c8e2a73-1a7b-4d5d-9d0c-02a5b21b4681" ChangeDateTime="12/06/2022 16:36:48">
+    <Property Name="ElementName" Value="[dbo].[PDO].[installationLocation]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InstallationLocation" />
+  </Operation>
 </Operations>

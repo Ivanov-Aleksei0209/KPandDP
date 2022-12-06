@@ -1,15 +1,4 @@
-﻿-- PDO
-if not exists (SELECT*FROM dbo.PDO WHERE Name='crane' and journalPDO='' and registrationNumber=0001 and type='' and dateOfRegistration='05.12.2022' and yearOfManufacture=2010 
-and technicalSpecifications='' and serviceLife=10 and informationAboutTheTechnicalInspection='20.10.2022' and inspector='Ivanov A.'
-and technicalConditional='' and owner_Subject='Delta' and installationLocation='')
-begin
-insert into dbo.PDO
-values
-('crane', '', 0001, '', '05.12.2022', 2010, '', 10, '20.10.2022', 'Ivanov A.', '', 'Delta', '') 
-end
-go
-
--- JournalPDO
+﻿-- JournalPDO
 if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='LiftingCranes' and JournalNumber=31)
 if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='Lifts' and JournalNumber=32)
 if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='Escalators' and JournalNumber=33)
@@ -23,6 +12,17 @@ values
 ('Escalators', 33), 
 ('Elevators', 34), 
 ('Attractions', 36)
+end
+go
+
+-- PDO
+if not exists (SELECT*FROM dbo.PDO WHERE Name='crane' and JournalPdoId=1 and RegistrationNumber=0001 and Type='' and DateOfRegistration='05.12.2022' and YearOfManufacture=2010 
+and TechnicalSpecifications='' and ServiceLife=10 and InformationAboutTheTechnicalInspection='20.10.2022' and Inspector='Ivanov A.'
+and TechnicalConditional='' and Owner_Subject='Delta' and InstallationLocation='')
+begin
+insert into dbo.PDO
+values
+('crane', 1, 0001, '', '05.12.2022', 2010, '', 10, '20.10.2022', 'Ivanov A.', '', 'Delta', '') 
 end
 go
 

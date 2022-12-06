@@ -54,6 +54,11 @@ https://deworker.pro/edu/series/http-basics/http-lifecycle
 
 https://developer.mozilla.org/ru/docs/Web/HTTP
 
+06.12.2022 (2е занятие)
+
+При добавлении данных в главную таблицу данные зависимых таблиц должны быть заполнены ранее, 
+т.е. главная таблица заполняется последней (в файле Script.PostDeployment.sql)
+
 
 
 
