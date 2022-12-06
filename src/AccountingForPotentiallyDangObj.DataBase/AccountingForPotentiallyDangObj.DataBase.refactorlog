@@ -7,4 +7,46 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="JournalNumber" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="ed25b6e3-a05b-4f14-b19c-28a6aadd8b45" ChangeDateTime="12/05/2022 17:24:07">
+    <Property Name="ElementName" Value="[dbo].[PDO].[dateOfManufacture]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="yearOfManufacture" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c092249a-c803-4b31-900f-2c2adbd0a9ac" ChangeDateTime="12/05/2022 19:40:14">
+    <Property Name="ElementName" Value="[dbo].[Subjects].[UNP]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Subjects]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Unp" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e9fcc544-3b94-4544-a978-a57cf1cdc6ef" ChangeDateTime="12/05/2022 19:40:45">
+    <Property Name="ElementName" Value="[dbo].[Subjects].[Unp]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Subjects]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UNP" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bc7d8aef-c14a-4c61-a42a-32af88ebad6f" ChangeDateTime="12/05/2022 19:55:08">
+    <Property Name="ElementName" Value="[dbo].[JournalPDO-to-TechnicalSpecifications].[KeyPDO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[JournalPDO-to-TechnicalSpecifications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JuornalNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1f0eafac-2702-48dc-9bdd-0d64310d004a" ChangeDateTime="12/05/2022 20:06:19">
+    <Property Name="ElementName" Value="[dbo].[JournalPDO-to-TechnicalSpecifications].[JuornalNumber]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[JournalPDO-to-TechnicalSpecifications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JournalNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="63bf7d5f-ebf9-46f8-b8ae-b5c62f85bcf5" ChangeDateTime="12/05/2022 20:18:03">
+    <Property Name="ElementName" Value="[dbo].[JournalPdoToTs].[JournalPDO]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[JournalPdoToTs]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="JournalNumber" />
+  </Operation>
 </Operations>
