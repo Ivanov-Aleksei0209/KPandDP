@@ -50,7 +50,7 @@ https://habr.com/ru/post/254773/
 ДЗ:
 самостоятельно наполнить БД оставшимися сущностями
 видео о HTTP (жизненный цикл запроса):
-https://deworker.pro/edu/series/http-basics/http-lifecycle
+!!!!! посмотреть обязательно!!!! https://deworker.pro/edu/series/http-basics/http-lifecycle
 
 https://developer.mozilla.org/ru/docs/Web/HTTP
 

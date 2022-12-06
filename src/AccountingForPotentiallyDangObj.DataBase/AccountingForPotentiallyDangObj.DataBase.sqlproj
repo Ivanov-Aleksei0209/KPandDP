@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AccountingForPotentiallyDangObj.DataBase.publish.xml" />
+    <Build Include="ForeignKeys\FK_Inspectors_PDO.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\JournalPDO.sql" />

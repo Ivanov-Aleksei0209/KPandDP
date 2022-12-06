@@ -133,4 +133,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="InstallationLocation" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="5e78a339-8207-4c46-a34a-4c5088e8e848" ChangeDateTime="12/06/2022 17:09:03">
+    <Property Name="ElementName" Value="[dbo].[PDO].[Inspector]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InspectorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8b03bdd6-a34e-4ae2-9c49-9d630629360a" ChangeDateTime="12/06/2022 17:29:17">
+    <Property Name="ElementName" Value="[dbo].[FK_PDO_ToTable]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_Inspectors_PDO]" />
+  </Operation>
 </Operations>

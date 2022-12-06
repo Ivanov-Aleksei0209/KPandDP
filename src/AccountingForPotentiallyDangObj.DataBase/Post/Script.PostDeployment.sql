@@ -15,14 +15,29 @@ values
 end
 go
 
+-- Inspectors
+if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Ivanov A.')
+if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Koncevoi S.')
+if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Poltorak A.')
+if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Smolovik G.')
+begin
+insert into dbo.Inspectors
+values
+('Ivanov A.'), 
+('Koncevoi S.'), 
+('Poltorak A.'), 
+('Smolovik G.') 
+end
+go
+
 -- PDO
 if not exists (SELECT*FROM dbo.PDO WHERE Name='crane' and JournalPdoId=1 and RegistrationNumber=0001 and Type='' and DateOfRegistration='05.12.2022' and YearOfManufacture=2010 
-and TechnicalSpecifications='' and ServiceLife=10 and InformationAboutTheTechnicalInspection='20.10.2022' and Inspector='Ivanov A.'
+and TechnicalSpecifications='' and ServiceLife=10 and InformationAboutTheTechnicalInspection='20.10.2022' and InspectorId=1
 and TechnicalConditional='' and Owner_Subject='Delta' and InstallationLocation='')
 begin
 insert into dbo.PDO
 values
-('crane', 1, 0001, '', '05.12.2022', 2010, '', 10, '20.10.2022', 'Ivanov A.', '', 'Delta', '') 
+('crane', 1, 0001, '', '05.12.2022', 2010, '', 10, '20.10.2022', 1, '', 'Delta', '') 
 end
 go
 
@@ -79,20 +94,7 @@ values
 end
 go
 
--- Inspectors
-if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Ivanov A.')
-if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Koncevoi S.')
-if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Poltorak A.')
-if not exists (SELECT*FROM dbo.Inspectors WHERE Name='Smolovik G.')
-begin
-insert into dbo.Inspectors
-values
-('Ivanov A.'), 
-('Koncevoi S.'), 
-('Poltorak A.'), 
-('Smolovik G.') 
-end
-go
+
 
 -- Subjects
 if not exists (SELECT*FROM dbo.Subjects WHERE Name='Delta' and UNP=490124456 and departmentalAffiliation='withoutDepartmentalAffiliation'

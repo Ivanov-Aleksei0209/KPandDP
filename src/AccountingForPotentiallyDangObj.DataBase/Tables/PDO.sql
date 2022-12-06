@@ -10,7 +10,7 @@
     [TechnicalSpecifications] NVARCHAR(50) NULL, 
     [ServiceLife] INT NULL, 
     [InformationAboutTheTechnicalInspection] DATETIME NULL, 
-    [Inspector] NVARCHAR(50) NULL,
+    [InspectorId] INT NOT NULL,
     [TechnicalConditional] NVARCHAR(50) NULL,
     [Owner_Subject] NVARCHAR(50) NULL, 
     [InstallationLocation] NVARCHAR(50) NULL
