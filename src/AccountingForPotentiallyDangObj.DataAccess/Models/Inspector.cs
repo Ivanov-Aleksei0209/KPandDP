@@ -2,7 +2,7 @@
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class Inspectors
+    public class Inspector
         // сделать рефакторинг кода на единственное число
     {
         [Key]

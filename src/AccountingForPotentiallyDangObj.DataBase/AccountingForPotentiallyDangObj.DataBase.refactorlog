@@ -147,4 +147,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_Inspectors_PDO]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="1854de98-8988-457a-b4b8-59da848a6733" ChangeDateTime="12/07/2022 13:48:25">
+    <Property Name="ElementName" Value="[dbo].[PDO].[TechnicalSpecifications]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TechnicalSpecification" />
+  </Operation>
 </Operations>

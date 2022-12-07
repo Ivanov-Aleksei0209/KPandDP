@@ -1,7 +1,9 @@
 ﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
+using System.Data.Entity.Infrastructure;
 using System.Text;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.EF
@@ -18,9 +20,16 @@ namespace AccountingForPotentiallyDangObj.DataAccess.EF
         {
             _connectionString = connectionString;
         }
-        public DbSet<Inspectors> Inspectors { get; set; }
+        public DbSet<Inspector> Inspector { get; set; }
         // аналогично для других таблиц
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if(!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(_connectionString);
+            }
+        }
 
     }
 }

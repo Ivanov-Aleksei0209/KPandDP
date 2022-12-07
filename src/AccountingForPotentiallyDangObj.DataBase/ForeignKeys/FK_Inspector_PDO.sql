@@ -1,0 +1,4 @@
+﻿ALTER TABLE dbo.PDO
+ADD CONSTRAINT FK_Inspector_PDO 
+FOREIGN KEY (InspectorId)
+	REFERENCES dbo.Inspector (Id)

@@ -7,7 +7,7 @@
     [Type] NCHAR(10) NULL, 
     [DateOfRegistration] DATE NULL, 
     [YearOfManufacture] INT NULL, 
-    [TechnicalSpecifications] NVARCHAR(50) NULL, 
+    [TechnicalSpecification] NVARCHAR(50) NULL, 
     [ServiceLife] INT NULL, 
     [InformationAboutTheTechnicalInspection] DATETIME NULL, 
     [InspectorId] INT NOT NULL,

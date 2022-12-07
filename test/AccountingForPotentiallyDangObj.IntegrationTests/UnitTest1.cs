@@ -7,7 +7,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
     public class Tests
     {
         private AfPdoDbContext _tmContext;
-        private AfPdoRepository<Inspectors> _entityRepository;
+        private AfPdoRepository<Inspector> _entityRepository;
         [OneTimeSetUp]
         public void OneTimeSetUp() 
         {
@@ -16,7 +16,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         [SetUp]
         public void InitialiseTestsEntities()
         {
-            _entityRepository = new AfPdoRepository<Inspectors>(_tmContext);
+            _entityRepository = new AfPdoRepository<Inspector>(_tmContext);
         }
 
         [Test]
