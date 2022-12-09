@@ -61,51 +61,6 @@ values
 end
 go
 
--- PDO
-if not exists (SELECT*FROM dbo.PDO WHERE JournalPdoId=1 and RegistrationNumber=0001 and TypeId=1 and DateOfRegistration='05.12.2022' and YearOfManufacture=2010 
-and TechnicalSpecification='' and ServiceLife=10 and InformationAboutTheTechnicalInspection='20.10.2022' and InspectorId=1
-and TechnicalConditional='' and Owner_Subject='Delta' and InstallationLocation='')
-begin
-insert into dbo.PDO
-values
-(1, 0001, 1, '05.12.2022', 2010, '', 10, '20.10.2022', 1, '', 'Delta', '') 
-end
-go
-
--- TechnicalSpecification
-if not exists (SELECT*FROM dbo.TechnicalSpecification WHERE Capacity=25 and ArrowDeparture=18.0 and Speed=0 and NumberOfStops=0)
-begin
-insert into dbo.TechnicalSpecification
-values
-(25, 18.0, 0, 0)
-end
-go
-
--- Subject
-if not exists (SELECT*FROM dbo.Subject WHERE Name='Delta' and UNP=490124456 and departmentalAffiliation='withoutDepartmentalAffiliation'
-and postalAddress='Trudovaya str, 39A, Borschovka, Rechica region' and phone='8-029-457-78-98')
-begin
-insert into dbo.Subject
-values
-('Delta', 490124456, 'withoutDepartmentalAffiliation', 'Trudovaya str, 39A, Borschovka, Rechica region', '8-029-457-78-98')
-end
-go
-
--- TechnicalConditional
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='OperatedBy')
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='NotOperated')
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='Banned')
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='UnderRepair')
-begin
-insert into dbo.TechnicalConditional
-values
-('OperatedBy'), 
-('NotOperated'), 
-('Banned'), 
-('UnderRepair') 
-end
-go
-
 -- InstallationLocation
 if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name='housingStock')
 if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name='dormitory')
@@ -125,3 +80,85 @@ values
 ('constructionSite')
 end
 go
+
+-- DepartmentalAffiliation
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='GomelRegionalExecutiveCommittee')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='MinistryOfIndustry')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='MinistryOfEnergy')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='MinistryOfHealth')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='MinistryOfEducation')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='Belneftekhim')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='Bellesbumprom')
+if not exists (SELECT*FROM dbo.DepartmentalAffiliation WHERE Name='withoutDepartmentalSubordination')
+begin
+insert into dbo.DepartmentalAffiliation
+values
+('GomelRegionalExecutiveCommittee'), 
+('MinistryOfIndustry'), 
+('MinistryOfEnergy'), 
+('MinistryOfHealth'),
+('MinistryOfEducation'), 
+('Belneftekhim'),
+('Bellesbumprom'),
+('withoutDepartmentalSubordination')
+end
+go
+-- Subject
+if not exists (SELECT*FROM dbo.Subject WHERE Name='Delta' and UNP=490124456 and departmentalAffiliationId=7
+and postalAddress='Trudovaya str, 39A, Borschovka, Rechica region' and phone='8-029-457-78-98')
+begin
+insert into dbo.Subject
+values
+('Delta', 490124456, 7, 'Trudovaya str, 39A, Borschovka, Rechica region', '8-029-457-78-98')
+end
+go
+
+-- TechnicalSpecification
+if not exists (SELECT*FROM dbo.TechnicalSpecification WHERE 
+Capacity=25 and 
+ArrowDeparture=18.0 and 
+Speed=0 and 
+NumberOfStops=0)
+begin
+insert into dbo.TechnicalSpecification
+values
+(25, 18.5, 0, 0)
+end
+go
+
+-- TechnicalConditional
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='OperatedBy')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='NotOperated')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='Banned')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='UnderRepair')
+begin
+insert into dbo.TechnicalConditional
+values
+('OperatedBy'), 
+('NotOperated'), 
+('Banned'), 
+('UnderRepair') 
+end
+go
+
+-- PDO
+if not exists (SELECT*FROM dbo.PDO WHERE 
+JournalPdoId=1 and 
+RegistrationNumber=0001 and 
+TypeId=1 and 
+DateOfRegistration='05.12.2022' and 
+YearOfManufacture=2010 and 
+TechnicalSpecificationId=1 and 
+ServiceLife=10 and 
+InformationAboutTheTechnicalInspection='20.10.2022' and 
+InspectorId=1 and 
+TechnicalConditionalId=1 and 
+SubjectId=1 and 
+InstallationLocationId=2)
+begin
+insert into dbo.PDO
+values
+(1, 0001, 1, '05.12.2022', 2010, 1, 10, '20.10.2022', 1, 1, 1, 2) 
+end
+go
+

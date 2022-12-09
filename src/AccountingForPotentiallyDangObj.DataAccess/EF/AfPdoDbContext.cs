@@ -24,7 +24,12 @@ namespace AccountingForPotentiallyDangObj.DataAccess.EF
         // аналогично для других таблиц
         public DbSet<TypeOfPdo> TypeOfPdo { get; set; }
         public DbSet<JournalPDO> JournalPDO { get; set; }
-
+        public DbSet<Subject> Subject { get; set; }
+        public DbSet<InstallationLocation> InstallationLocation { get; set; }
+        public DbSet<TechnicalConditional> TechnicalConditional { get; set; }
+        public DbSet<TechnicalSpecification> TechnicalSpecification { get; set; }
+        public DbSet<DepartmentalAffiliation> DepartmentalAffiliation { get; set; }
+        public DbSet<PDO> PDO { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

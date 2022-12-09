@@ -1,0 +1,4 @@
+﻿ALTER TABLE dbo.PDO
+ADD CONSTRAINT FK_Subject_PDO 
+FOREIGN KEY (SubjectId)
+	REFERENCES dbo.Subject (Id)

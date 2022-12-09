@@ -5,13 +5,13 @@ using System.Text;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class Subject
+    public class TechnicalSpecification
     {
         [Key]
         public int Id { get; set; }
-        public int UNP { get; set; }
-        public int departmentalAffiliationId { get; set; }
-        public string postalAddress { get; set; }
-        public string phone { get; set; }
+        public double Capacity { get; set; }
+        public double ArrowDeparture { get; set; }
+        public double Speed { get; set; }
+        public int NumberOfStops { get; set; }
     }
 }

@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AccountingForPotentiallyDangObj.DataBase.publish.xml" />
+    <None Include="ForeignKeys\FK_DepartmentalAffiliation_Subject.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\JournalPDO.sql" />
@@ -75,6 +76,11 @@
     <Build Include="Tables\TechnicalConditional.sql" />
     <Build Include="Tables\InstallationLocation.sql" />
     <Build Include="ForeignKeys\FK_TypeOfPdo_PDO.sql" />
+    <Build Include="ForeignKeys\FK_InstallationLocation_PDO.sql" />
+    <Build Include="ForeignKeys\FK_Subject_PDO.sql" />
+    <Build Include="ForeignKeys\FK_TechnicalConditional_PDO.sql" />
+    <Build Include="ForeignKeys\FK_TechnicalSpecification_PDO.sql" />
+    <Build Include="Tables\DepartmentalAffiliation.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AccountingForPotentiallyDangObj.DataBase.refactorlog" />

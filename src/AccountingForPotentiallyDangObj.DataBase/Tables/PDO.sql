@@ -4,13 +4,13 @@
     [JournalPdoId] INT NOT NULL,
     [RegistrationNumber] INT NOT NULL, 
     [TypeId] INT NOT NULL, 
-    [DateOfRegistration] DATE NULL, 
-    [YearOfManufacture] INT NULL, 
-    [TechnicalSpecification] NVARCHAR(50) NOT NULL, 
-    [ServiceLife] INT NULL, 
-    [InformationAboutTheTechnicalInspection] DATETIME NULL, 
-    [InspectorId] INT NOT NULL,
-    [TechnicalConditional] NVARCHAR(50) NULL,
-    [Owner_Subject] NVARCHAR(50) NULL, 
-    [InstallationLocation] NVARCHAR(50) NULL
+    [DateOfRegistration] DATE NOT NULL, 
+    [YearOfManufacture] INT NOT NULL, 
+    [TechnicalSpecificationId] INT NOT NULL, 
+    [ServiceLife] INT NOT NULL, 
+    [InformationAboutTheTechnicalInspection] DATE NULL, 
+    [InspectorId] INT NULL,
+    [TechnicalConditionalId] INT NOT NULL,
+    [SubjectId] INT NOT NULL, 
+    [InstallationLocationId] INT NOT NULL
 )
