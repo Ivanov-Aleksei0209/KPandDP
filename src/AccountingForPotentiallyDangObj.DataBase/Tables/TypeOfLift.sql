@@ -1,6 +1,0 @@
-﻿CREATE TABLE [dbo].[TypeOfLift]
-(
-	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NVARCHAR(50) NOT NULL, 
-    [Abb] NCHAR(10) NOT NULL
-)

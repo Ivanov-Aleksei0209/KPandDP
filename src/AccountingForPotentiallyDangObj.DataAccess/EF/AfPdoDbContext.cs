@@ -22,6 +22,9 @@ namespace AccountingForPotentiallyDangObj.DataAccess.EF
         }
         public DbSet<Inspector> Inspector { get; set; }
         // аналогично для других таблиц
+        public DbSet<TypeOfPdo> TypeOfPdo { get; set; }
+        public DbSet<JournalPDO> JournalPDO { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

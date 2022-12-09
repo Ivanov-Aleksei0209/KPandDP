@@ -8,6 +8,8 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
     {
         private AfPdoDbContext _tmContext;
         private AfPdoRepository<Inspector> _entityRepository;
+        private AfPdoRepository<TypeOfPdo> _typeRepository;
+        private AfPdoRepository<JournalPDO> _journalRepository;
         [OneTimeSetUp]
         public void OneTimeSetUp() 
         {
@@ -17,6 +19,8 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         public void InitialiseTestsEntities()
         {
             _entityRepository = new AfPdoRepository<Inspector>(_tmContext);
+            _typeRepository = new AfPdoRepository<TypeOfPdo>(_tmContext);
+            _journalRepository = new AfPdoRepository<JournalPDO>(_tmContext);
         }
 
         [Test]
@@ -26,6 +30,8 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             // Act
             var entities = _entityRepository.GetAllAsync().Result;
+            var entitiesType = _typeRepository.GetAllAsync().Result;
+            var entitiesJournal = _journalRepository.GetAllAsync().Result;
 
             // Assert
             Assert.Pass();

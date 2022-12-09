@@ -1,13 +1,12 @@
 ﻿CREATE TABLE [dbo].[PDO]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NVARCHAR(50) NOT NULL, 
     [JournalPdoId] INT NOT NULL,
     [RegistrationNumber] INT NOT NULL, 
-    [Type] NCHAR(10) NULL, 
+    [TypeId] INT NOT NULL, 
     [DateOfRegistration] DATE NULL, 
     [YearOfManufacture] INT NULL, 
-    [TechnicalSpecification] NVARCHAR(50) NULL, 
+    [TechnicalSpecification] NVARCHAR(50) NOT NULL, 
     [ServiceLife] INT NULL, 
     [InformationAboutTheTechnicalInspection] DATETIME NULL, 
     [InspectorId] INT NOT NULL,

@@ -154,4 +154,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="TechnicalSpecification" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="4789341d-7abf-47a3-b538-a2dc475bff67" ChangeDateTime="12/08/2022 14:40:52">
+    <Property Name="ElementName" Value="[dbo].[TechnicalSpecification].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TechnicalSpecification]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Capacity" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d5f97c44-3527-478a-ba48-39ed3262a388" ChangeDateTime="12/08/2022 15:48:17">
+    <Property Name="ElementName" Value="[dbo].[PDO].[Type]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TypeId" />
+  </Operation>
 </Operations>

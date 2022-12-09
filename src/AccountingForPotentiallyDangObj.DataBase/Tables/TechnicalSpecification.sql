@@ -1,5 +1,8 @@
 ﻿CREATE TABLE [dbo].[TechnicalSpecification]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-    [Name] NVARCHAR(MAX) NOT NULL
+    [Capacity] FLOAT NOT NULL, 
+    [ArrowDeparture] FLOAT NULL, 
+    [Speed] FLOAT NULL, 
+    [NumberOfStops] INT NULL
 )

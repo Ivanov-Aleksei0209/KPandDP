@@ -1,0 +1,4 @@
+﻿ALTER TABLE dbo.PDO
+ADD CONSTRAINT FK_TypeOfPdo_PDO 
+FOREIGN KEY (TypeId)
+	REFERENCES dbo.TypeOfPdo (Id)

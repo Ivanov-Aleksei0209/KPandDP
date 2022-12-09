@@ -66,13 +66,15 @@
   <ItemGroup>
     <Build Include="Tables\JournalPDO.sql" />
     <Build Include="Tables\TechnicalSpecification.sql" />
-    <Build Include="Tables\TypeOfLiftingCrane.sql" />
-    <Build Include="Tables\TypeOfLift.sql" />
+    <Build Include="Tables\TypeOfPdo.sql" />
     <Build Include="Tables\PDO.sql" />
     <Build Include="Tables\Inspector.sql" />
     <Build Include="Tables\Subject.sql" />
     <Build Include="ForeignKeys\FK_JournalPDO_PDO.sql" />
     <Build Include="ForeignKeys\FK_Inspector_PDO.sql" />
+    <Build Include="Tables\TechnicalConditional.sql" />
+    <Build Include="Tables\InstallationLocation.sql" />
+    <Build Include="ForeignKeys\FK_TypeOfPdo_PDO.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AccountingForPotentiallyDangObj.DataBase.refactorlog" />
