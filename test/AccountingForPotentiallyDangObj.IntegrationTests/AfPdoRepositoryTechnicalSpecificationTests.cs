@@ -24,26 +24,16 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         [Test]
         public void Test1()
         {
-            int val = 300;
-            double dob = (double)val;
-
             // Arrange
-            //int[] array = {1, 2, 4};
-            //int[] ar = new int[3];
-            //Array ar1 = ar;
-
-
-
-            //ArrayList array List = new ArrayList();
             TechnicalSpecification expectedObj1 = new TechnicalSpecification();
             expectedObj1.Id = 1;
-            expectedObj1.Capacity = 25;
-            expectedObj1.ArrowDeparture = 18.5;
-            expectedObj1.Speed = 0;
-            expectedObj1.NumberOfStops = 0;
+            expectedObj1.Capacity = 500;
+            expectedObj1.ArrowDeparture = 0;
+            expectedObj1.Speed = 1.0;
+            expectedObj1.NumberOfStops = 9;
 
             TechnicalSpecification expectedObj2 = new TechnicalSpecification();
-            expectedObj2.Id = 1;
+            expectedObj2.Id = 2;
             expectedObj2.Capacity = 25;
             expectedObj2.ArrowDeparture = 18.5;
             expectedObj2.Speed = 0;

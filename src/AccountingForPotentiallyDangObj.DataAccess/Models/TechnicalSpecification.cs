@@ -16,13 +16,18 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
 
         public override bool Equals(object? obj)
         {
-            if (obj is TechnicalSpecification technicalSpecification)
+            if (obj == null || GetType() != obj.GetType())
             {
-                return Id == technicalSpecification.Id;
+                return false;
             }
-            return false;                
+            return obj is TechnicalSpecification technicalSpecification &&
+                Id == technicalSpecification.Id &&
+                Capacity == technicalSpecification.Capacity &&
+                ArrowDeparture == technicalSpecification.ArrowDeparture &&
+                NumberOfStops == technicalSpecification.NumberOfStops;                    
         }
-
+        public override int GetHashCode() => Tuple.Create(Id, Capacity, ArrowDeparture, Speed, NumberOfStops).GetHashCode();
+        // public override int GetHashCode() => Tuple.Create(base.GetHashCode()).GetHashCode();
 
     }
 }

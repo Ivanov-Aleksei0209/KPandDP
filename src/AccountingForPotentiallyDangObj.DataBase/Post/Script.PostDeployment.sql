@@ -115,13 +115,19 @@ go
 
 -- TechnicalSpecification
 if not exists (SELECT*FROM dbo.TechnicalSpecification WHERE 
+Capacity=500 and 
+ArrowDeparture=0 and 
+Speed=1.0 and 
+NumberOfStops=9)
+(SELECT*FROM dbo.TechnicalSpecification WHERE 
 Capacity=25 and 
-ArrowDeparture=18.0 and 
+ArrowDeparture=18.5 and 
 Speed=0 and 
 NumberOfStops=0)
 begin
 insert into dbo.TechnicalSpecification
 values
+(500, 0, 1.0, 9),
 (25, 18.5, 0, 0)
 end
 go
