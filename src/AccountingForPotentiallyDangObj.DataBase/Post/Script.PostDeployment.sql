@@ -103,13 +103,17 @@ values
 ('withoutDepartmentalSubordination')
 end
 go
+
 -- Subject
 if not exists (SELECT*FROM dbo.Subject WHERE Name='Delta' and UNP=490124456 and departmentalAffiliationId=7
 and postalAddress='Trudovaya str, 39A, Borschovka, Rechica region' and phone='8-029-457-78-98')
+if not exists (SELECT*FROM dbo.Subject WHERE Name='Centralnoye' and UNP=490000011 and departmentalAffiliationId=1
+and postalAddress='Telmana st, 26A, Gomel' and phone='8-0232-50-50-02')
 begin
 insert into dbo.Subject
 values
-('Delta', 490124456, 7, 'Trudovaya str, 39A, Borschovka, Rechica region', '8-029-457-78-98')
+('Delta', 490124456, 7, 'Trudovaya str, 39A, Borschovka, Rechica region', '8-029-457-78-98'),
+('Centralnoye', 490000011, 1, 'Telmana st, 26A, Gomel', '8-0232-50-50-02')
 end
 go
 
@@ -149,22 +153,36 @@ go
 
 -- PDO
 if not exists (SELECT*FROM dbo.PDO WHERE 
+JournalPdoId=2 and 
+RegistrationNumber=0001 and 
+TypeId=10 and 
+DateOfRegistration='15.12.2022' and 
+YearOfManufacture=2022 and 
+TechnicalSpecificationId=1 and 
+ServiceLife=25 and 
+InformationAboutTheTechnicalInspection='10.12.2022' and 
+InspectorId=2 and 
+TechnicalConditionalId=1 and 
+SubjectId=2 and 
+InstallationLocationId=1)
+if not exists (SELECT*FROM dbo.PDO WHERE 
 JournalPdoId=1 and 
 RegistrationNumber=0001 and 
 TypeId=1 and 
 DateOfRegistration='05.12.2022' and 
 YearOfManufacture=2010 and 
-TechnicalSpecificationId=1 and 
+TechnicalSpecificationId=2 and 
 ServiceLife=10 and 
 InformationAboutTheTechnicalInspection='20.10.2022' and 
 InspectorId=1 and 
 TechnicalConditionalId=1 and 
 SubjectId=1 and 
-InstallationLocationId=2)
+InstallationLocationId=6)
 begin
 insert into dbo.PDO
 values
-(1, 0001, 1, '05.12.2022', 2010, 1, 10, '20.10.2022', 1, 1, 1, 2) 
+(2, 0001, 10, '15.12.2022', 2022, 1, 25, '10.12.2022', 2, 1, 2, 1),
+(1, 0001, 1, '05.12.2022', 2010, 2, 10, '20.10.2022', 1, 1, 1, 6) 
 end
 go
 

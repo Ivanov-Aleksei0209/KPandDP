@@ -22,7 +22,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         }
 
         [Test]
-        public void Test1()
+        public void TechnicalSpecificationTest()
         {
             // Arrange
             TechnicalSpecification expectedObj1 = new TechnicalSpecification();
@@ -50,7 +50,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             // Assert
             Assert.AreEqual(expected, entitiesTechnicalSpecification);
-        }
+        }      
 
     }
 } 

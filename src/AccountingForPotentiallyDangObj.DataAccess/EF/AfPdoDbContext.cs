@@ -20,8 +20,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.EF
         {
             _connectionString = connectionString;
         }
-        public DbSet<Inspector> Inspector { get; set; }
-        // аналогично для других таблиц
+        public DbSet<Inspector> Inspector { get; set; }        
         public DbSet<TypeOfPdo> TypeOfPdo { get; set; }
         public DbSet<JournalPDO> JournalPDO { get; set; }
         public DbSet<Subject> Subject { get; set; }

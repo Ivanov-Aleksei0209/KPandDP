@@ -27,7 +27,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
                 NumberOfStops == technicalSpecification.NumberOfStops;                    
         }
         public override int GetHashCode() => Tuple.Create(Id, Capacity, ArrowDeparture, Speed, NumberOfStops).GetHashCode();
-        // public override int GetHashCode() => Tuple.Create(base.GetHashCode()).GetHashCode();
+      
 
     }
 }

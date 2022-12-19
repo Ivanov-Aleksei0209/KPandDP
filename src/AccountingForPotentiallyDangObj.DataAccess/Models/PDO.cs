@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.Xml.Linq;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
@@ -21,5 +20,29 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
         public int TechnicalConditionalId { get; set; }
         public int SubjectId { get; set; }
         public int InstallationLocationId { get; set; }
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            return obj is PDO pDO &&
+                Id == pDO.Id &&
+                JournalPdoId == pDO.JournalPdoId &&
+                RegistrationNumber == pDO.RegistrationNumber &&
+                TypeId == pDO.TypeId &&
+                DateOfRegistration == pDO.DateOfRegistration &&
+                YearOfManufacture == pDO.YearOfManufacture &&
+                TechnicalSpecificationId == pDO.TechnicalSpecificationId &&
+                ServiceLife == pDO.ServiceLife; // &&
+                //InformationAboutTheTechnicalInspection == pDO.InformationAboutTheTechnicalInspection &&
+                //InspectorId == pDO.InspectorId &&
+                //TechnicalConditionalId == pDO.TechnicalConditionalId &&
+                //SubjectId == pDO.SubjectId &&
+                //InstallationLocationId == pDO.InstallationLocationId;
+        }
+        public override int GetHashCode() => Tuple.Create(Id, JournalPdoId, RegistrationNumber, TypeId, DateOfRegistration, YearOfManufacture, TechnicalSpecificationId,
+                                          ServiceLife).GetHashCode(); 
+                                          //InformationAboutTheTechnicalInspection, InspectorId, TechnicalConditionalId, SubjectId, InstallationLocationId).GetHashCode();
     }
 }

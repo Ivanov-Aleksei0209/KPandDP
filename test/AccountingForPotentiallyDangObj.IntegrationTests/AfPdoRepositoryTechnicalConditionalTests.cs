@@ -21,15 +21,38 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         }
 
         [Test]
-        public void Test1()
+        public void TechnicalConditionalTest()
         {
             // Arrange
+            TechnicalConditional expectedObj1 = new TechnicalConditional();
+            expectedObj1.Id = 1;
+            expectedObj1.Name = "OperatedBy";
+
+            TechnicalConditional expectedObj2 = new TechnicalConditional();
+            expectedObj2.Id = 2;
+            expectedObj2.Name = "NotOperated";
+
+            TechnicalConditional expectedObj3 = new TechnicalConditional();
+            expectedObj3.Id = 3;
+            expectedObj3.Name = "Banned";
+
+            TechnicalConditional expectedObj4 = new TechnicalConditional();
+            expectedObj4.Id = 4;
+            expectedObj4.Name = "UnderRepair";
+
+            List<TechnicalConditional> expected = new List<TechnicalConditional>()
+            {
+                expectedObj1,
+                expectedObj2,
+                expectedObj3,
+                expectedObj4
+            };
 
             // Act
             var entitiesTechnicalConditional = _technicalConditionalRepository.GetAllAsync().Result;
 
             // Assert
-            Assert.Pass();
+            Assert.AreEqual(expected, entitiesTechnicalConditional);
         }
 
     }

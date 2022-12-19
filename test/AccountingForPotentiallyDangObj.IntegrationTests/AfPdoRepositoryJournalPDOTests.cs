@@ -21,15 +21,50 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         }
 
         [Test]
-        public void Test1()
+        public void JournalPDOTest()
         {
             // Arrange
+            JournalPDO expectedObj1 = new JournalPDO();
+            expectedObj1.Id = 1;
+            expectedObj1.Name = "LiftingCranes";
+            expectedObj1.JournalNumber = 31;
+
+            JournalPDO expectedObj2 = new JournalPDO();
+            expectedObj2.Id = 2;
+            expectedObj2.Name = "Lifts";
+            expectedObj2.JournalNumber = 32;
+
+            JournalPDO expectedObj3 = new JournalPDO();
+            expectedObj3.Id = 3;
+            expectedObj3.Name = "Escalators";
+            expectedObj3.JournalNumber = 33;
+
+            JournalPDO expectedObj4 = new JournalPDO();
+            expectedObj4.Id = 4;
+            expectedObj4.Name = "Elevators";
+            expectedObj4.JournalNumber = 34;
+
+            JournalPDO expectedObj5 = new JournalPDO();
+            expectedObj5.Id = 5;
+            expectedObj5.Name = "Attractions";
+            expectedObj5.JournalNumber = 36;
+
+
+
+            List<JournalPDO> expected = new List<JournalPDO>()
+            {
+                expectedObj1,
+                expectedObj2,
+                expectedObj3,
+                expectedObj4,
+                expectedObj5
+            };
 
             // Act
-            var entitiesJournal = _journalRepository.GetAllAsync().Result;
+            var entitiesJournalPDO = _journalRepository.GetAllAsync().Result;
 
             // Assert
-            Assert.Pass();
+            Assert.AreEqual(expected, entitiesJournalPDO);
         }
 
     }
