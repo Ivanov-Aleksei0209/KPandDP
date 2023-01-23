@@ -1,10 +1,12 @@
 using AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository;
 using AccountingForPotentiallyDangObj.DataAccess.EF;
 using AccountingForPotentiallyDangObj.DataAccess.Models;
+using FluentAssertions;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryInspectorTests
+    [TestFixture]
+    public class AfPdoRepositoryInspectorTests : BaseTest<Inspector>
     {
         private AfPdoDbContext _tmContext;
         private AfPdoRepository<Inspector> _inspectorRepository;
@@ -19,43 +21,88 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         public void InitialiseTestsEntities()
         {
             _inspectorRepository = new AfPdoRepository<Inspector>(_tmContext);
+        }
 
+
+        [Test]
+        public async Task GetAllAsyncObjects_WhenPropertiesIsNotNull_ThenOutListEntitiesFromDB() // переназвать все первые тесты
+        {
+            // Arrange
+            Inspector expectedObj1 = new Inspector() { Name = "Golovko I." };
+
+
+            // Act
+            var inspectorAdded = await _inspectorRepository.AddAsync(expectedObj1);
+            var addedInspector = await _inspectorRepository.GetAllAsync();
+            var entitiesInspector = addedInspector.ToList().Where(x => x.Id == expectedObj1.Id).FirstOrDefault();
+
+            // Assert
+            expectedObj1.Should().Be(entitiesInspector);
+            await _inspectorRepository.DeleteAsync(expectedObj1);
         }
 
         [Test]
-        public void InspectorTest()
+        public async Task AddAsyncObject_WhenPropertiesIsNotNull_ThenOutIsListEntitiesFromDB()
         {
             // Arrange
-            Inspector expectedObj1 = new Inspector();
-            expectedObj1.Id = 1;
-            expectedObj1.Name = "Ivanov A.";
-
-            Inspector expectedObj2 = new Inspector();
-            expectedObj2.Id = 2;
-            expectedObj2.Name = "Koncevoi S.";
-
-            Inspector expectedObj3 = new Inspector();
-            expectedObj3.Id = 3;
-            expectedObj3.Name = "Poltorak A.";
-
-            Inspector expectedObj4 = new Inspector();
-            expectedObj4.Id = 4;
-            expectedObj4.Name = "Smolovik G.";
-
-            List<Inspector> expected = new List<Inspector>()
-            {
-                expectedObj1,
-                expectedObj2,
-                expectedObj3,
-                expectedObj4
-            };
+            var addingInspector = new Inspector { Name = "Rafalsky D." };
 
             // Act
-            var entitiesInspector = _inspectorRepository.GetAllAsync().Result;
+            await _inspectorRepository.AddAsync(addingInspector);
+            var addedInspector = (await _inspectorRepository.GetByIdAsync(addingInspector.Id)).ToList().FirstOrDefault();
 
-            // Assert
-            Assert.AreEqual(expected, entitiesInspector);
-
+            //Assert
+            addedInspector.Should().Be(addingInspector);
+            await _inspectorRepository.DeleteAsync(addingInspector);
         }
+
+        [Test]
+        public async Task UpdateAsyncObject_WhenPropertiesIsNotNull_ThenOpdateIsListEntitiesFromDB()
+        {
+            // Arrange
+            var addingInspector = new Inspector { Name = "Rafalsky D." };
+
+            // Act
+            await _inspectorRepository.AddAsync(addingInspector);
+            addingInspector.Name = "Kavalsky F.";
+            var inspectorUpdate = await _inspectorRepository.UpdateAsync(addingInspector);
+            var entitiesInspector = (await _inspectorRepository.GetByIdAsync(inspectorUpdate.Id)).ToList().FirstOrDefault();
+
+            //Assert
+            entitiesInspector.Should().Be(inspectorUpdate);
+            await _inspectorRepository.DeleteAsync(addingInspector);
+        }
+
+
+        [Test]
+        public async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
+        {
+            //Arrange
+            var addingInspector = new Inspector { Name = "Rafalsky D." };
+
+            //Act
+            await _inspectorRepository.AddAsync(addingInspector);
+            var entitiesInspector = (await _inspectorRepository.GetByIdAsync(addingInspector.Id)).ToList().FirstOrDefault();
+
+            //Assert
+            entitiesInspector.Should().Be(addingInspector);
+            await _inspectorRepository.DeleteAsync(addingInspector);
+        }
+
+        [Test]
+        public async Task DeleteAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
+        {
+            //Arrange
+            var deleteInspector = new Inspector { Name = "Kavalsky P." };
+
+            //Act
+            var inspectorAdded = await _inspectorRepository.AddAsync(deleteInspector);
+            await _inspectorRepository.DeleteAsync(inspectorAdded);
+            var entitiesInspector = await _inspectorRepository.GetByIdAsync(deleteInspector.Id);
+            
+            //Assert
+            entitiesInspector.Should().BeEmpty();
+        }
+
     }
 }

@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class PDO
+    public class PDO : IEntity
     {
         [Key]
         public int Id { get; set; }

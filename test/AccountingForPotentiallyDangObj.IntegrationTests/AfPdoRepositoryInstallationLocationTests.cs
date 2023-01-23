@@ -20,8 +20,8 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             _installationLocationRepository = new AfPdoRepository<InstallationLocation>(_tmContext);
         }
 
-        [Test]
-        public void InstallationLocationTest()
+        [Test, Order(1)]
+        public void GetAllAsyncObjects_WhenPropertiesIsNotNull_ThenOutListEntitiesFromDB()
         {
             // Arrange
             InstallationLocation expectedObj1 = new InstallationLocation();
@@ -68,8 +68,8 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             // Assert
             Assert.AreEqual(expected, entitiesInstallationLocation);
-
         }
+
 
     }
 }

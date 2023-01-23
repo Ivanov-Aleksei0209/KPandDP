@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class Inspector
-        
+    public class Inspector : IEntity
+
     {
         [Key]
         public int Id { get; set; }

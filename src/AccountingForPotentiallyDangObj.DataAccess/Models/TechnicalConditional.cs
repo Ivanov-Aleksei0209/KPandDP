@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-   public class TechnicalConditional
+   public class TechnicalConditional : IEntity
     {
         [Key]
         public int Id { get; set; }
