@@ -5,7 +5,7 @@ using System.Xml.Linq;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class PDO : IEntity
+    public class PDO : BaseModel
     {
         [Key]
         public int Id { get; set; }

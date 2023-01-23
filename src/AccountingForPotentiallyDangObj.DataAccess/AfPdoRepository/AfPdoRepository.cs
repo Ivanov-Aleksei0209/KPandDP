@@ -1,5 +1,6 @@
 ﻿using AccountingForPotentiallyDangObj.DataAccess.EF;
 using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
+using AccountingForPotentiallyDangObj.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
 {
-    public class AfPdoRepository<T>
-        where T : class, IEntity
+    public class AfPdoRepository<T> : IRepository<T>
+        where T : BaseModel
     {
         public AfPdoRepository() { }
 
@@ -23,9 +24,9 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
         public AfPdoDbContext AfPdoDbContext { get; set; }
 
         //метод для получения данных из БД
-        public async Task<IQueryable<T>> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
-            var entities = AfPdoDbContext.Set<T>().AsNoTracking();
+            var entities = await AfPdoDbContext.Set<T>().ToListAsync();
             await AfPdoDbContext.SaveChangesAsync();
             return entities;
         }

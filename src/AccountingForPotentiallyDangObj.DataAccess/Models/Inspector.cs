@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class Inspector : IEntity
+    public class Inspector : BaseModel
 
     {
         [Key]

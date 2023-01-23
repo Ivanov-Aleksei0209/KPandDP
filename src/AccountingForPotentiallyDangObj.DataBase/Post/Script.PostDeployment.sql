@@ -122,17 +122,19 @@ if not exists (SELECT*FROM dbo.TechnicalSpecification WHERE
 Capacity=500 and 
 ArrowDeparture=0 and 
 Speed=1.0 and 
-NumberOfStops=9)
+NumberOfStops=9 and
+Name='FirstSpecification')
 (SELECT*FROM dbo.TechnicalSpecification WHERE 
 Capacity=25 and 
 ArrowDeparture=18.5 and 
 Speed=0 and 
-NumberOfStops=0)
+NumberOfStops=0 and
+Name='SecondSpecification')
 begin
 insert into dbo.TechnicalSpecification
 values
-(500, 0, 1.0, 9),
-(25, 18.5, 0, 0)
+(500, 0, 1.0, 9, 'FirstSpecification'),
+(25, 18.5, 0, 0, 'SecondSpecification')
 end
 go
 
@@ -164,7 +166,8 @@ InformationAboutTheTechnicalInspection='10.12.2022' and
 InspectorId=2 and 
 TechnicalConditionalId=1 and 
 SubjectId=2 and 
-InstallationLocationId=1)
+InstallationLocationId=1 and
+Name='First')
 if not exists (SELECT*FROM dbo.PDO WHERE 
 JournalPdoId=1 and 
 RegistrationNumber=0001 and 
@@ -177,12 +180,13 @@ InformationAboutTheTechnicalInspection='20.10.2022' and
 InspectorId=1 and 
 TechnicalConditionalId=1 and 
 SubjectId=1 and 
-InstallationLocationId=6)
+InstallationLocationId=6 and
+Name='Second')
 begin
 insert into dbo.PDO
 values
-(2, 0001, 10, '15.12.2022', 2022, 1, 25, '10.12.2022', 2, 1, 2, 1),
-(1, 0001, 1, '05.12.2022', 2010, 2, 10, '20.10.2022', 1, 1, 1, 6) 
+(2, 0001, 10, '15.12.2022', 2022, 1, 25, '10.12.2022', 2, 1, 2, 1, 'First'),
+(1, 0001, 1, '05.12.2022', 2010, 2, 10, '20.10.2022', 1, 1, 1, 6, 'Second') 
 end
 go
 

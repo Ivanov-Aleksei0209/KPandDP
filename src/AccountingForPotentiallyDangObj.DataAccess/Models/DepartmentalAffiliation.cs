@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class DepartmentalAffiliation : IEntity
+    public class DepartmentalAffiliation : BaseModel
     {
         [Key]
         public int Id { get; set; }

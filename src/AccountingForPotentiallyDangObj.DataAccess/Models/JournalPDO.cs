@@ -6,11 +6,8 @@ using System.Text;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class JournalPDO : IEntity
+    public class JournalPDO : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
         public int JournalNumber { get; set; }
         public override bool Equals(object obj)
         {

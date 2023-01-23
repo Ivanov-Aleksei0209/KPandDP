@@ -4,5 +4,6 @@
     [Capacity] FLOAT NULL, 
     [ArrowDeparture] FLOAT NULL, 
     [Speed] FLOAT NULL, 
-    [NumberOfStops] INT NULL
+    [NumberOfStops] INT NULL, 
+    [Name] NVARCHAR(MAX) NULL
 )

@@ -12,5 +12,6 @@
     [InspectorId] INT NULL,
     [TechnicalConditionalId] INT NOT NULL,
     [SubjectId] INT NOT NULL, 
-    [InstallationLocationId] INT NOT NULL
+    [InstallationLocationId] INT NOT NULL, 
+    [Name] NVARCHAR(MAX) NULL
 )
