@@ -24,10 +24,10 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
         public AfPdoDbContext AfPdoDbContext { get; set; }
 
         //метод для получения данных из БД
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public IQueryable<T> GetAll()
         {
-            var entities = await AfPdoDbContext.Set<T>().ToListAsync();
-            await AfPdoDbContext.SaveChangesAsync();
+            var entities = AfPdoDbContext.Set<T>(); //ToListAsync();
+            //AfPdoDbContext.SaveChangesAsync();
             return entities;
         }
         //метод для создания записи данных в конкретную таблицу БД

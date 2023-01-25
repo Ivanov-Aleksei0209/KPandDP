@@ -14,7 +14,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Interfaces
 
         Task<T> AddAsync(T entity);
         Task DeleteAsync(T entity);
-        Task<IEnumerable<T>> GetAllAsync();
+        IQueryable<T> GetAll();
         Task<IQueryable<T>> GetByIdAsync(int id);
         Task<T> UpdateAsync(T entity);
     }

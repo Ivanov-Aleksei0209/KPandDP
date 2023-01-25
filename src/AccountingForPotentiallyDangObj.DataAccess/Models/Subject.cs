@@ -7,11 +7,8 @@ using System.Xml.Linq;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class Subject : IEntity
+    public class Subject : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
         public int UNP { get; set; }
         public int departmentalAffiliationId { get; set; }
         public string postalAddress { get; set; }

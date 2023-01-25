@@ -6,11 +6,8 @@ using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-   public class TechnicalConditional : IEntity
+   public class TechnicalConditional : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())

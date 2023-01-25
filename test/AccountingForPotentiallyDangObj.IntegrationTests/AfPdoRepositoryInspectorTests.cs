@@ -5,7 +5,7 @@ using FluentAssertions;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryInspectorTests : BaseTest<Inspector>
+    public class AfPdoRepositoryInspectorTests : BaseDictionaryTest<Inspector>
     {
                       
         [Test]

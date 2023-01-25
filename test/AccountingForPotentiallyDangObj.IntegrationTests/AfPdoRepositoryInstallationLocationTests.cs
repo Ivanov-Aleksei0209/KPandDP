@@ -4,7 +4,7 @@ using AccountingForPotentiallyDangObj.DataAccess.Models;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryInstallationLocationTests : BaseTest<InstallationLocation>
+    public class AfPdoRepositoryInstallationLocationTests : BaseDictionaryTest<InstallationLocation>
     {
         
     }

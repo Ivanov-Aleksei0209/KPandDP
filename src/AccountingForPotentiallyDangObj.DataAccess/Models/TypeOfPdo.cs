@@ -6,12 +6,9 @@ using System.Text;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class TypeOfPdo : IEntity
+    public class TypeOfPdo : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Abb { get; set; }
+       public string Abb { get; set; }
         public override bool Equals(object? obj)
         {
             if (obj == null || GetType() != obj.GetType())

@@ -8,8 +8,6 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
     public class TechnicalSpecification : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
         public double Capacity { get; set; }
         public double ArrowDeparture { get; set; }
         public double Speed { get; set; }

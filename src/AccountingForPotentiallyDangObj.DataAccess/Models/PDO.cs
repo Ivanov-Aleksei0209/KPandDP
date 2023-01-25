@@ -7,13 +7,12 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
     public class PDO : BaseModel
     {
-        [Key]
-        public int Id { get; set; }
         public int JournalPdoId { get; set; }
         public int RegistrationNumber { get; set; }
         public int TypeId { get; set; }
         public DateTime DateOfRegistration { get; set; }
         public int YearOfManufacture { get; set; }
+        public TechnicalSpecification TechnicalSpecification { get; set; }  
         public int TechnicalSpecificationId { get; set; }
         public int ServiceLife { get; set; }
         public DateTime InformationAboutTheTechnicalInspection { get; set; }
