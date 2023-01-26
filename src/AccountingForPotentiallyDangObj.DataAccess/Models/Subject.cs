@@ -11,22 +11,8 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
     {
         public int UNP { get; set; }
         public int departmentalAffiliationId { get; set; }
+        public DepartmentalAffiliation DepartmentalAffiliation { get; set; }
         public string postalAddress { get; set; }
-        public string phone { get; set; }
-        public override bool Equals(object obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-            return obj is Subject subject &&
-                Id == subject.Id &&
-                Name == subject.Name &&
-                UNP == subject.UNP &&
-                departmentalAffiliationId == subject.departmentalAffiliationId &&
-                postalAddress == subject.postalAddress &&
-                phone == subject.phone;
-        }
-        public override int GetHashCode() => Tuple.Create(Id, Name, UNP, departmentalAffiliationId, postalAddress, phone).GetHashCode();
+        public string phone { get; set; }        
     }
 }

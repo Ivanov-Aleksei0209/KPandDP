@@ -4,7 +4,7 @@ using AccountingForPotentiallyDangObj.DataAccess.Models;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryTechnicalConditionalTests
+    public class AfPdoRepositoryTechnicalConditionalTests : BaseDictionaryTest<TechnicalConditional>
     {
         
     }

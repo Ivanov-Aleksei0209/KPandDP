@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryTechnicalSpecificationTests
+    public class AfPdoRepositoryTechnicalSpecificationTests : BaseDictionaryTest<TechnicalSpecification>
     {
         
     }

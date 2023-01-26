@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AC2BE152-1
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AccountingForPotentiallyDangObj.DataBase", "src\AccountingForPotentiallyDangObj.DataBase\AccountingForPotentiallyDangObj.DataBase.sqlproj", "{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingForPotentiallyDangObj.DataAccess", "src\AccountingForPotentiallyDangObj.DataAccess\AccountingForPotentiallyDangObj.DataAccess.csproj", "{16368DF1-2ED3-4D5C-A121-2E501A0D6EBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDangObj.DataAccess", "src\AccountingForPotentiallyDangObj.DataAccess\AccountingForPotentiallyDangObj.DataAccess.csproj", "{16368DF1-2ED3-4D5C-A121-2E501A0D6EBB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingForPotentiallyDangObj.IntegrationTests", "test\AccountingForPotentiallyDangObj.IntegrationTests\AccountingForPotentiallyDangObj.IntegrationTests.csproj", "{15F5C580-CFD8-4094-BD36-45F844BD62B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDangObj.IntegrationTests", "test\AccountingForPotentiallyDangObj.IntegrationTests\AccountingForPotentiallyDangObj.IntegrationTests.csproj", "{15F5C580-CFD8-4094-BD36-45F844BD62B7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -9,17 +9,5 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
     public class TypeOfPdo : BaseModel
     {
        public string Abb { get; set; }
-        public override bool Equals(object? obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-            return obj is TypeOfPdo typeOfPdo &&
-                Id == typeOfPdo.Id &&
-                Name == typeOfPdo.Name &&
-                Abb == typeOfPdo.Abb;
-        }
-        public override int GetHashCode() => Tuple.Create(Id, Name, Abb).GetHashCode();
     }
 }
