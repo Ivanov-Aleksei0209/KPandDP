@@ -41,7 +41,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         //}
 
         [Test]
-        public override async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
+        public async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
         {
             //Arrange
             var addingInspector = new Inspector { Name = "Rafalsky D." };

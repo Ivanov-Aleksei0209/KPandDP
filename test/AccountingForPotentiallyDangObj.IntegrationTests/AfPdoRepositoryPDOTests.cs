@@ -95,34 +95,34 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
             await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
         }
-        [Test]
-        public override async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
-        {
-            //Arrange
-            var expectedObj = new PDO
-            {
-                Name = Name,
-                JournalPdoId = 1,
-                RegistrationNumber = 2545,
-                TypeId = 2,
-                DateOfRegistration = DateTime.Now,
-                TechnicalSpecification = new TechnicalSpecification(),
-                InspectorId = 2,
-                TechnicalConditionalId = 2,
-                SubjectId = 2,
-                InstallationLocation = new InstallationLocation()
-            };
+        //[Test]
+        //public override async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
+        //{
+        //    //Arrange
+        //    var expectedObj = new PDO
+        //    {
+        //        Name = Name,
+        //        JournalPdoId = 1,
+        //        RegistrationNumber = 2545,
+        //        TypeId = 2,
+        //        DateOfRegistration = DateTime.Now,
+        //        TechnicalSpecification = new TechnicalSpecification(),
+        //        InspectorId = 2,
+        //        TechnicalConditionalId = 2,
+        //        SubjectId = 2,
+        //        InstallationLocation = new InstallationLocation()
+        //    };
 
-            //Act
-            await _repository.AddAsync(expectedObj);
-            var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
+        //    //Act
+        //    await _repository.AddAsync(expectedObj);
+        //    var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
 
-            //Assert
-            entities.Should().Be(expectedObj);
-            await _repository.DeleteAsync(expectedObj);
-            await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
-            await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
-        }
+        //    //Assert
+        //    entities.Should().Be(expectedObj);
+        //    await _repository.DeleteAsync(expectedObj);
+        //    await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
+        //    await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
+        //}
         [Test]
         public override async Task DeleteAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
         {

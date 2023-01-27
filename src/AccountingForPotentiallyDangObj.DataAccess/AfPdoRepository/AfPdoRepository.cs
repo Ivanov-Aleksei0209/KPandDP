@@ -42,7 +42,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
         {
             var entities = AfPdoDbContext.Set<T>().Where(x => x.Id == id).AsNoTracking();
             await AfPdoDbContext.SaveChangesAsync();
-            return (IQueryable<T>)entities;
+            return entities;
         }
         // метод для обновления записи в стоке таблицы БД
         public async Task<T> UpdateAsync(T entity)

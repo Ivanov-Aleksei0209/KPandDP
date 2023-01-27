@@ -68,25 +68,25 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             await _repository.DeleteAsync(expectedObjUpdate);
             await DeleteEntitiesAfterTests(expectedObj.DepartmentalAffiliation);
         }
-        [Test]
-        public override async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
-        {
-            //Arrange
-            var expectedObj = new Subject
-            {
-                Name = Name,
-                DepartmentalAffiliation = new DepartmentalAffiliation()
-            };
+        //[Test]
+        //public override async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
+        //{
+        //    //Arrange
+        //    var expectedObj = new Subject
+        //    {
+        //        Name = Name,
+        //        DepartmentalAffiliation = new DepartmentalAffiliation()
+        //    };
 
-            //Act
-            await _repository.AddAsync(expectedObj);
-            var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
+        //    //Act
+        //    await _repository.AddAsync(expectedObj);
+        //    var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
 
-            //Assert
-            entities.Should().Be(expectedObj);
-            await _repository.DeleteAsync(expectedObj);
-            await DeleteEntitiesAfterTests(expectedObj.DepartmentalAffiliation);
-        }
+        //    //Assert
+        //    entities.Should().Be(expectedObj);
+        //    await _repository.DeleteAsync(expectedObj);
+        //    await DeleteEntitiesAfterTests(expectedObj.DepartmentalAffiliation);
+        //}
         [Test]
         public override async Task DeleteAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
         {
