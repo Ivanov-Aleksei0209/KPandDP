@@ -48,7 +48,6 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             // Act
             await _repository.AddAsync(expectedObj);
-            //var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
 
             //Assert
@@ -66,8 +65,8 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             await _repository.AddAsync(expectedObj);
             expectedObj.Name = NameUpdate;
             var expectedObjUpdate = await _repository.UpdateAsync(expectedObj);
-            //var entities = (await _repository.GetByIdAsync(expectedObjUpdate.Id)).ToList().FirstOrDefault();
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
+            
             //Assert
             entities.Should().Be(expectedObjUpdate);
             await _repository.DeleteAsync(expectedObjUpdate);
@@ -81,8 +80,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             //Act
             await _repository.AddAsync(expectedObj);
-            //var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
-            var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
+            var entities = (await _repository.GetByIdAsync(expectedObj.Id));
 
             //Assert
             entities.Should().Be(expectedObj);
@@ -101,7 +99,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var entities = await _repository.GetByIdAsync(expectedObj.Id);
 
             //Assert
-            entities.Should().BeEmpty();
+            entities.Should().BeNull();
         }
     }
 }

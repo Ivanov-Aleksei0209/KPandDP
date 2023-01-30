@@ -38,12 +38,17 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
             return entit.Entity;
         }
         // метод для получения записи из таблицы БД по заданному id
-        public async Task<IQueryable<T>> GetByIdAsync(int id)
+        //public async Task<IQueryable<T>> GetByIdAsync(int id)
+        //{
+        //    var entities = AfPdoDbContext.Set<T>().Where(x => x.Id == id).AsNoTracking();
+        //    await AfPdoDbContext.SaveChangesAsync();
+        //    return (IQueryable<T>)entities;
+        //}
+        public virtual async Task<T> GetByIdAsync(int id)
         {
-            var entities = AfPdoDbContext.Set<T>().Where(x => x.Id == id).AsNoTracking();
-            await AfPdoDbContext.SaveChangesAsync();
-            return (IQueryable<T>)entities;
+            return await AfPdoDbContext.Set<T>().FindAsync(id);
         }
+
         // метод для обновления записи в стоке таблицы БД
         public async Task<T> UpdateAsync(T entity)
         {

@@ -27,12 +27,12 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             // Act
             await _repository.AddAsync(expectedObj);
-            var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
+            var entity = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
             var testGetById = _repository.GetByIdAsync(expectedObj.Id).Result;
             //var tex = testGetById.ToList().FirstOrDefault().TechnicalSpecification.Id;
 
             // Assert
-            expectedObj.Should().Be(entities);
+            expectedObj.Should().Be(entity);
             await _repository.DeleteAsync(expectedObj);
             await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
             await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
@@ -56,10 +56,10 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             };
             // Act
             await _repository.AddAsync(expectedObj);
-            var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
+            var entity = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
 
             //Assert
-            entities.Should().Be(expectedObj);
+            entity.Should().Be(expectedObj);
             await _repository.DeleteAsync(expectedObj);
             await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
             await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
@@ -87,10 +87,10 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             await _repository.AddAsync(expectedObj);
             expectedObj.Name = NameUpdate;
             var expectedObjUpdate = await _repository.UpdateAsync(expectedObj);
-            var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
+            var entity = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
 
             //Assert
-            entities.Should().Be(expectedObjUpdate);
+            entity.Should().Be(expectedObjUpdate);
             await _repository.DeleteAsync(expectedObjUpdate);
             await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
             await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
@@ -115,10 +115,10 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             //Act
             await _repository.AddAsync(expectedObj);
-            var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
+            var entity = await _repository.GetByIdAsync(expectedObj.Id);
 
             //Assert
-            entities.Should().Be(expectedObj);
+            entity.Should().Be(expectedObj);
             await _repository.DeleteAsync(expectedObj);
             await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
             await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
@@ -144,10 +144,10 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             //Act
             var expectedObjAdded = await _repository.AddAsync(expectedObj);
             await _repository.DeleteAsync(expectedObjAdded);
-            var entities = await _repository.GetByIdAsync(expectedObj.Id);
+            var entity = await _repository.GetByIdAsync(expectedObj.Id);
 
             //Assert
-            entities.Should().BeEmpty();
+            entity.Should().BeNull();
             await DeleteEntitiesAfterTests(expectedObj.TechnicalSpecification);
             await DeleteEntitiesAfterTests(expectedObj.InstallationLocation);
         }

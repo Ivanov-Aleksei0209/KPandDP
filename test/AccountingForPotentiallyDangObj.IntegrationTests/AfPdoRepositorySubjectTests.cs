@@ -80,7 +80,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
 
             //Act
             await _repository.AddAsync(expectedObj);
-            var entities = (await _repository.GetByIdAsync(expectedObj.Id)).ToList().FirstOrDefault();
+            var entities = await _repository.GetByIdAsync(expectedObj.Id);
 
             //Assert
             entities.Should().Be(expectedObj);
@@ -103,7 +103,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var entities = await _repository.GetByIdAsync(expectedObj.Id);
 
             //Assert
-            entities.Should().BeEmpty();
+            entities.Should().BeNull();
             await DeleteEntitiesAfterTests(expectedObj.DepartmentalAffiliation);
         }
     }
