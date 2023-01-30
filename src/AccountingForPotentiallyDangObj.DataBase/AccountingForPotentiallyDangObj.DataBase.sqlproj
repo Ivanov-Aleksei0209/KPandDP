@@ -61,8 +61,8 @@
     <Folder Include="ForeignKeys" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AccountingForPotentiallyDangObj.DataBase.publish.xml" />
     <None Include="ForeignKeys\FK_DepartmentalAffiliation_Subject.sql" />
+    <None Include="AccountingForPotentiallyDangObj.DataBase.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\JournalPDO.sql" />
