@@ -16,3 +16,40 @@ html {
 body {
   margin-bottom: 60px;
 }
+.header {
+    display: flex;
+    background-color: #095f78;
+}
+.logo-header{
+    margin: auto;
+}
+.text-header {
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.navbar {
+    width: 20%;
+    float: left;
+}
+.navbar-ul {
+    list-style-type: none;
+}
+
+.text-left {
+    text-align: left;
+}
+
+table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: auto;
+}
+td {
+    border: 1px solid black;
+    text-align: left;
+}
+._id {
+    width: 30px;
+    text-align: center;
+}

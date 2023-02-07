@@ -11,19 +11,28 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
         //private readonly ILogger<HomeController> _logger;
 
         private readonly IRepository<Inspector> _repositoryInspector;
+        private readonly IRepository<JournalPDO> _repositoryJournalPDO;
 
-        public HomeController(IRepository<Inspector> repositoryInspector)
+        //public HomeController(IRepository<Inspector> repositoryInspector)
+        //{
+        //    _repositoryInspector = repositoryInspector;
+        //}
+        public HomeController(IRepository<JournalPDO> repositoryJournalPDO)
         {
-            _repositoryInspector = repositoryInspector;
+            _repositoryJournalPDO = repositoryJournalPDO;
         }
 
         public IActionResult Index()
         {
-            var inspectors = _repositoryInspector.GetAll().AsEnumerable();
+            var journalPDO = _repositoryJournalPDO.GetAll().AsEnumerable();
 
+            return View(journalPDO);
+        }
+        public IActionResult Inspectors()
+        {
+            var inspectors = _repositoryInspector.GetAll().AsEnumerable();
             return View(inspectors);
         }
-
         public IActionResult Privacy()
         {
             return View();

@@ -1,23 +1,25 @@
-﻿@model IEnumerable<AccountingForPotentiallyDangObj.DataAccess.Models.Inspector>
+﻿@model IEnumerable<AccountingForPotentiallyDangObj.DataAccess.Models.JournalPDO>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="main-window">
+    <h4 class="text-center">Учет потенциально опасных объектов</h4>
+    <div class="text-left">
+        <p>По состоянию на  @DateTime.Today в Гомельском областном управлении Госпромнадзора зарегистрировано (цифра) грузоподъемных сооружений и аттракционов</p>
     <table>
         <tr>
-            <td>ID</td>
+            <td class="_id">ID</td>
             <td>Name</td>
         </tr>
         @foreach (var item in Model)
     {
         
             <tr>
-                <td>@item.Id</td>
+                <td class="_id">@item.Id</td>
                 <td>@item.Name</td>
             </tr>       
     }
     </table>
+    </div>
 </div>

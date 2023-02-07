@@ -20,6 +20,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Infrastructure
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<AfPdoRepository<Inspector>>().As<IRepository<Inspector>>();
+            builder.RegisterType<AfPdoRepository<JournalPDO>>().As<IRepository<JournalPDO>>();
 
             builder.RegisterType<AfPdoDbContext>().As<AfPdoDbContext>().WithParameter("connectionString", _connectionString);
         }
