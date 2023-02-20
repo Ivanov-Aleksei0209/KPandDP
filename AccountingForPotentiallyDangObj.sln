@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDangObj.IntegrationTests", "test\AccountingForPotentiallyDangObj.IntegrationTests\AccountingForPotentiallyDangObj.IntegrationTests.csproj", "{15F5C580-CFD8-4094-BD36-45F844BD62B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingForPotentiallyDangObj.Web", "src\AccountingForPotentiallyDangObj.Web\AccountingForPotentiallyDangObj.Web.csproj", "{0EFB532F-01F8-4BEC-A62F-0AE51AB9EA4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{15F5C580-CFD8-4094-BD36-45F844BD62B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15F5C580-CFD8-4094-BD36-45F844BD62B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15F5C580-CFD8-4094-BD36-45F844BD62B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EFB532F-01F8-4BEC-A62F-0AE51AB9EA4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EFB532F-01F8-4BEC-A62F-0AE51AB9EA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EFB532F-01F8-4BEC-A62F-0AE51AB9EA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EFB532F-01F8-4BEC-A62F-0AE51AB9EA4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{C5A18978-59F6-4A1B-98DA-B1FAF9B84BFE} = {D625B8D5-D8EB-4FB7-B82A-89C1C7E4F904}
 		{16368DF1-2ED3-4D5C-A121-2E501A0D6EBB} = {D625B8D5-D8EB-4FB7-B82A-89C1C7E4F904}
 		{15F5C580-CFD8-4094-BD36-45F844BD62B7} = {AC2BE152-13A3-405A-AD59-E36F87781B07}
+		{0EFB532F-01F8-4BEC-A62F-0AE51AB9EA4D} = {D625B8D5-D8EB-4FB7-B82A-89C1C7E4F904}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {67376E34-3A5E-4E2E-831E-7C1139530A09}
