@@ -4,7 +4,7 @@ using AccountingForPotentiallyDangObj.DataAccess.Models;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryJournalPDOTests : BaseDictionaryTest<JournalPDO>
+    public class AfPdoRepositoryJournalPDOTests : BaseDictionaryTest<JournalPdo>
     {
     }
 }

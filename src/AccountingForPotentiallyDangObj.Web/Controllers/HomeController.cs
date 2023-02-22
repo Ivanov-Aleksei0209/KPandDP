@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
 using AccountingForPotentiallyDangObj.DataAccess.Models;
+using AccountingForPotentiallyDangObj.Web.Interfaces;
+using AccountingForPotentiallyDangObj.Web.Services;
+using AccountingForPotentiallyDangObj.Web.DtoModels;
+using AccountingForPotentiallyDangObj.Web.Infrastructure;
 
 namespace AccountingForPotentiallyDangObj.Web.Controllers
 {
@@ -11,22 +15,25 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
         //private readonly ILogger<HomeController> _logger;
 
         private readonly IRepository<Inspector> _repositoryInspector;
-        private readonly IRepository<JournalPDO> _repositoryJournalPDO;
+        private readonly IJournalPdoService _journalPdoService;
+        private readonly IMapperConfig _mapperConfig;
 
         //public HomeController(IRepository<Inspector> repositoryInspector)
         //{
         //    _repositoryInspector = repositoryInspector;
         //}
-        public HomeController(IRepository<JournalPDO> repositoryJournalPDO)
+        public HomeController(IJournalPdoService journalPdoService, IMapperConfig mapperConfig)
         {
-            _repositoryJournalPDO = repositoryJournalPDO;
+            _journalPdoService = journalPdoService;
+            _mapperConfig = mapperConfig;
         }
 
         public IActionResult Index()
         {
-            var journalPDO = _repositoryJournalPDO.GetAll().AsEnumerable();
+            var journalsPdoDto = _journalPdoService.GetAllAsync();
+            var modelsView = _mapperConfig.Mapper.Map<IEnumerable<JournalPdoViewModel>>(journalsPdoDto);
 
-            return View(journalPDO);
+            return View(modelsView);
         }
         public IActionResult Inspectors()
         {
