@@ -6,13 +6,13 @@ using System;
 
 namespace AccountingForPotentiallyDangObj.IntegrationTests
 {
-    public class AfPdoRepositoryPDOTests : BaseDictionaryTest<PDO>
+    public class AfPdoRepositoryPDOTests : BaseDictionaryTest<Pdo>
     {
         [Test]
         public override async Task GetAllAsyncObjects_WhenPropertiesIsNotNull_ThenOutListEntitiesFromDB()
         {
             // Arrange
-            var expectedObj = new PDO 
+            var expectedObj = new Pdo 
             { Name = Name,
               JournalPdoId = 1,
               RegistrationNumber = 2545,
@@ -41,7 +41,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         public override async Task AddAsyncObject_WhenPropertiesIsNotNull_ThenOutIsListEntitiesFromDB()
         {
             // Arrange
-            var expectedObj = new PDO
+            var expectedObj = new Pdo
             {
                 Name = Name,
                 JournalPdoId = 1,
@@ -69,7 +69,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         public override async Task UpdateAsyncObject_WhenPropertiesIsNotNull_ThenOpdateIsListEntitiesFromDB()
         {
             // Arrange
-            var expectedObj = new PDO
+            var expectedObj = new Pdo
             {
                 Name = Name,
                 JournalPdoId = 1,
@@ -99,7 +99,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         public override async Task GetByIdAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
         {
             //Arrange
-            var expectedObj = new PDO
+            var expectedObj = new Pdo
             {
                 Name = Name,
                 JournalPdoId = 1,
@@ -127,7 +127,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
         public override async Task DeleteAsyncObject_WhenPropertiesIsNotNull_ThenDeleteIsListEntitiesFromDB()
         {
             //Arrange
-            var expectedObj = new PDO
+            var expectedObj = new Pdo
             {
                 Name = Name,
                 JournalPdoId = 1,

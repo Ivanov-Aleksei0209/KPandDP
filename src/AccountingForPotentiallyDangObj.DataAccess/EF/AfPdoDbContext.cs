@@ -22,13 +22,13 @@ namespace AccountingForPotentiallyDangObj.DataAccess.EF
         }
         public DbSet<Inspector> Inspector { get; set; }        
         public DbSet<TypeOfPdo> TypeOfPdo { get; set; }
-        public DbSet<JournalPDO> JournalPDO { get; set; }
+        public DbSet<JournalPdo> JournalPdo { get; set; }
         public DbSet<Subject> Subject { get; set; }
         public DbSet<InstallationLocation> InstallationLocation { get; set; }
         public DbSet<TechnicalConditional> TechnicalConditional { get; set; }
         public DbSet<TechnicalSpecification> TechnicalSpecification { get; set; }
         public DbSet<DepartmentalAffiliation> DepartmentalAffiliation { get; set; }
-        public DbSet<PDO> PDO { get; set; }
+        public DbSet<Pdo> Pdo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

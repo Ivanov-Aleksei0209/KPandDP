@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using AccountingForPotentiallyDangObj.DataAccess.Infrastructure;
+using AccountingForPotentiallyDangObj.Web.Infrastructure;
 
 namespace AccountingForPotentiallyDangObj.Web
 {
@@ -37,6 +38,8 @@ namespace AccountingForPotentiallyDangObj.Web
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule(new DataAccessModule(_connectionString));
+            builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule(new MapperModule());
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

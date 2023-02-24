@@ -6,7 +6,7 @@ using System.Text;
 
 namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
-    public class JournalPDO : BaseModel
+    public class JournalPdo : BaseModel
     {
         
     }

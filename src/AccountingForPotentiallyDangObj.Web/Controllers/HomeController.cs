@@ -3,23 +3,28 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using AccountingForPotentiallyDangObj.DataAccess.Interfaces;
 using AccountingForPotentiallyDangObj.DataAccess.Models;
+using AccountingForPotentiallyDangObj.Web.Interfaces;
 
 namespace AccountingForPotentiallyDangObj.Web.Controllers
 {
     public class HomeController : Controller
     {
         //private readonly ILogger<HomeController> _logger;
-        public readonly IRepository<Inspector> _repositoryInspector;
-        public HomeController(IRepository<Inspector> repositoryInspector)
+        //public readonly IRepository<Inspector> _repositoryInspector;
+        private readonly IInspectorService _inspectorService;
+        private readonly IMapperConfig _mapperConfig;
+        public HomeController(IInspectorService inspectorService, IMapperConfig mapperConfig)
         {
-            _repositoryInspector = repositoryInspector;
+            _inspectorService = inspectorService;
+            _mapperConfig = mapperConfig;
         }
 
         public IActionResult Index()
         {
-            var inspectors = _repositoryInspector.GetAll().AsEnumerable();
+            var inspectorsDto = _inspectorService.GetAllAsync();
+            var modelsView = _mapperConfig.Mapper.Map<IEnumerable<InspectorViewModel>>(inspectorsDto);
 
-            return View(inspectors);
+            return View(modelsView);
         }
 
         public IActionResult Privacy()
