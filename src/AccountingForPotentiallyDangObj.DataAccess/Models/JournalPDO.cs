@@ -8,6 +8,6 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
     public class JournalPdo : BaseModel
     {
-        
+        public int JournalNumber { get; set; }
     }
 }
