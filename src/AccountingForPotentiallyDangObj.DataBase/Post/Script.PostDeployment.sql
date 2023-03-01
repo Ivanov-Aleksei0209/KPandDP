@@ -1,11 +1,11 @@
-﻿-- JournalPDO
-if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='LiftingCranes' and JournalNumber=31)
-if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='Lifts' and JournalNumber=32)
-if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='Escalators' and JournalNumber=33)
-if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='Elevators' and JournalNumber=34)
-if not exists (SELECT*FROM dbo.JournalPDO WHERE Name='Attractions' and JournalNumber=36)
+﻿-- JournalPdo
+if not exists (SELECT*FROM dbo.JournalPdo WHERE Name='LiftingCranes' and JournalNumber=31)
+if not exists (SELECT*FROM dbo.JournalPdo WHERE Name='Lifts' and JournalNumber=32)
+if not exists (SELECT*FROM dbo.JournalPdo WHERE Name='Escalators' and JournalNumber=33)
+if not exists (SELECT*FROM dbo.JournalPdo WHERE Name='Elevators' and JournalNumber=34)
+if not exists (SELECT*FROM dbo.JournalPdo WHERE Name='Attractions' and JournalNumber=36)
 begin
-insert into dbo.JournalPDO
+insert into dbo.JournalPdo
 values
 ('LiftingCranes', 31), 
 ('Lifts', 32), 
@@ -153,8 +153,8 @@ values
 end
 go
 
--- PDO
-if not exists (SELECT*FROM dbo.PDO WHERE 
+-- Pdo
+if not exists (SELECT*FROM dbo.Pdo WHERE 
 JournalPdoId=2 and 
 RegistrationNumber=0001 and 
 TypeId=10 and 
@@ -167,8 +167,9 @@ InspectorId=2 and
 TechnicalConditionalId=1 and 
 SubjectId=2 and 
 InstallationLocationId=1 and
+WithdrawalFromRegistration=N'2023-02-19' and
 Name='First')
-if not exists (SELECT*FROM dbo.PDO WHERE 
+if not exists (SELECT*FROM dbo.Pdo WHERE 
 JournalPdoId=1 and 
 RegistrationNumber=0001 and 
 TypeId=1 and 
@@ -181,12 +182,13 @@ InspectorId=1 and
 TechnicalConditionalId=1 and 
 SubjectId=1 and 
 InstallationLocationId=6 and
+WithdrawalFromRegistration=null and
 Name='Second')
 begin
-insert into dbo.PDO
+insert into dbo.Pdo
 values
-(2, 0001, 10, N'2022-12-15', 2022, 1, 25, N'2022-12-10', 2, 1, 2, 1, 'First'),
-(1, 0001, 1, N'2022-12-05', 2010, 2, 10, N'2022-10-20', 1, 1, 1, 6, 'Second') 
+(2, 0001, 10, N'2022-12-15', 2022, 1, 25, N'2022-12-10', 2, 1, 2, 1, N'2022-10-20', 'First'),
+(1, 0001, 1, N'2022-12-05', 2010, 2, 10, N'2022-10-20', 1, 1, 1, 6, null, 'Second') 
 end
 go
 

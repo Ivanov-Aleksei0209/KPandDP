@@ -8,14 +8,14 @@
     <table>
         <tr>
             <td class="_id">ID</td>
-            <td>Name</td>
+            <td class="_id">Name</td>
         </tr>
         @foreach (var item in Model)
         {
 
             <tr>
                 <td class ="_id">@item.Id</td>
-                <td>@item.Name</td>
+                <td class="td-text"> @item.Name</td>
             </tr>
         }
     </table>

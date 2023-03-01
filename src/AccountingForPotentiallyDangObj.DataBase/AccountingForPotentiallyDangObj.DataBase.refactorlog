@@ -210,4 +210,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="departmentalAffiliationId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="adcfed0d-9833-453e-a0dc-c8c06dbbf5ea" ChangeDateTime="02/28/2023 16:08:05">
+    <Property Name="ElementName" Value="[dbo].[PDO].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Date" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="57f0edb6-0f19-460a-94e1-96e1426f8e28" ChangeDateTime="02/28/2023 16:09:41">
+    <Property Name="ElementName" Value="[dbo].[PDO].[Date]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[PDO]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="WithdrawalFromRegistration" />
+  </Operation>
 </Operations>

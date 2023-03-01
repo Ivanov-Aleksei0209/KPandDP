@@ -1,4 +1,4 @@
-﻿ALTER TABLE dbo.PDO
-ADD CONSTRAINT FK_InstallationLocation_PDO 
+﻿ALTER TABLE dbo.Pdo
+ADD CONSTRAINT FK_InstallationLocation_Pdo 
 FOREIGN KEY (InstallationLocationId)
 	REFERENCES dbo.InstallationLocation (Id)

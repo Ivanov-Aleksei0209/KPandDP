@@ -28,7 +28,30 @@ body {
     text-align: center;
     color: white;
 }
+.text-left {
+    text-align: left;
+}
+
+.main-table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    width: auto;
+}
+.td-text {
+    border: 1px solid black;
+    text-align: left;
+}
+._id {
+    width: auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+
+/*Navigator*/
+
 .navbar {
+    background-color: #BBC2FB;
     width: 20%;
     float: left;
 }
@@ -36,20 +59,19 @@ body {
     list-style-type: none;
 }
 
-.text-left {
-    text-align: left;
+.nav-item {
+    width: 90%;
+    background-color: #1027F2;
 }
-
-table {
-    border: 2px solid black;
-    border-collapse: collapse;
-    width: auto;
-}
-td {
-    border: 1px solid black;
-    text-align: left;
-}
-._id {
-    width: 30px;
-    text-align: center;
-}
+    .nav-item a:link, .nav-item a:visited {
+        display: block;
+        color: white;
+        font-weight: bold;
+        padding: 10px;
+        text-decoration: none;
+        margin: 10px 0px 10px 0px;
+    }
+    .nav-item a:hover {
+        color: black;
+        background-color: #095f78;
+    }

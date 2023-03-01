@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AccountingForPotentiallyDangObj.Web.Models.PdoViewModel>
+@{
+    ViewData["Title"] = "Potentially Danger Objects";
+}
+<div class="main-window">
+    <h4 class="text-center">Справочник потенциально опасных объектов</h4>
+    <div class="text-left">
+        <table>
+            <tr>
+                <td class="_id">ID</td>
+                <td>Журнал ПОО</td>
+                <td>Рег. № ПОО</td>
+                <td>Тип ПОО</td>
+                <td>Владелец</td>
+                <td>Дата регистрации</td>
+                <td>Год выпуска</td>
+                <td>Срок службы</td>
+                <td>Дата ТО</td>
+                <td>Тех. состояние</td>
+                <td>Инспектор</td>
+                <td>@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</td>
+            </tr>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td class="_id">@item.Id</td>
+                    <td>@item.JournalPdoId</td>
+                    <td>@item.RegistrationNumber</td>
+                    <td>@item.TypeId</td>
+                    <td>@item.SubjectId</td>
+                    <td>@item.DateOfRegistration</td>
+                    <td>@item.YearOfManufacture</td>
+                    <td>@item.ServiceLife</td>
+                    <td>@item.InformationAboutTheTechnicalInspection</td>
+                    <td>@item.TechnicalConditionalId</td>
+                    <td>@item.InspectorId</td>
+                    <td>@item.WithdrawalFromRegistration</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

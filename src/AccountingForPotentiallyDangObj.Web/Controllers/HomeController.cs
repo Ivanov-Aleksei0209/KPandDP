@@ -12,8 +12,7 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly ILogger<HomeController> _logger;
-
+        
         private readonly IRepository<Inspector> _repositoryInspector;
         private readonly IJournalPdoService _journalPdoService;
         private readonly IMapperConfig _mapperConfig;
@@ -35,6 +34,15 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
 
             return View(modelsView);
         }
+
+        public IActionResult IndexOne()
+        {
+            var journalsPdoDto = _journalPdoService.GetAllAsync();
+            var modelsView = _mapperConfig.Mapper.Map<IEnumerable<JournalPdoViewModel>>(journalsPdoDto);
+
+            return View(modelsView);
+        }
+
         public IActionResult Inspectors()
         {
             var inspectors = _repositoryInspector.GetAll().AsEnumerable();

@@ -18,24 +18,33 @@
     <nav class="navbar">
             <div class="navbar-div">
                 <ul class="navbar-ul">
+                    
                     <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Inspectors" asp-action="Inspectors">Инспекторы</a>
+                        <a class="nav-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Потенциально опасные объекты</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        <a class="nav-link" asp-area="" asp-controller="Subject" asp-action="Subject">Субъекты промышленной безопасности</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                        <a class="nav-link" asp-area="" asp-controller="Directories" asp-action="Directories">Справочники</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Inspectors" asp-action="Inspectors">Инспекторы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
                     </li>
                 </ul>
             </div>
     </nav>
 
-    <div class="container">
+    
         <main role="main" class="pb-3">
+        <div class="container">
             @RenderBody()
+        </div>
         </main>
-    </div>
+    
 
     <footer class="border-top footer text-muted">
         <div class="container">

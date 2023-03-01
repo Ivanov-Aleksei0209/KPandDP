@@ -11,15 +11,20 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
         {
             // DAL to Services
             CreateMap<JournalPdoDto, JournalPdo>();
+            CreateMap<PdoDto, Pdo>();
 
             // Services to DAL
             CreateMap<JournalPdo, JournalPdoDto>();
+            CreateMap<Pdo, PdoDto>();
 
             // Services to WEB
             CreateMap<JournalPdoDto, JournalPdoViewModel>();
+            CreateMap<PdoDto, PdoViewModel>()
+                .ForMember(dest => dest.WithdrawalFromRegistration, opt => opt.MapFrom(src => src.WithdrawalFromRegistrationDateOnly));
 
             // WEB to Services
             CreateMap<JournalPdoViewModel, JournalPdoDto>();
+            CreateMap<PdoViewModel, PdoDto>();
         }
 
     }

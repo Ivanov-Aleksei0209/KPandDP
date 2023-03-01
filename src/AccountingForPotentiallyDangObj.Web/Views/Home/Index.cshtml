@@ -6,18 +6,20 @@
 <div class="main-window">
     <h4 class="text-center">Учет потенциально опасных объектов</h4>
     <div class="text-left">
-        <p>По состоянию на  @DateTime.Today в Гомельском областном управлении Госпромнадзора зарегистрировано (цифра) грузоподъемных сооружений и аттракционов</p>
-    <table>
+        <p>По состоянию на  @DateOnly.FromDateTime(DateTime.Now) в Гомельском областном управлении Госпромнадзора зарегистрировано (цифра) грузоподъемных сооружений и аттракционов</p>
+        <table class="main-table">
         <tr>
             <td class="_id">ID</td>
-            <td>Name</td>
+            <td class="_id">Name</td>
+            <td class="_id">JournalNumber</td>
         </tr>
         @foreach (var item in Model)
     {
         
             <tr>
                 <td class="_id">@item.Id</td>
-                <td>@item.Name</td>
+                <td class="td-text">@item.Name</td>
+                <td class="td-text">@item.JournalNumber</td>
             </tr>       
     }
     </table>

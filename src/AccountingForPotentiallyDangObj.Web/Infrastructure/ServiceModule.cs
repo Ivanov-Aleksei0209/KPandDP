@@ -9,6 +9,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<JournalPdoService>().As<IJournalPdoService>();
+            builder.RegisterType<PdoService>().As<IPdoService>();
         }
     }
 }

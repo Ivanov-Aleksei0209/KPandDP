@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[PDO]
+﻿CREATE TABLE [dbo].[Pdo]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [JournalPdoId] INT NOT NULL,
@@ -13,5 +13,6 @@
     [TechnicalConditionalId] INT NOT NULL,
     [SubjectId] INT NOT NULL, 
     [InstallationLocationId] INT NOT NULL, 
+    [WithdrawalFromRegistration] DATE NULL, 
     [Name] NVARCHAR(MAX) NULL
 )
