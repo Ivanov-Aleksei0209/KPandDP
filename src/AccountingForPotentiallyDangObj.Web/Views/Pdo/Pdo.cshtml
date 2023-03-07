@@ -8,34 +8,34 @@
         <table>
             <tr>
                 <td class="_id">ID</td>
-                <td>Журнал ПОО</td>
-                <td>Рег. № ПОО</td>
-                <td>Тип ПОО</td>
-                <td>Владелец</td>
-                <td>Дата регистрации</td>
-                <td>Год выпуска</td>
-                <td>Срок службы</td>
-                <td>Дата ТО</td>
-                <td>Тех. состояние</td>
-                <td>Инспектор</td>
-                <td>@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</td>
+                <td class ="_id">@Html.DisplayNameFor(model => model.JournalPdoId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.RegistrationNumber)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.TypeId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.SubjectId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.DateOfRegistration)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.YearOfManufacture)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.ServiceLife)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.TechnicalConditionalId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.InspectorId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</td>
             </tr>
             @foreach (var item in Model)
             {
 
                 <tr>
-                    <td class="_id">@item.Id</td>
-                    <td>@item.JournalPdoId</td>
-                    <td>@item.RegistrationNumber</td>
-                    <td>@item.TypeId</td>
-                    <td>@item.SubjectId</td>
-                    <td>@item.DateOfRegistration</td>
-                    <td>@item.YearOfManufacture</td>
-                    <td>@item.ServiceLife</td>
-                    <td>@item.InformationAboutTheTechnicalInspection</td>
-                    <td>@item.TechnicalConditionalId</td>
-                    <td>@item.InspectorId</td>
-                    <td>@item.WithdrawalFromRegistration</td>
+                    <td class="td-text">@item.Id</td>
+                    <td class="td-text">@item.JournalPdoId</td>
+                    <td class="td-text">@item.RegistrationNumber</td>
+                    <td class="td-text">@item.TypeId</td>
+                    <td class="td-text">@item.SubjectId</td>
+                    <td class="td-text">@item.DateOfRegistration</td>
+                    <td class="td-text">@item.YearOfManufacture</td>
+                    <td class="td-text">@item.ServiceLife</td>
+                    <td class="td-text">@item.InformationAboutTheTechnicalInspection</td>
+                    <td class="td-text">@item.TechnicalConditionalId</td>
+                    <td class="td-text">@item.InspectorId</td>
+                    <td class="td-text">@item.WithdrawalFromRegistration</td>
                 </tr>
             }
         </table>

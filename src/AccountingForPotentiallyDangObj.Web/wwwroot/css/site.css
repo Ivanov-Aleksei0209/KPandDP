@@ -19,6 +19,7 @@ body {
 .header {
     display: flex;
     background-color: #095f78;
+    width: auto;
 }
 .logo-header{
     margin: auto;
@@ -32,25 +33,13 @@ body {
     text-align: left;
 }
 
-.main-table {
-    border: 2px solid black;
-    border-collapse: collapse;
-    width: auto;
-}
-.td-text {
-    border: 1px solid black;
-    text-align: left;
-}
-._id {
-    width: auto;
-    border: 1px solid black;
-    text-align: center;
-}
+
 
 
 /*Navigator*/
 
 .navbar {
+    display: flex;
     background-color: #BBC2FB;
     width: 20%;
     float: left;
@@ -63,15 +52,47 @@ body {
     width: 90%;
     background-color: #1027F2;
 }
-    .nav-item a:link, .nav-item a:visited {
-        display: block;
-        color: white;
-        font-weight: bold;
-        padding: 10px;
-        text-decoration: none;
-        margin: 10px 0px 10px 0px;
-    }
-    .nav-item a:hover {
-        color: black;
-        background-color: #095f78;
-    }
+.nav-item a:link, .nav-item a:visited {
+    display: block;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    margin: 10px 0px 10px 0px;
+}
+.nav-item a:hover {
+    color: black;
+    background-color: #095f78;
+}
+
+
+.main {
+    display: flex;
+    /*width: 80%;*/
+}
+/*.main-window {
+    margin: auto;
+}*/
+
+
+.table-conteiner {
+    margin:auto;
+}
+.main-table {
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.td-text {
+    border: 1px solid black;
+    text-align: left;
+    font-weight: normal;
+}
+
+._id {
+    width: auto;
+    border: 2px solid black;
+    text-align: center;
+    font-weight: bold;
+}

@@ -10,11 +10,13 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
         public int RegistrationNumber { get; set; }
         public int TypeId { get; set; }
         public DateTime DateOfRegistration { get; set; }
+        public DateOnly DateOfRegistryDateOnly => DateOnly.FromDateTime(DateOfRegistration);
         public int YearOfManufacture { get; set; }
         public TechnicalSpecification TechnicalSpecification { get; set; }
         public int TechnicalSpecificationId { get; set; }
         public int ServiceLife { get; set; }
         public DateTime InformationAboutTheTechnicalInspection { get; set; }
+        public DateOnly InformationAboutTheTechnicalInspectionDateOnly => DateOnly.FromDateTime(InformationAboutTheTechnicalInspection);
         public int InspectorId { get; set; }
         public int TechnicalConditionalId { get; set; }
         public int SubjectId { get; set; }

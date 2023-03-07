@@ -23,6 +23,5 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             return modelsDto;
         }
 
-
     }
 }
