@@ -154,17 +154,17 @@ end
 go
 
 -- TechnicalConditional
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='OperatedBy')
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='NotOperated')
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='Banned')
-if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='UnderRepair')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name=N'эксплуатируется')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='не эксплуатируется')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='запрещен')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name='в ремонте')
 begin
 insert into dbo.TechnicalConditional
 values
-('OperatedBy'), 
-('NotOperated'), 
-('Banned'), 
-('UnderRepair') 
+(N'эксплуатируется'), 
+('не эксплуатируется'), 
+('запрещен'), 
+('в ремонте') 
 end
 go
 

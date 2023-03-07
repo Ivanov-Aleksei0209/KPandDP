@@ -21,8 +21,8 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             CreateMap<JournalPdoDto, JournalPdoViewModel>();
             CreateMap<PdoDto, PdoViewModel>()
                 .ForMember(dest => dest.WithdrawalFromRegistration, opt => opt.MapFrom(src => src.WithdrawalFromRegistrationDateOnly))
-                .ForMember(dest1 => dest1.DateOfRegistration, opt1 => opt1.MapFrom(src1 => src1.DateOfRegistryDateOnly))
-                .ForMember(dest2 => dest2.InformationAboutTheTechnicalInspection, opt2 => opt2.MapFrom(src2 => src2.InformationAboutTheTechnicalInspectionDateOnly));
+                .ForMember(dest => dest.DateOfRegistration, opt => opt.MapFrom(src => src.DateOfRegistryDateOnly))
+                .ForMember(dest => dest.InformationAboutTheTechnicalInspection, opt => opt.MapFrom(src => src.InformationAboutTheTechnicalInspectionDateOnly));
 
             // WEB to Services
             CreateMap<JournalPdoViewModel, JournalPdoDto>();

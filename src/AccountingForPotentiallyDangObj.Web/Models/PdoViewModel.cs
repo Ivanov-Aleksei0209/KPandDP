@@ -13,8 +13,11 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Регистрационный номер")]
         public int RegistrationNumber { get; set; }
 
-        [DisplayName("Тип ПОО")]
+        [DisplayName("ID Тип ПОО")]
         public int TypeId { get; set; }
+
+        [DisplayName("Тип ПОО")]
+        public string TypeName { get; set; }
 
         [DisplayName("Дата регистрации")]
         public DateOnly DateOfRegistration { get; set; }
@@ -35,8 +38,11 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Инспектор")]
         public int InspectorId { get; set; }
 
-        [DisplayName("Техническое состояние")]
+        [DisplayName("ID Техническое состояние")]
         public int TechnicalConditionalId { get; set; }
+
+        [DisplayName("Техническое состояние")]
+        public string TechnicalConditionalName { get; set; }
 
         [DisplayName("Владелец")]
         public int SubjectId { get; set; }

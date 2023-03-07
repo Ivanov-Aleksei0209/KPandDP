@@ -19,6 +19,7 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
         public DateOnly InformationAboutTheTechnicalInspectionDateOnly => DateOnly.FromDateTime(InformationAboutTheTechnicalInspection);
         public int InspectorId { get; set; }
         public int TechnicalConditionalId { get; set; }
+        public string TechnicalConditionalName { get; set; }
         public int SubjectId { get; set; }
         public int InstallationLocationId { get; set; }
         public InstallationLocation InstallationLocation { get; set; }

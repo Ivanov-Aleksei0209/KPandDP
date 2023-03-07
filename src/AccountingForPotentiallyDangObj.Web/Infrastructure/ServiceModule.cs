@@ -1,4 +1,5 @@
-﻿using AccountingForPotentiallyDangObj.Web.Interfaces;
+﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
+using AccountingForPotentiallyDangObj.Web.Interfaces;
 using AccountingForPotentiallyDangObj.Web.Services;
 using Autofac;
 
@@ -10,6 +11,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
         {
             builder.RegisterType<JournalPdoService>().As<IJournalPdoService>();
             builder.RegisterType<PdoService>().As<IPdoService>();
+            //builder.RegisterType<TechnicalConditional>().As<ITechnicalConditionalService>();
         }
     }
 }
