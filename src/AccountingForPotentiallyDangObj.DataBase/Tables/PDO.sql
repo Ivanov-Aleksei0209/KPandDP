@@ -6,13 +6,13 @@
     [TypeId] INT NOT NULL, 
     [DateOfRegistration] DATE NOT NULL, 
     [YearOfManufacture] INT NULL, 
-    [TechnicalSpecificationId] INT NOT NULL, 
+    [TechnicalSpecificationId] INT NULL, 
     [ServiceLife] INT NULL, 
     [InformationAboutTheTechnicalInspection] DATE NULL, 
-    [InspectorId] INT NOT NULL,
+    [InspectorId] INT NULL,
     [TechnicalConditionalId] INT NOT NULL,
-    [SubjectId] INT NOT NULL, 
-    [InstallationLocationId] INT NOT NULL, 
+    [SubjectId] INT NULL, 
+    [InstallationLocationId] INT NULL, 
     [WithdrawalFromRegistration] DATE NULL, 
     [Name] NVARCHAR(MAX) NULL
 )

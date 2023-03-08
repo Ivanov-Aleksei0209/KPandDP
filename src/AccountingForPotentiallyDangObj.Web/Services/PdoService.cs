@@ -31,5 +31,16 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             return modelsDto;
         }
 
+        public IEnumerable<ReportPdoDto> GetReportPdo()
+        {
+            var models = _repositoryPdo.GetAll();
+            //var typePdoId = models.
+            var temp = models.Where(x => x.TypeId == 1).Where(x => x.WithdrawalFromRegistration == null).Count();
+            var tempReportPdoDto = new List<ReportPdoDto>();
+            tempReportPdoDto.Add(new ReportPdoDto { NamePdo = "автомобильный", Quantity = temp});
+
+            return tempReportPdoDto;
+        }
+
     }
 }

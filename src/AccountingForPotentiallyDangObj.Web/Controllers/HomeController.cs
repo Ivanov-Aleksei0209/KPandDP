@@ -29,10 +29,10 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
 
         public IActionResult Index()
         {
-            var journalsPdoDto = _journalPdoService.GetAllAsync();
-            var modelsView = _mapperConfig.Mapper.Map<IEnumerable<JournalPdoViewModel>>(journalsPdoDto);
-
-            return View(modelsView);
+            //var journalsPdoDto = _journalPdoService.GetAllAsync();
+            //var modelsView = _mapperConfig.Mapper.Map<IEnumerable<JournalPdoViewModel>>(journalsPdoDto);
+                        
+            return Redirect("~/Pdo/ReportPdo");
         }
 
         public IActionResult IndexOne()

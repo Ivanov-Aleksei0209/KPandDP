@@ -23,5 +23,12 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
             var modelsView = _mapperConfig.Mapper.Map<IEnumerable<PdoViewModel>>(pdoDto);
             return View(modelsView);
         }
+
+        public IActionResult ReportPdo()
+        {
+            var resultModelDto = _pdoService.GetReportPdo();
+            var resultModel = _mapperConfig.Mapper.Map<IEnumerable<ReportPdoViewModel>>(resultModelDto).FirstOrDefault();
+            return View(resultModel);
+        }
     }
 }

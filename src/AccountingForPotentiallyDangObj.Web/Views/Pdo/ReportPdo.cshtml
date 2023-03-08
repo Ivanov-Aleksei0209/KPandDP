@@ -1,0 +1,104 @@
+﻿@model AccountingForPotentiallyDangObj.Web.Models.ReportPdoViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+<div class="main-window">
+    <h4 class="text-center">Учет потенциально опасных объектов</h4>
+    <div class="text-left">
+        <p>По состоянию на  @DateOnly.FromDateTime(DateTime.Now) в Гомельском областном управлении Госпромнадзора зарегистрировано (цифра) грузоподъемных сооружений и аттракционов</p>
+    </div>
+    <div class="table-conteiner">
+        <table class="main-table">
+            <tr>
+                <td class="_id">Наименование ПОО</td>
+                <td class="_id">Количество</td>
+                <td class="_id">Отработавшие НСС</td>
+                <td class="_id">Процент отработавших НСС</td>
+            </tr>
+            <tr>
+                <td class="_id">Грузоподъемные краны</td>
+                <td class="_id"></td>
+                <td class="_id"></td>
+                <td class="_id"></td>
+            </tr>
+            <tr>
+                <td class="td-text">автомобильные</td>
+                <td class="td-center">@Model.Quantity</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">мостовые</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">козловые</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">башенные</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">портальные</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">железнодорожные</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">на спец. шасси</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">пневмоколесные</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">гусеничные</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="_id">Лифты</td>
+                <td class="_id"></td>
+                <td class="_id"></td>
+                <td class="_id"></td>
+            </tr>
+            <tr>
+                <td class="td-text">пассажирские</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">грузовые</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+            <tr>
+                <td class="td-text">больничные</td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+                <td class="td-center"></td>
+            </tr>
+        </table>
+    </div>
+</div>

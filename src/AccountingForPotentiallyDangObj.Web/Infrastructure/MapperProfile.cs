@@ -23,10 +23,12 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
                 .ForMember(dest => dest.WithdrawalFromRegistration, opt => opt.MapFrom(src => src.WithdrawalFromRegistrationDateOnly))
                 .ForMember(dest => dest.DateOfRegistration, opt => opt.MapFrom(src => src.DateOfRegistryDateOnly))
                 .ForMember(dest => dest.InformationAboutTheTechnicalInspection, opt => opt.MapFrom(src => src.InformationAboutTheTechnicalInspectionDateOnly));
+            CreateMap<ReportPdoDto, ReportPdoViewModel>();
 
             // WEB to Services
             CreateMap<JournalPdoViewModel, JournalPdoDto>();
             CreateMap<PdoViewModel, PdoDto>();
+
         }
 
     }

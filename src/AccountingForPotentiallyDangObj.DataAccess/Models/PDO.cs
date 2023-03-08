@@ -18,11 +18,11 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
         public int TechnicalSpecificationId { get; set; }
         public int ServiceLife { get; set; }
         public DateTime InformationAboutTheTechnicalInspection { get; set; }
-        public int InspectorId { get; set; }
+        public int? InspectorId { get; set; }
         public int TechnicalConditionalId { get; set; }
         public TechnicalConditional TechnicalConditional { get; set; }
-        public int SubjectId { get; set; }
-        public int InstallationLocationId { get; set; }
+        public int? SubjectId { get; set; }
+        public int? InstallationLocationId { get; set; }
         public InstallationLocation InstallationLocation { get; set; }
         public DateTime? WithdrawalFromRegistration { get; set; }
     }
