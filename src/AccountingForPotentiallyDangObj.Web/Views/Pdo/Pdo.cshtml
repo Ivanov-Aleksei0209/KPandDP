@@ -11,13 +11,13 @@
                 <td class="_id">@Html.DisplayNameFor(model => model.JournalPdoId)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.RegistrationNumber)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.TypeName)</td>
-                <td class="_id">@Html.DisplayNameFor(model => model.SubjectId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.SubjectName)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.DateOfRegistration)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.YearOfManufacture)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.ServiceLife)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.TechnicalConditionalName)</td>
-                <td class="_id">@Html.DisplayNameFor(model => model.InspectorId)</td>
+                <td class="_id">@Html.DisplayNameFor(model => model.InspectorName)</td>
                 <td class="_id">@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</td>
             </tr>
             @foreach (var item in Model)
@@ -27,14 +27,14 @@
                     <td class="td-text">@item.Id</td>
                     <td class="td-text">@item.JournalPdoId</td>
                     <td class="td-text">@item.RegistrationNumber</td>
-                    <td class="td-text">@item.TypeId</td>
-                    <td class="td-text">@item.SubjectId</td>
+                    <td class="td-text">@item.TypeName</td>
+                    <td class="td-text">@item.SubjectName</td>
                     <td class="td-text">@item.DateOfRegistration</td>
                     <td class="td-text">@item.YearOfManufacture</td>
                     <td class="td-text">@item.ServiceLife</td>
                     <td class="td-text">@item.InformationAboutTheTechnicalInspection</td>
                     <td class="td-text">@item.TechnicalConditionalName</td>
-                    <td class="td-text">@item.InspectorId</td>
+                    <td class="td-text">@item.InspectorName</td>
                     <td class="td-text">@item.WithdrawalFromRegistration</td>
                 </tr>
             }

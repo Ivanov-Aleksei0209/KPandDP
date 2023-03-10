@@ -8,9 +8,12 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         public int Id { get; set; }
         //public string? Name { get; set; } = string.Empty;
 
-        [DisplayName("Журнал ПОО")]
+        [DisplayName("ID Журнал ПОО")]
         public int JournalPdoId { get; set; }
-        [DisplayName("Регистрационный номер")]
+        [DisplayName("Журнал ПОО")]
+        public int JournalNumber { get; set; }
+
+        [DisplayName("Рег. №")]
         public int RegistrationNumber { get; set; }
 
         [DisplayName("ID Тип ПОО")]
@@ -32,11 +35,14 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Срок службы")]
         public int ServiceLife { get; set; }
 
-        [DisplayName("Дата технического освидетельствовавния")]
+        [DisplayName("Дата ТО")]
         public DateOnly InformationAboutTheTechnicalInspection { get; set; }
 
         [DisplayName("Инспектор")]
-        public int InspectorId { get; set; }
+        public string? InspectorName { get; set; }
+
+        [DisplayName("ID Инспектор")]
+        public int? InspectorId { get; set; }
 
         [DisplayName("ID Техническое состояние")]
         public int TechnicalConditionalId { get; set; }
@@ -44,8 +50,11 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Техническое состояние")]
         public string TechnicalConditionalName { get; set; }
 
-        [DisplayName("Владелец")]
+        [DisplayName("ID Владелец")]
         public int SubjectId { get; set; }
+
+        [DisplayName("Владелец")]
+        public string SubjectName { get; set; }
 
         [DisplayName("Место установки")]
         public int InstallationLocationId { get; set; }

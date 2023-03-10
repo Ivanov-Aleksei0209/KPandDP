@@ -10,15 +10,15 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
         public MapperProfile()
         {
             // DAL to Services
-            CreateMap<JournalPdoDto, JournalPdo>();
+            //CreateMap<JournalPdoDto, JournalPdo>();
             CreateMap<PdoDto, Pdo>();
 
             // Services to DAL
-            CreateMap<JournalPdo, JournalPdoDto>();
+            //CreateMap<JournalPdo, JournalPdoDto>();
             CreateMap<Pdo, PdoDto>();
 
             // Services to WEB
-            CreateMap<JournalPdoDto, JournalPdoViewModel>();
+            //CreateMap<JournalPdoDto, JournalPdoViewModel>();
             CreateMap<PdoDto, PdoViewModel>()
                 .ForMember(dest => dest.WithdrawalFromRegistration, opt => opt.MapFrom(src => src.WithdrawalFromRegistrationDateOnly))
                 .ForMember(dest => dest.DateOfRegistration, opt => opt.MapFrom(src => src.DateOfRegistryDateOnly))
@@ -26,7 +26,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             CreateMap<ReportPdoDto, ReportPdoViewModel>();
 
             // WEB to Services
-            CreateMap<JournalPdoViewModel, JournalPdoDto>();
+            //CreateMap<JournalPdoViewModel, JournalPdoDto>();
             CreateMap<PdoViewModel, PdoDto>();
 
         }

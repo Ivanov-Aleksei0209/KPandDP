@@ -20,13 +20,15 @@ if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Иванов А.А.')
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Концевой С.Н.')
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Полторак А.С.')
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Смоловик Г.В.')
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'снят с учета')
 begin
 insert into dbo.Inspector
 values
 (N'Иванов А.А.'), 
 (N'Концевой С.Н.'), 
 (N'Полторак А.С.'), 
-(N'Смоловик Г.В.') 
+(N'Смоловик Г.В.'),
+(N'снят с учета')
 end
 go
 
@@ -68,6 +70,8 @@ if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name=N'учрежде�
 if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name=N'административное здание')
 if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name=N'производственное здание')
 if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name=N'строительная площадка')
+if not exists (SELECT*FROM dbo.InstallationLocation WHERE Name=N'снят с учета')
+
 begin
 insert into dbo.InstallationLocation
 values
@@ -76,7 +80,8 @@ values
 (N'учреждение здравоохранения'), 
 (N'административное здание'), 
 (N'производственное здание'),
-(N'строительная площадка')
+(N'строительная площадка'),
+(N'снят с учета')
 end
 go
 
@@ -157,13 +162,15 @@ if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name=N'эксплуа�
 if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name=N'не эксплуатируется')
 if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name=N'запрещен')
 if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name=N'в ремонте')
+if not exists (SELECT*FROM dbo.TechnicalConditional WHERE Name=N'снят с учета')
 begin
 insert into dbo.TechnicalConditional
 values
 (N'эксплуатируется'), 
 (N'не эксплуатируется'), 
 (N'запрещен'), 
-(N'в ремонте') 
+(N'в ремонте'),
+(N'снят с учета')
 end
 go
 
@@ -342,10 +349,10 @@ YearOfManufacture=1995 and
 TechnicalSpecificationId=2 and 
 ServiceLife=10 and 
 InformationAboutTheTechnicalInspection=N'2022-10-20' and 
-InspectorId=null and 
-TechnicalConditionalId=4 and 
-SubjectId=null and 
-InstallationLocationId=null and
+InspectorId=5 and 
+TechnicalConditionalId=5 and 
+SubjectId=1 and 
+InstallationLocationId=7 and
 WithdrawalFromRegistration=N'2022-10-20' and
 Name='12')
 if not exists (SELECT*FROM dbo.Pdo WHERE 
@@ -372,10 +379,10 @@ YearOfManufacture=1995 and
 TechnicalSpecificationId=2 and 
 ServiceLife=25 and 
 InformationAboutTheTechnicalInspection=N'2022-10-20' and 
-InspectorId=1 and 
-TechnicalConditionalId=1 and 
-SubjectId=null and 
-InstallationLocationId=6 and
+InspectorId=5 and 
+TechnicalConditionalId=5 and 
+SubjectId=2 and 
+InstallationLocationId=7 and
 WithdrawalFromRegistration=N'2023-10-20' and
 Name='14')
 if not exists (SELECT*FROM dbo.Pdo WHERE 
@@ -437,9 +444,9 @@ values
 (2, 0002, 10, N'2022-12-05', 2010, 2, 25, N'2022-10-20', 3, 1, 5, 2, null, '09'),
 (2, 0003, 12, N'2022-12-05', 1997, 2, 25, N'2022-10-20', 4, 1, 7, 3, null, '10'),
 (2, 0004, 10, N'2022-12-05', 1995, 2, 25, N'2022-10-20', 1, 1, 2, 1, null, '11'),
-(1, 0008, 1, N'2022-12-05', 1995, 2, 10, N'2022-10-20', null, 4, null, null, N'2022-10-20', '12'),
+(1, 0008, 1, N'2022-12-05', 1995, 2, 10, N'2022-10-20', 5, 5, 1, 7, N'2022-10-20', '12'),
 (1, 0009, 1, N'2022-12-05', 1995, 2, 10, N'2022-10-20', 1, 1, 1, 6, null, '13'),
-(2, 0005, 10, N'2022-12-05', 1995, 2, 25, N'2022-10-20', null, 1, null, null, N'2023-10-20', '14'),
+(2, 0005, 10, N'2022-12-05', 1995, 2, 25, N'2022-10-20', 5, 5, 2, 7, N'2023-10-20', '14'),
 (2, 0006, 10, N'2022-12-05', 2023, 2, 25, N'2022-10-20', 1, 1, 2, 1, null, '15'),
 (2, 0007, 12, N'2022-12-05', 2020, 2, 25, N'2022-10-20', 2, 1, 7, 3, null, '16'),
 (2, 0008, 12, N'2022-12-05', 1995, 2, 25, N'2022-10-20', 3, 1, 7, 3, null, '17')
