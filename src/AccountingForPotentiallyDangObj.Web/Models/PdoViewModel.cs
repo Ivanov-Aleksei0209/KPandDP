@@ -62,5 +62,6 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Дата снятия")]
         public DateOnly WithdrawalFromRegistration { get; set; }
+        public string Clear { get; set; }
     }
 }

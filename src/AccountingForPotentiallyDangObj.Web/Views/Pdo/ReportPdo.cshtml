@@ -3,10 +3,15 @@
     ViewData["Title"] = "Home";
     var sum = Model.Sum(x => x.Quantity);
     var sumOld = Model.Sum(x => x.QuantityOld);
-    double percentOld = (double)sumOld / (double)sum * 100;
-    var crane = Model.Where(x => x.JournalNumber == 31);
-    var typesCrane = Model.Where(x => x.TypePdoName == "автомобильный");
-    var craneQuantity = Model.Sum(x => x.QuantityJournalPdo);
+    double percentOld = Math.Round((double)sumOld / (double)sum * 100, 1);
+
+    var cranes = Model.Take(1);
+    var crane = Model.Skip(5).Take(9);
+
+    var lifts = Model.Skip(1).Take(1);
+    var lift = Model.Skip(14);
+
+    var pdoOther = Model.Skip(2).Take(3);
 }
 <div class="main-window">
     <h4 class="text-center">Учет потенциально опасных объектов</h4>
@@ -24,8 +29,7 @@
                 <td class="_id">Отработавшие НСС</td>
                 <td class="_id">Процент отработавших НСС, %</td>
             </tr>
-            
-            @foreach (var item in crane)
+            @foreach (var item in cranes)
             {
                 <tr>
                 <td class="_id">@item.NameJournal</td>
@@ -34,7 +38,7 @@
                     <td class="_id">@item.PercentJournalPdoOld</td>
                 </tr>
             }
-            @foreach (var item in Model)
+            @foreach (var item in crane)
             {
                 <tr>
                     <td class="td-text">@item.TypePdoName</td>
@@ -43,7 +47,16 @@
                     <td class="td-center">@item.PercentOld</td>
                 </tr>
             }
-           @* @foreach (var item in Model)
+             @foreach (var item in lifts)
+            {
+                <tr>
+                <td class="_id">@item.NameJournal</td>
+                    <td class="_id">@item.QuantityJournalPdo</td>
+                    <td class="_id">@item.QuantityJournalPdoOld</td>
+                    <td class="_id">@item.PercentJournalPdoOld</td>
+                </tr>
+            }
+            @foreach (var item in lift)
             {
                 <tr>
                     <td class="td-text">@item.TypePdoName</td>
@@ -51,9 +64,16 @@
                     <td class="td-center">@item.QuantityOld</td>
                     <td class="td-center">@item.PercentOld</td>
                 </tr>
-
-            }*@
-            
+            }
+            @foreach (var item in pdoOther)
+            {
+                <tr>
+                <td class="_id">@item.NameJournal</td>
+                    <td class="_id">@item.QuantityJournalPdo</td>
+                    <td class="_id">@item.QuantityJournalPdoOld</td>
+                    <td class="_id">@item.PercentJournalPdoOld</td>
+                </tr>
+            }           
         </table>
     </div>
 </div>

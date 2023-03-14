@@ -44,7 +44,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 var inspectorById = modelsInspector.Where(x => x.Id == modelDto.InspectorId).FirstOrDefault();
                 var subjectById = modelsSubject.Where(x => x.Id == modelDto.SubjectId).FirstOrDefault();
 
-                modelDto.JournalPdoId = journalPdoById.JournalNumber;
+                modelDto.JournalNumber = journalPdoById.JournalNumber;
                 modelDto.TypeName = typeOfPdoById.Abb;
                 modelDto.TechnicalConditionalName = techCondModelById.Name;
                 modelDto.InspectorName = inspectorById.Name;
@@ -67,7 +67,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
 
 
             var reportsPdoDto = new List<ReportPdoDto>();
-
+            
             for (var j = 0; j < journalsPdoId.Count(); j++)
             {
                 var journalPdoId = journalsPdoId[j];
@@ -86,7 +86,6 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                         tempCollectionOldModels.Add(pdoModel);
                 }
 
-
                 reportPdoModel.QuantityJournalPdo = tempCollectionModels.Count();
                 reportPdoModel.QuantityJournalPdoOld = tempCollectionOldModels.Count();
 
@@ -102,7 +101,6 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 reportPdoModel.JournalNumber = journalPdoModel.JournalNumber;
 
                 reportsPdoDto.Add(reportPdoModel);
-                reportPdoModel.QuantityJournalPdo = reportsPdoDto.Sum(x => x.Quantity);
 
             }
 
@@ -117,13 +115,15 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 {
                     var pdoModel = pdoModels[i];
                     if (pdoModel.TypeId == typePdoId && pdoModel.WithdrawalFromRegistration == null)
+                        
                         tempCollectionModels.Add(pdoModel);
+                   
                     if (pdoModel.TypeId == typePdoId && DateTime.Now.Year - pdoModel.YearOfManufacture > pdoModel.ServiceLife && pdoModel.WithdrawalFromRegistration == null)
-                        tempCollectionOldModels.Add(pdoModel);
+                     
+                    tempCollectionOldModels.Add(pdoModel);
+                 
                 }
-
-                //if (tempCollectionModels.Count() != 0)
-                //{
+                
                 reportPdoModel.Quantity = tempCollectionModels.Count();
                 reportPdoModel.QuantityOld = tempCollectionOldModels.Count();
                 if (tempCollectionModels.Count() != 0)
@@ -137,8 +137,8 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 //}
                 var typePdoModel = typesPdoModels[k];
                 reportPdoModel.TypePdoName = typePdoModel.Name;
-
-                reportPdoModel.SumQuantityJournalPdo = reportsPdoDto.Sum(x => x.Quantity);
+                
+                //reportPdoModel.SumQuantityJournalPdo = reportsPdoDto.Sum(x => x.Quantity);
             }
             return reportsPdoDto;
         }
