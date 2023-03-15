@@ -15,6 +15,26 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Рег. №")]
         public int RegistrationNumber { get; set; }
+        public string RegistrationNumberString
+        {
+            get
+            {
+                if (RegistrationNumber.ToString().Length == 1)
+                {
+                    return $"000{RegistrationNumber}";
+                }
+                if (RegistrationNumber.ToString().Length == 2)
+                {
+                    return $"00{RegistrationNumber}";
+                }
+                if (RegistrationNumber.ToString().Length == 3)
+                {
+                    return $"0{RegistrationNumber}";
+                }
+                return RegistrationNumber.ToString();
+            }
+        } 
+        
 
         [DisplayName("ID Тип ПОО")]
         public int TypeId { get; set; }
@@ -62,6 +82,16 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Дата снятия")]
         public DateOnly WithdrawalFromRegistration { get; set; }
-        public string Clear { get; set; }
+        public string WithdrawalFromRegistrationString
+        {
+            get
+            {
+                if (WithdrawalFromRegistration.ToString() == "01.01.0001")
+                {
+                    return "";
+                }
+                return WithdrawalFromRegistration.ToString();
+            }
+        }
     }
 }

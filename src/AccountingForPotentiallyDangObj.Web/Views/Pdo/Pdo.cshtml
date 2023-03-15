@@ -2,8 +2,6 @@
 @{
     ViewData["Title"] = "Potentially Danger Objects";
     var nullDate = new DateOnly();
-    string threeZero = "000" + Model.Select(x => x.RegistrationNumber).ToString();
-    
 
 }
 <div class="main-window">
@@ -30,31 +28,7 @@
                 <tr>
                     <td class="td-center">@item.Id</td>
                     <td class="td-center">@item.JournalNumber</td>
-                    @*@{
-                        if (item.RegistrationNumber.ToString().Length == 1)
-                        {
-                            <td class="td-center">@threeZero</td>
-                        }
-                        else if (item.RegistrationNumber.ToString().Length == 2)
-                        {
-                            <td class="td-center">
-                                @{var number = "00" + item.RegistrationNumber;}
-                            </td>
-                        }
-                        else if (item.RegistrationNumber.ToString().Length == 3)
-                        {
-                            <td class="td-center">
-                                @{
-                                    var number = "0" + item.RegistrationNumber;
-                                }
-                            </td>
-                        }
-                        else
-                        {
-                            <td class="td-center">@item.RegistrationNumber</td>
-                        }
-                    }*@
-                    <td class="td-center">@item.RegistrationNumber.ToString()</td>
+                    <td class="td-center">@item.RegistrationNumberString</td>
                     <td class="td-center">@item.TypeName</td>
                     <td class="td-text">@item.SubjectName</td>
                     <td class="td-center">@item.DateOfRegistration</td>
@@ -63,18 +37,7 @@
                     <td class="td-center">@item.InformationAboutTheTechnicalInspection</td>
                     <td class="td-center">@item.TechnicalConditionalName</td>
                     <td class="td-text">@item.InspectorName</td>
-                    @{
-                        if (item.WithdrawalFromRegistration == nullDate)
-                        {
-                            <td class="td-text">@{
-                                    item.Clear = " ";
-                                }</td>
-                        }
-                        else
-                        {
-                            <td class="td-center">@item.WithdrawalFromRegistration</td>
-                        }
-                    }
+                    <td class="td-center">@item.WithdrawalFromRegistrationString</td>
                 </tr>
             }
         </table>
