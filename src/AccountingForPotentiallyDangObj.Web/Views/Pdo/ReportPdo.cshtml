@@ -5,13 +5,13 @@
     var sumOld = Model.Sum(x => x.QuantityOld);
     double percentOld = Math.Round((double)sumOld / (double)sum * 100, 1);
 
-    var cranes = Model.Take(1);
-    var crane = Model.Skip(5).Take(9);
+    //var cranes = Model.Take(1);
+    //var crane = Model.Skip(5).Take(9);
 
-    var lifts = Model.Skip(1).Take(1);
-    var lift = Model.Skip(14);
+    //var lifts = Model.Skip(1).Take(1);
+    //var lift = Model.Skip(14);
 
-    var pdoOther = Model.Skip(2).Take(3);
+    //var pdoOther = Model.Skip(2).Take(3);
 }
 <div class="main-window">
     <h4 class="text-center">Учет потенциально опасных объектов</h4>
@@ -29,16 +29,16 @@
                 <td class="_id">Отработавшие НСС</td>
                 <td class="_id">Процент отработавших НСС, %</td>
             </tr>
-            @foreach (var item in cranes)
+            @foreach (var item in Model)
             {
                 <tr>
-                <td class="_id">@item.NameJournal</td>
-                    <td class="_id">@item.QuantityJournalPdo</td>
-                    <td class="_id">@item.QuantityJournalPdoOld</td>
-                    <td class="_id">@item.PercentJournalPdoOld</td>
+                    <td class="_id">@item.NameJournal</td>
+                    <td class="_id">@item.Quantity</td>
+                    <td class="_id">@item.QuantityOld</td>
+                    <td class="_id">@item.PercentOld</td>
                 </tr>
             }
-            @foreach (var item in crane)
+           @* @foreach (var item in Model)
             {
                 <tr>
                     <td class="td-text">@item.TypePdoName</td>
@@ -46,8 +46,8 @@
                     <td class="td-center">@item.QuantityOld</td>
                     <td class="td-center">@item.PercentOld</td>
                 </tr>
-            }
-             @foreach (var item in lifts)
+            }*@
+             @*@foreach (var item in lifts)
             {
                 <tr>
                 <td class="_id">@item.NameJournal</td>
@@ -73,7 +73,7 @@
                     <td class="_id">@item.QuantityJournalPdoOld</td>
                     <td class="_id">@item.PercentJournalPdoOld</td>
                 </tr>
-            }           
+            }  *@         
         </table>
     </div>
 </div>
