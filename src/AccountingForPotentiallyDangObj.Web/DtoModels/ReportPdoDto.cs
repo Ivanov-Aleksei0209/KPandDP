@@ -12,7 +12,7 @@
         public double PercentAllOld { get; set; }
         //public int SumQuantityJournalPdo { get; set; }
         public string NameJournal { get; set; }
-        public string? NameJournalOrType { get; set; }
+        public string? NameType { get; set; }
         //public int JournalNumber { get; set; }
         //public int JournalNumberId { get; set; }
 

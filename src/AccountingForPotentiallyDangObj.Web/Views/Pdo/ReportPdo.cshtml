@@ -25,7 +25,7 @@
             </tr>
             @foreach (var item in Model)
             {
-                if (item.NameJournalOrType != null)
+                if (string.IsNullOrEmpty(item.NameType))
                 {
                     <tr>
                         <td class="_id">@item.NameJournal</td>
@@ -37,7 +37,7 @@
                 else
                 {
                    <tr>
-                        <td class="td-text">@item.NameJournal</td>
+                        <td class="td-text">@item.NameType</td>
                         <td class="td-center">@item.Quantity</td>
                         <td class="td-center">@item.QuantityOld</td>
                         <td class="td-center">@item.PercentOld</td>

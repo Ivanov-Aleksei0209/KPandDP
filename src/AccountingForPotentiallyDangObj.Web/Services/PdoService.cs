@@ -113,7 +113,6 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 pdoDtoModel.Quantity = notWithdrawalFromRegistrationModels.Count();
                 pdoDtoModel.QuantityOld = oldPdoModel.Count();
                 pdoDtoModel.NameJournal = journalPdo.Name;
-                pdoDtoModel.NameJournalOrType = journalPdo.Name;
                 pdoDtoModel.PercentOld = GetPercentOld(notWithdrawalFromRegistrationModels.Count(), oldPdoModel.Count());
                 pdoDtoModel.QuantityAll = pdoDtoModel.Quantity;
                 pdoDtoModel.QuantityAllOld = pdoDtoModel.QuantityOld;
@@ -130,8 +129,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                     var pdoDtoModelByTypes = new ReportPdoDto();
                     var modelsByType = notWithdrawalFromRegistrationModels.Where(x => x.TypeId == typeIdItem).ToList();
                     var modelsOldByType = oldPdoModel.Where(x => x.TypeId == typeIdItem).ToList();
-                    pdoDtoModelByTypes.NameJournal = _repositoryTypeOfPdo.GetAll().Where(x => x.Id == typeIdItem).Select(x => x.Name).FirstOrDefault();
-                    pdoDtoModelByTypes.NameJournalOrType = null;
+                    pdoDtoModelByTypes.NameType = _repositoryTypeOfPdo.GetAll().Where(x => x.Id == typeIdItem).Select(x => x.Name).FirstOrDefault();
                     pdoDtoModelByTypes.Quantity = modelsByType.Count();
                     pdoDtoModelByTypes.QuantityOld = modelsOldByType.Count();
                     pdoDtoModelByTypes.PercentOld = GetPercentOld(modelsByType.Count(), modelsOldByType.Count());

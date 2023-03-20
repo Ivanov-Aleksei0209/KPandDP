@@ -11,7 +11,7 @@
         public double PercentOld { get; set; }
         public double PercentAllOld { get; set; }
         public string NameJournal { get; set; }
-        public string? NameJournalOrType { get; set; }
+        public string? NameType { get; set; }
         //public int JournalNumber { get; set; }
 
 
