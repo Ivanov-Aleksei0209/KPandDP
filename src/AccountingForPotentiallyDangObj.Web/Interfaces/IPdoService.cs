@@ -4,7 +4,7 @@ namespace AccountingForPotentiallyDangObj.Web.Interfaces
 {
     public interface IPdoService
     {
-        IEnumerable<PdoDto> GetAllAsync();
+        IEnumerable<PdoDto> GetAllPdoAsync();
         public IEnumerable<ReportPdoDto> GetReportPdo();
     }
 }

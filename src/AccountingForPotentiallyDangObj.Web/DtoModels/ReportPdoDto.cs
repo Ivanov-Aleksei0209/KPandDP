@@ -2,18 +2,19 @@
 {
     public class ReportPdoDto
     {
-        public string NamePdo { get; set; }
-        public string TypePdoName { get; set; }
+        //public string NamePdo { get; set; }
+        //public string TypePdoName { get; set; }
         public int Quantity { get; set; }
         public int QuantityOld { get; set; }
-        public int QuantityJournalPdo { get; set; }
-        public int QuantityJournalPdoOld { get; set; }
+        public int QuantityAll { get; set; }
+        public int QuantityAllOld { get; set; }
         public double PercentOld { get; set; }
-        public double PercentJournalPdoOld { get; set; }
-        public int SumQuantityJournalPdo { get; set; }
+        public double PercentAllOld { get; set; }
+        //public int SumQuantityJournalPdo { get; set; }
         public string NameJournal { get; set; }
-        public int JournalNumber { get; set; }
-        public int JournalNumberId { get; set; }
+        public string? NameJournalOrType { get; set; }
+        //public int JournalNumber { get; set; }
+        //public int JournalNumberId { get; set; }
 
     }
 }

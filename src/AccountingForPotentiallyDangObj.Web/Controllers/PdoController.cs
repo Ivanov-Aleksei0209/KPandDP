@@ -19,7 +19,7 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
         }
         public IActionResult Pdo()
         { 
-            var pdoDto = _pdoService.GetAllAsync();
+            var pdoDto = _pdoService.GetAllPdoAsync();
             var modelsView = _mapperConfig.Mapper.Map<IEnumerable<PdoViewModel>>(pdoDto);
             return View(modelsView);
         }

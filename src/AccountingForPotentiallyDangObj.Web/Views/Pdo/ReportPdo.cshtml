@@ -1,79 +1,49 @@
 ﻿@model IEnumerable<AccountingForPotentiallyDangObj.Web.Models.ReportPdoViewModel>
 @{
     ViewData["Title"] = "Home";
-    var sum = Model.Sum(x => x.Quantity);
-    var sumOld = Model.Sum(x => x.QuantityOld);
-    double percentOld = Math.Round((double)sumOld / (double)sum * 100, 1);
+    //var sum = Model.Sum(x => x.Quantity);
+    //var sumOld = Model.Sum(x => x.QuantityOld);
 
-    //var cranes = Model.Take(1);
-    //var crane = Model.Skip(5).Take(9);
+    double percentOld = Math.Round((double)Model.Sum(x => x.QuantityAllOld) / (double)Model.Sum(x => x.QuantityAll) * 100, 1);
 
-    //var lifts = Model.Skip(1).Take(1);
-    //var lift = Model.Skip(14);
-
-    //var pdoOther = Model.Skip(2).Take(3);
 }
 <div class="main-window">
     <h4 class="text-center">Учет потенциально опасных объектов</h4>
     <div class="text-left">
         <p>
-            По состоянию на  @DateOnly.FromDateTime(DateTime.Now) в Гомельском областном управлении Госпромнадзора зарегистрировано <b>@sum</b> грузоподъемных сооружений и аттракционов,
-            из них <b>@sumOld</b> отработало назначенный срок службы, что составляет <b>@percentOld</b>%
+            По состоянию на  @DateOnly.FromDateTime(DateTime.Now) в Гомельском областном управлении Госпромнадзора зарегистрировано <b>@Model.Sum(x => x.QuantityAll)</b> грузоподъемных сооружений и аттракционов,
+            из них <b>@Model.Sum(x => x.QuantityAllOld)</b> отработало назначенный срок службы, что составляет <b>@Model.Select(x => x.PercentAllOld).Last()</b>%
         </p>
     </div>
     <div class="table-conteiner">
         <table class="main-table">
             <tr>
-                <td class="_id">Наименование ПОО</td>
-                <td class="_id">Количество</td>
-                <td class="_id">Отработавшие НСС</td>
-                <td class="_id">Процент отработавших НСС, %</td>
+                <td class="_id">Наименование ПОО,<br />типы ПОО</td>
+                <td class="_id">Количество<br />ПОО</td>
+                <td class="_id">Количество ПОО, отработавших<br />назначенный срок службы</td>
+                <td class="_id">Процент отработавших<br /> назначенный срок службы</td>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td class="_id">@item.NameJournal</td>
-                    <td class="_id">@item.Quantity</td>
-                    <td class="_id">@item.QuantityOld</td>
-                    <td class="_id">@item.PercentOld</td>
-                </tr>
-            }
-           @* @foreach (var item in Model)
-            {
-                <tr>
-                    <td class="td-text">@item.TypePdoName</td>
-                    <td class="td-center">@item.Quantity</td>
-                    <td class="td-center">@item.QuantityOld</td>
-                    <td class="td-center">@item.PercentOld</td>
-                </tr>
-            }*@
-             @*@foreach (var item in lifts)
-            {
-                <tr>
-                <td class="_id">@item.NameJournal</td>
-                    <td class="_id">@item.QuantityJournalPdo</td>
-                    <td class="_id">@item.QuantityJournalPdoOld</td>
-                    <td class="_id">@item.PercentJournalPdoOld</td>
-                </tr>
-            }
-            @foreach (var item in lift)
-            {
-                <tr>
-                    <td class="td-text">@item.TypePdoName</td>
-                    <td class="td-center">@item.Quantity</td>
-                    <td class="td-center">@item.QuantityOld</td>
-                    <td class="td-center">@item.PercentOld</td>
-                </tr>
-            }
-            @foreach (var item in pdoOther)
-            {
-                <tr>
-                <td class="_id">@item.NameJournal</td>
-                    <td class="_id">@item.QuantityJournalPdo</td>
-                    <td class="_id">@item.QuantityJournalPdoOld</td>
-                    <td class="_id">@item.PercentJournalPdoOld</td>
-                </tr>
-            }  *@         
+                if (item.NameJournalOrType != null)
+                {
+                    <tr>
+                        <td class="_id">@item.NameJournal</td>
+                        <td class="_id">@item.Quantity</td>
+                        <td class="_id">@item.QuantityOld</td>
+                        <td class="_id">@item.PercentOld</td>
+                    </tr>
+                } 
+                else
+                {
+                   <tr>
+                        <td class="td-text">@item.NameJournal</td>
+                        <td class="td-center">@item.Quantity</td>
+                        <td class="td-center">@item.QuantityOld</td>
+                        <td class="td-center">@item.PercentOld</td>
+                    </tr> 
+                }
+            }             
         </table>
     </div>
 </div>
