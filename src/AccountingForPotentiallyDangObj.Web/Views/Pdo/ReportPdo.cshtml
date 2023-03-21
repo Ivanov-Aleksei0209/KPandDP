@@ -17,21 +17,24 @@
     </div>
     <div class="table-conteiner">
         <table class="main-table">
+            <thead>
             <tr>
-                <td class="_id">Наименование ПОО,<br />типы ПОО</td>
-                <td class="_id">Количество<br />ПОО</td>
-                <td class="_id">Количество ПОО, отработавших<br />назначенный срок службы</td>
-                <td class="_id">Процент отработавших<br /> назначенный срок службы</td>
+                <th>Наименование ПОО,<br />типы ПОО</th>
+                <th>Количество<br />ПОО</th>
+                <th>Количество ПОО, отработавших<br />назначенный срок службы</th>
+                <th>Процент отработавших<br /> назначенный срок службы</th>
             </tr>
+            </thead>
+            <tbody>
             @foreach (var item in Model)
             {
                 if (string.IsNullOrEmpty(item.NameType))
                 {
                     <tr>
-                        <td class="_id">@item.NameJournal</td>
-                        <td class="_id">@item.Quantity</td>
-                        <td class="_id">@item.QuantityOld</td>
-                        <td class="_id">@item.PercentOld</td>
+                            <td class="td-bold">@item.NameJournal</td>
+                            <td class="td-bold-center">@item.Quantity</td>
+                            <td class="td-bold-center">@item.QuantityOld</td>
+                            <td class="td-bold-center">@item.PercentOld</td>
                     </tr>
                 } 
                 else
@@ -43,7 +46,8 @@
                         <td class="td-center">@item.PercentOld</td>
                     </tr> 
                 }
-            }             
+            } 
+            </tbody>
         </table>
     </div>
 </div>
