@@ -17,4 +17,8 @@
     <ProjectReference Include="..\AccountingForPotentiallyDangObj.DataAccess\AccountingForPotentiallyDangObj.DataAccess.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Subjects\" />
+  </ItemGroup>
+
 </Project>

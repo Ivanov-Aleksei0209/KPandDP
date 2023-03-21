@@ -4,6 +4,6 @@ namespace AccountingForPotentiallyDangObj.Web.Interfaces
 {
     public interface ISubjectService
     {
-        IEnumerable<PdoDto> GetAllAsync();
+        IEnumerable<SubjectDto> GetAllSubjectAsync();
     }
 }
