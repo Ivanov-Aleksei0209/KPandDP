@@ -16,7 +16,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             _mapperConfig = mapperConfig;
         }
 
-        public IEnumerable<SubjectDto> GetAllAsync()
+        public IEnumerable<SubjectDto> GetAllSubjectAsync()
         {
             var models = _repositorySubject.GetAll();
             var modelsDto = _mapperConfig.Mapper.Map<IEnumerable<SubjectDto>>(models);

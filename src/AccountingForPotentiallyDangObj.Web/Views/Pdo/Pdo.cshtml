@@ -5,24 +5,6 @@
 <div class="main-window">
     <h4 class="text-center">Справочник потенциально опасных объектов</h4>
     <div class="scroll-table">
-        @*<table>
-            <thead>
-                <tr>
-                    <th class="_id">№ п/п</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.JournalNumber)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.RegistrationNumber)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.TypeName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.SubjectName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.DateOfRegistration)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.YearOfManufacture)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.ServiceLife)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.TechnicalConditionalName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.InspectorName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</th>
-                </tr>
-            </thead>
-        </table>*@
         <div class="scroll-table-body">
             <table>
                 <thead>
@@ -64,47 +46,58 @@
         </div>
     </div>
 
-    @*<div class="scroll-table">
-        <table>
-            <thead>
-                <tr>
-                    <th class="_id" width="50">№ п/п</th>
-                    <th class="_id" width="50">@Html.DisplayNameFor(model => model.JournalNumber)</th>
-                    <th class="_id" width="50">@Html.DisplayNameFor(model => model.RegistrationNumber)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.TypeName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.SubjectName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.DateOfRegistration)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.YearOfManufacture)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.ServiceLife)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.TechnicalConditionalName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.InspectorName)</th>
-                    <th class="_id">@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</th>
-                </tr>
-            </thead>
-        </table>
-        <div class="scroll-table-body">
-            <table>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td class="td-center" width="50">@item.Id</td>
-                            <td class="td-center" width="50">@item.JournalNumber</td>
-                            <td class="td-center" width="50">@item.RegistrationNumberString</td>
-                            <td class="td-center">@item.TypeName</td>
-                            <td class="td-text">@item.SubjectName</td>
-                            <td class="td-center">@item.DateOfRegistration</td>
-                            <td class="td-center">@item.YearOfManufacture</td>
-                            <td class="td-center">@item.ServiceLife</td>
-                            <td class="td-center">@item.InformationAboutTheTechnicalInspection</td>
-                            <td class="td-center">@item.TechnicalConditionalName</td>
-                            <td class="td-text">@item.InspectorName</td>
-                            <td class="td-center">@item.WithdrawalFromRegistrationString</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+    <div class="pdo-div-buttons">
+        <div class="pdo-div-button">
+            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Регистрация нового ПОО</a>
         </div>
+        <div class="pdo-div-button">
+            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Внесение изменений, связанных с регистрацией ПОО</a>
+        </div>
+    </div>
+
+
+
+    @*<div class="scroll-table">
+    <table>
+    <thead>
+    <tr>
+    <th class="_id" width="50">№ п/п</th>
+    <th class="_id" width="50">@Html.DisplayNameFor(model => model.JournalNumber)</th>
+    <th class="_id" width="50">@Html.DisplayNameFor(model => model.RegistrationNumber)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.TypeName)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.SubjectName)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.DateOfRegistration)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.YearOfManufacture)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.ServiceLife)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.TechnicalConditionalName)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.InspectorName)</th>
+    <th class="_id">@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</th>
+    </tr>
+    </thead>
+    </table>
+    <div class="scroll-table-body">
+    <table>
+    <tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+    <td class="td-center" width="50">@item.Id</td>
+    <td class="td-center" width="50">@item.JournalNumber</td>
+    <td class="td-center" width="50">@item.RegistrationNumberString</td>
+    <td class="td-center">@item.TypeName</td>
+    <td class="td-text">@item.SubjectName</td>
+    <td class="td-center">@item.DateOfRegistration</td>
+    <td class="td-center">@item.YearOfManufacture</td>
+    <td class="td-center">@item.ServiceLife</td>
+    <td class="td-center">@item.InformationAboutTheTechnicalInspection</td>
+    <td class="td-center">@item.TechnicalConditionalName</td>
+    <td class="td-text">@item.InspectorName</td>
+    <td class="td-center">@item.WithdrawalFromRegistrationString</td>
+    </tr>
+    }
+    </tbody>
+    </table>
+    </div>
     </div>*@
 </div>
