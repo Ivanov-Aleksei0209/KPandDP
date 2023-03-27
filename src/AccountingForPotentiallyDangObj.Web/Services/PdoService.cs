@@ -109,16 +109,16 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 var notWithdrawalFromRegistrationModels = GetNotWithdrawalFromRegistration(pdoModels, journalPdoId);
                 var oldPdoModel = GetOldPdoModel(pdoModels, journalPdoId);
 
-                var pdoDtoModel = new ReportPdoDto();
-                pdoDtoModel.Quantity = notWithdrawalFromRegistrationModels.Count();
-                pdoDtoModel.QuantityOld = oldPdoModel.Count();
-                pdoDtoModel.NameJournal = journalPdo.Name;
-                pdoDtoModel.PercentOld = GetPercentOld(notWithdrawalFromRegistrationModels.Count(), oldPdoModel.Count());
+                var pdoDtoModel = new ReportPdoDto()
+                {
+                    Quantity = notWithdrawalFromRegistrationModels.Count(),
+                    QuantityOld = oldPdoModel.Count(),
+                    NameJournal = journalPdo.Name,
+                    PercentOld = GetPercentOld(notWithdrawalFromRegistrationModels.Count(), oldPdoModel.Count())                   
+                };
                 pdoDtoModel.QuantityAll = pdoDtoModel.Quantity;
                 pdoDtoModel.QuantityAllOld = pdoDtoModel.QuantityOld;
                 pdoDtoModel.PercentAllOld = GetPercentOld(reportPdoDto.Select(x => x.QuantityAll).Sum(), reportPdoDto.Select(x => x.QuantityAllOld).Sum());
-                
-
                 reportPdoDto.Add(pdoDtoModel);
 
                 List<int> typesId = new List<int>();

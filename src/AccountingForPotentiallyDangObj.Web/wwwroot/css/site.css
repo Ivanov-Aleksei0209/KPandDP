@@ -176,7 +176,11 @@ body {
     font-size: 14px;
     vertical-align: top;
 }
-
+    .scroll-table tbody tr:hover {
+        color: white;
+        background-color: #095f78;
+        padding: 10px;
+    }
 
 .scroll-table tbody tr:nth-child(even) {
     background: #BBC2FB;

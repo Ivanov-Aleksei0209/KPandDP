@@ -26,6 +26,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Infrastructure
             builder.RegisterType<AfPdoRepository<Inspector>>().As<IRepository<Inspector>>();
             builder.RegisterType<AfPdoRepository<TypeOfPdo>>().As<IRepository<TypeOfPdo>>();
             builder.RegisterType<AfPdoRepository<Subject>>().As<IRepository<Subject>>();
+            builder.RegisterType<AfPdoRepository<DepartmentalAffiliation>>().As<IRepository<DepartmentalAffiliation>>();
 
             builder.RegisterType<AfPdoDbContext>().As<AfPdoDbContext>().WithParameter("connectionString", _connectionString);
         }
