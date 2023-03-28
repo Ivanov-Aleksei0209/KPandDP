@@ -15,7 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDangObj.Web", "src\AccountingForPotentiallyDangObj.Web\AccountingForPotentiallyDangObj.Web.csproj", "{BED044C2-E8F1-4835-A0D4-C5E868988451}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountingForPotentiallyDangObj.ImportExcelToDataBase", "src\AccountingForPotentiallyDangObj.ImportExcelToDataBase\AccountingForPotentiallyDangObj.ImportExcelToDataBase.csproj", "{E9B891E1-1A56-447A-B7E2-157BCDF03AB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountingForPotentiallyDangObj.ImportExcelToDataBase", "src\AccountingForPotentiallyDangObj.ImportExcelToDataBase\AccountingForPotentiallyDangObj.ImportExcelToDataBase.csproj", "{E9B891E1-1A56-447A-B7E2-157BCDF03AB1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{16368DF1-2ED3-4D5C-A121-2E501A0D6EBB} = {16368DF1-2ED3-4D5C-A121-2E501A0D6EBB}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

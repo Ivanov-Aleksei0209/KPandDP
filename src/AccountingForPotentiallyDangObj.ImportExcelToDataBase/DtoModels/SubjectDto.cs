@@ -1,16 +1,16 @@
-﻿//using AccountingForPotentiallyDangObj.DataAccess.Models;
+﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
 
 namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.DtoModels
 {
     public class SubjectDto
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
-        public int UNP { get; set; }
-        public int departmentalAffiliationId { get; set; }
-        public string departmentalAffiliationName { get; set; }
+        //public int UNP { get; set; }
+        //public int departmentalAffiliationId { get; set; }
+        //public string departmentalAffiliationName { get; set; }
         //public DepartmentalAffiliation DepartmentalAffiliation { get; set; }
         public string postalAddress { get; set; }
-        public string phone { get; set; }
+        //public string phone { get; set; }
     }
 }

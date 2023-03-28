@@ -1,5 +1,6 @@
-﻿
-//using AccountingForPotentiallyDangObj.DataAccess.Models;
+﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
+using AccountingForPotentiallyDangObj.ImportExcelToDataBase.DtoModels;
+using AccountingForPotentiallyDangObj.ImportExcelToDataBase.Models;
 using AutoMapper;
 
 namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Infrastructure
@@ -10,13 +11,13 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Infrastructure
         {
             // DAL to Services
             //CreateMap<JournalPdoDto, JournalPdo>();
-            //CreateMap<Inspector, Model>();
-            //CreateMap<SubjectDto, Subject>();
+            //CreateMap<PdoDto, ExcelModel>();
+            CreateMap<SubjectDto, Subject>();
 
             // Services to DAL
             //CreateMap<JournalPdo, JournalPdoDto>();
-            //CreateMap<Pdo, PdoDto>();
-            //CreateMap<Subject, SubjectDto>();
+            //CreateMap<ExcelModel, PdoDto>();
+            CreateMap<Subject, SubjectDto>();
 
             // Services to WEB
             //CreateMap<JournalPdoDto, JournalPdoViewModel>();
