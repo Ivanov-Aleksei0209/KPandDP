@@ -45,8 +45,11 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             foreach (var item in jsonObjectChildrenList)
             {
                 var subjectDtoModel = new SubjectDto();
-                subjectDtoModel.Name = jsonObjectChildrenList.Select(x => item.Subject).FirstOrDefault();
-                subjectDtoModel.postalAddress = jsonObjectChildrenList.Select(x => item.PostalAddress).FirstOrDefault();
+                subjectDtoModel.Subject = jsonObjectChildrenList.Select(x => item.Subject).FirstOrDefault();
+                subjectDtoModel.UNP = jsonObjectChildrenList.Select(x => item.UNP).FirstOrDefault();
+                subjectDtoModel.PostalAddress = jsonObjectChildrenList.Select(x => item.PostalAddress).FirstOrDefault();
+                subjectDtoModel.Phone = jsonObjectChildrenList.Select(x => item.Phone).FirstOrDefault();
+                
                 subjectsDtoModel.Add(subjectDtoModel);
             }
 

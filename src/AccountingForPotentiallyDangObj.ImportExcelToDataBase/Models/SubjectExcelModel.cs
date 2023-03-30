@@ -10,5 +10,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Models
     {
         public string Subject { get; set; }
         public string PostalAddress { get; set; }
+        public string UNP { get; set; }
+        public string? Phone { get; set; }
     }
 }

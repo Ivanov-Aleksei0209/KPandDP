@@ -81,6 +81,8 @@
     <Build Include="ForeignKeys\FK_TechnicalConditional_PDO.sql" />
     <Build Include="ForeignKeys\FK_TechnicalSpecification_PDO.sql" />
     <Build Include="Tables\DepartmentalAffiliation.sql" />
+    <Build Include="Tables\Role.sql" />
+    <Build Include="ForeignKeys\FK_Role_Inspector.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="AccountingForPotentiallyDangObj.DataBase.refactorlog" />

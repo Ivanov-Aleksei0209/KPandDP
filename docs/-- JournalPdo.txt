@@ -1,24 +1,3 @@
-﻿-- Role
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'инспектор')
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'старший инспектор')
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'ведущий инспектор')
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'главный инспектор')
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'начальник отдела')
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'начальник управления')
-if not exists (SELECT*FROM dbo.Role WHERE Name=N'нет')
-begin
-insert into dbo.Role
-values
-(N'инспектор'), 
-(N'старший инспектор'), 
-(N'ведущий инспектор'), 
-(N'главный инспектор'),
-(N'начальник отдела'),
-(N'начальник управления'),
-(N'нет')
-end
-go
-
 -- JournalPdo
 if not exists (SELECT*FROM dbo.JournalPdo WHERE Name=N'Грузоподъемные краны' and JournalNumber=31)
 if not exists (SELECT*FROM dbo.JournalPdo WHERE Name=N'Лифты' and JournalNumber=32)
@@ -111,12 +90,33 @@ values
 end
 go
 
+-- Role
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'инспектор')
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'старший инспектор')
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'ведущий инспектор')
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'главный инспектор')
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'начальник отдела')
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'начальник управления')
+if not exists (SELECT*FROM dbo.Role WHERE Name=N'нет')
+begin
+insert into dbo.Role
+values
+(N'инспектор'), 
+(N'старший инспектор'), 
+(N'ведущий инспектор'), 
+(N'главный инспектор'),
+(N'начальник отдела'),
+(N'начальник управления'),
+(N'нет')
+end
+go
+
 -- Inspector
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Иванов А.А.' and RoleId=2)
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Концевой С.Н.' and RoleId=2)
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Полторак А.С.' and RoleId=4)
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Смоловик Г.В.' and RoleId=3)
-if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'снят с учета' and RoleId=7)
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'снят с учета' and RoleId=6)
 begin
 insert into dbo.Inspector
 values
@@ -124,7 +124,7 @@ values
 (N'Концевой С.Н.', 2), 
 (N'Полторак А.С.', 4), 
 (N'Смоловик Г.В.', 3),
-(N'снят с учета', 7)
+(N'снят с учета', 6)
 end
 go
 

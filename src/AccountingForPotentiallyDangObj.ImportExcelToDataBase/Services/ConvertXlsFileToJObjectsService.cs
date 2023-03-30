@@ -54,7 +54,9 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             var jsonObjectChildrenList = jsonObjectChildrenArray.Select(x => new SubjectExcelModel
             {
                 Subject = (string)x["Subject"],
-                PostalAddress = (string)x["PostalAddress"]
+                UNP = (string)x["UNP"],
+                PostalAddress = (string)x["PostalAddress"],
+                Phone = (string)x["Phone"]
             }).ToList();
 
             return jsonObjectChildrenList;

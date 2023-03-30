@@ -224,4 +224,46 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="WithdrawalFromRegistration" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="8de0a451-e1e8-4445-a3ba-8b253530fd01" ChangeDateTime="03/29/2023 17:05:13">
+    <Property Name="ElementName" Value="[dbo].[Inspector].[Post]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Inspector]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PostId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="26e0ed0e-0516-4c25-9e69-bde4605e877a" ChangeDateTime="03/29/2023 18:08:58">
+    <Property Name="ElementName" Value="[dbo].[Post]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[Position]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b0736fbd-98d0-4b30-8cab-5e9c036c90df" ChangeDateTime="03/29/2023 18:36:50">
+    <Property Name="ElementName" Value="[dbo].[Inspector].[PostId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Inspector]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[PositionId]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7adf06d8-4cae-44dd-8436-0ad7b3c5ad33" ChangeDateTime="03/29/2023 18:52:28">
+    <Property Name="ElementName" Value="[dbo].[Position]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[Role]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6b1d506e-be2d-483d-872d-712bb9156abc" ChangeDateTime="03/29/2023 18:52:49">
+    <Property Name="ElementName" Value="[dbo].[Inspector].[PositionId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Inspector]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[RoleId]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3aec408c-43d3-4de7-bca8-b66617ca4630" ChangeDateTime="03/29/2023 18:53:29">
+    <Property Name="ElementName" Value="[dbo].[FK_Position_Inspector]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Inspector]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="FK_Role_Inspector" />
+  </Operation>
 </Operations>

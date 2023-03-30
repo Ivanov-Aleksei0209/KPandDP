@@ -1,0 +1,50 @@
+,
+(2, 0028, 12, N'2022-12-05', 1995, 2, 25, N'2022-10-20', 3, 1, 7, 3, null, '18'),
+(2, 0208, 12, N'2022-12-05', 1995, 2, 25, N'2022-10-20', 3, 1, 7, 3, null, '19'),
+(2, 3008, 12, N'2022-12-05', 1995, 2, 25, N'2022-10-20', 3, 1, 7, 3, null, '20')
+
+Data Source=(localdb)\MSSQLLocalDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False
+
+-- Position
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'инспектор')
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'старший инспектор')
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'ведущий инспектор')
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'главный инспектор')
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'начальник отдела')
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'начальник управления')
+if not exists (SELECT*FROM dbo.Position WHERE Name=N'нет')
+begin
+insert into dbo.Position
+values
+(N'инспектор'), 
+(N'старший инспектор'), 
+(N'ведущий инспектор'), 
+(N'главный инспектор'),
+(N'начальник отдела'),
+(N'начальник управления'),
+(N'нет')
+end
+go
+
+-- Inspector
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Иванов А.А.' and [PositionId]=2)
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Концевой С.Н.' and [PositionId]=2)
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Полторак А.С.' and [PositionId]=4)
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Смоловик Г.В.' and [PositionId]=3)
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'снят с учета' and [PositionId]=7)
+begin
+insert into dbo.Inspector
+values
+(N'Иванов А.А.', 2), 
+(N'Концевой С.Н.', 2), 
+(N'Полторак А.С.', 4), 
+(N'Смоловик Г.В.', 3),
+(N'снят с учета', 7)
+end
+go
+
+
+ALTER TABLE dbo.Inspector
+	ADD CONSTRAINT FK_Position_Inspector
+	FOREIGN KEY ([PositionId])
+	REFERENCES dbo.[Position] (Id)
