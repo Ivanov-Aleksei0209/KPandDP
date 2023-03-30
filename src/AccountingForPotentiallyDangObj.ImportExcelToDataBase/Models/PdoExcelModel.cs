@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Models
 {
-    public class ExcelModel
+    public class PdoExcelModel
     {
         public string Subject { get; set; }
         public string InstallationLocation { get; set; }

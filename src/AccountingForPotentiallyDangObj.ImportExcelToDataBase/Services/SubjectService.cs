@@ -9,33 +9,59 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AccountingForPotentiallyDangObj.ImportExcelToDataBase.Infrastructure;
+using AccountingForPotentiallyDangObj.DataAccess.EF;
 
 namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 {
-    public class SubjectService : ISubjectService
+    public class SubjectService
     {
         private readonly IRepository<Subject> _repositorySubject;
         private readonly IRepository<DepartmentalAffiliation> _repositoryDepartmentalAffilation;
-        private readonly IMapperConfig _mapperConfig;
+        private readonly string _connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AccountingForPotentiallyDangObj.DataBase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        //private readonly IMapperConfig _mapperConfig;
 
-        public SubjectService(IRepository<Subject> repositorySubject, IRepository<DepartmentalAffiliation> repositoryDepartmentalAffilation,
-            IMapperConfig mapperConfig)
+        public SubjectService()
         {
-            _repositorySubject = repositorySubject;
-            _repositoryDepartmentalAffilation = repositoryDepartmentalAffilation;
-            _mapperConfig = mapperConfig;
+            var dbContext = new AfPdoDbContext(_connectionString);
+            _repositorySubject = new AfPdoRepository<Subject>(dbContext);
+            //_repositoryDepartmentalAffilation = repositoryDepartmentalAffilation;
+            //_mapperConfig = new MapperConfig(new MapperProfile());
+
         }
-        public SubjectService() { }
+        
 
-        public void AddAllSubjectAsync(List<SubjectDto> subjectsDtoModel)
+        public Subject MapDtoToModel(SubjectDto subjectDtoModel)
         {
-            foreach (var subjectDto in subjectsDtoModel)
+            var model = new Subject()
             {
-                var model = new Subject();
-                
-                model = _mapperConfig.Mapper.Map<Subject>(subjectDto);
-                _repositorySubject.AddAsync(model);
+                Name = subjectDtoModel.Subject,
+                UNP = Convert.ToInt32(subjectDtoModel.UNP),
+                PostalAddress = subjectDtoModel.PostalAddress,
+                Phone = subjectDtoModel.Phone
+            };
+            return model;
+        }
+        public List<Subject> MapDtoModelsToModels(List<SubjectDto> subjectDtoModels)
+        {
+            var models = new List<Subject>();
+            foreach (SubjectDto subjectDto in subjectDtoModels)
+            {
+                var model = MapDtoToModel(subjectDto);
+                models.Add(model);
             }
+            return models;
+        }
+        
+        public async Task<List<Subject>> AddAllSubjectAsync(List<Subject> models)
+        {          
+            foreach (var model in models)
+            {
+                
+                var tempModel = await _repositorySubject.AddAsync(model);  
+               
+            }
+            return models;
         }
 
         public List<SubjectDto> GetSubjectFrom(List<SubjectExcelModel> jsonObjectChildrenList)
@@ -45,10 +71,10 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             foreach (var item in jsonObjectChildrenList)
             {
                 var subjectDtoModel = new SubjectDto();
-                subjectDtoModel.Subject = jsonObjectChildrenList.Select(x => item.Subject).FirstOrDefault();
-                subjectDtoModel.UNP = jsonObjectChildrenList.Select(x => item.UNP).FirstOrDefault();
-                subjectDtoModel.PostalAddress = jsonObjectChildrenList.Select(x => item.PostalAddress).FirstOrDefault();
-                subjectDtoModel.Phone = jsonObjectChildrenList.Select(x => item.Phone).FirstOrDefault();
+                subjectDtoModel.Subject = item.Subject;
+                subjectDtoModel.UNP = item.UNP;
+                subjectDtoModel.PostalAddress = item.PostalAddress;
+                subjectDtoModel.Phone = item.Phone;
                 
                 subjectsDtoModel.Add(subjectDtoModel);
             }

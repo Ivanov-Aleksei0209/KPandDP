@@ -12,7 +12,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 {
     internal class ConvertXlsFileToJObjectsService
     {
-        public static JObject ConvertXlsFileToJson(string pathXlsFile)
+        public static JObject ConvertXlsFileToJObject(string pathXlsFile)
         {
             ExcelEngine excelEngine = new ExcelEngine();
 
@@ -45,9 +45,9 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             return jsonObject;
         }
 
-        public static List<SubjectExcelModel> ConvertXlsFileToJObjectsSubjects(string pathXlsFile)
+        public static List<SubjectExcelModel> MapJObjectsToExcelModelsSubjects(string pathXlsFile)
         {
-            var jsonObject = ConvertXlsFileToJson(pathXlsFile);
+            var jsonObject = ConvertXlsFileToJObject(pathXlsFile);
 
             var jsonObjectChildrenArray = jsonObject["2022.12.02 Список ПОО"];
 
@@ -63,13 +63,13 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
               
         }
 
-        public static List<ExcelModel> ConvertXlsFileToJObjects(string pathXlsFile)
+        public static List<PdoExcelModel> ConvertXlsFileToJObjects(string pathXlsFile)
         {
-            var jsonObject = ConvertXlsFileToJson(pathXlsFile);
+            var jsonObject = ConvertXlsFileToJObject(pathXlsFile);
 
             var jsonObjectChildrenArray = jsonObject["2022.12.02 Список ПОО"];
 
-            var jsonObjectChildrenList = jsonObjectChildrenArray.Select(x => new ExcelModel
+            var jsonObjectChildrenList = jsonObjectChildrenArray.Select(x => new PdoExcelModel
             {
                 Subject = (string)x["Subject"],
                 InstallationLocation = (string)x["InstallationLocation"],

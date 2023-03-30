@@ -57,12 +57,17 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase
             string pathXlsFile = "E:\\GitHub\\KPandDP\\docs\\PdoForDataBase.xlsx";
             
             // Insert Subjects from XlsFile
-            var mainSubjectObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObjectsSubjects(pathXlsFileSubject);
+            var mainSubjectObject = ConvertXlsFileToJObjectsService.MapJObjectsToExcelModelsSubjects(pathXlsFileSubject);
 
             var listSubjects = new SubjectService();
             var subjects = listSubjects.GetSubjectFrom(mainSubjectObject);
-            var addSubject = new SubjectService();
-            addSubject.AddAllSubjectAsync(subjects);
+            var subjectsModels = new SubjectService();
+            var models = subjectsModels.MapDtoModelsToModels(subjects);
+            
+            var subjectsModelsDb = new SubjectService();
+            var subjectModelsFromDb = subjectsModelsDb.AddAllSubjectAsync(models).Result;
+
+
 
             // Insert Subjects from XlsFile
             var mainObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObjects(pathXlsFile);

@@ -10,7 +10,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 {
     public class TechnicalSpecificationService
     {
-        public List<TechnicalSpecificationDto> GetTechnicalSpecificationFrom(List<ExcelModel> jsonObjectChildrenList)
+        public List<TechnicalSpecificationDto> GetTechnicalSpecificationFrom(List<PdoExcelModel> jsonObjectChildrenList)
         {
 
 
