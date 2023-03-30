@@ -29,6 +29,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.EF
         public DbSet<TechnicalSpecification> TechnicalSpecification { get; set; }
         public DbSet<DepartmentalAffiliation> DepartmentalAffiliation { get; set; }
         public DbSet<Pdo> Pdo { get; set; }
+        public DbSet<Role> Role { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
