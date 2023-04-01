@@ -54,26 +54,27 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase
         static void Main(string[] args)
         {
             string pathXlsFileSubject = "E:\\GitHub\\KPandDP\\docs\\Subjects.xlsx";
-            string pathXlsFile = "E:\\GitHub\\KPandDP\\docs\\PdoForDataBase.xlsx";
+            //string pathXlsFile = "E:\\GitHub\\KPandDP\\docs\\PdoForDataBase.xlsx";
             
             // Insert Subjects from XlsFile
-            var mainSubjectObject = ConvertXlsFileToJObjectsService.MapJObjectsToExcelModelsSubjects(pathXlsFileSubject);
+            var subjectJObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObject(pathXlsFileSubject);
 
-            var listSubjects = new SubjectService();
-            var subjects = listSubjects.GetSubjectFrom(mainSubjectObject);
-            var subjectsModels = new SubjectService();
-            var models = subjectsModels.MapDtoModelsToModels(subjects);
-            
-            var subjectsModelsDb = new SubjectService();
-            var subjectModelsFromDb = subjectsModelsDb.AddAllSubjectAsync(models).Result;
+            var subjectExcelModel = new MappingService();
+            var subjectsExcelModels = subjectExcelModel.MapJObjectsToExcelModelsSubjects(subjectJObject);
+            var subjectDtoModel = new MappingService();
+            var subjectsDtoModels = subjectDtoModel.MapSubjectExelModelToSubjectDto(subjectsExcelModels);
+            var subjectModel = new MappingService();
+            var subjectsModels = subjectModel.MapDtoModelsToModels(subjectsDtoModels);
+            var subjectModelDb = new SubjectService();
+            var subjectsModelsDb = subjectModelDb.AddSubjectAsync(subjectsModels).Result;
 
 
 
             // Insert Subjects from XlsFile
-            var mainObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObjects(pathXlsFile);
+            //var mainObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObjects(pathXlsFile);
 
-            var listTechnicalSpecification = new TechnicalSpecificationService();
-            var technicalSpecification = listTechnicalSpecification.GetTechnicalSpecificationFrom(mainObject);
+            //var listTechnicalSpecification = new TechnicalSpecificationService();
+            //var technicalSpecification = listTechnicalSpecification.GetTechnicalSpecificationFrom(mainObject);
 
             
         }

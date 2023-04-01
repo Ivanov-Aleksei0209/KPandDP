@@ -28,7 +28,11 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             foreach (var modelDto in modelsDto)
             {
                 var departmentalAffilationById = modelsDepertmentalAffiliation.Where(x => x.Id == modelDto.departmentalAffiliationId).FirstOrDefault();
-                modelDto.departmentalAffiliationName = departmentalAffilationById.Name;
+                if (departmentalAffilationById != null)
+                {
+                    modelDto.departmentalAffiliationName = departmentalAffilationById.Name;
+                }
+                
             }
             return modelsDto;
         }

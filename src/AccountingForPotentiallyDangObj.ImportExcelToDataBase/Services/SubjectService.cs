@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AccountingForPotentiallyDangObj.ImportExcelToDataBase.Infrastructure;
 using AccountingForPotentiallyDangObj.DataAccess.EF;
+using Newtonsoft.Json.Linq;
 
 namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 {
@@ -31,55 +32,20 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
         }
         
 
-        public Subject MapDtoToModel(SubjectDto subjectDtoModel)
-        {
-            var model = new Subject()
-            {
-                Name = subjectDtoModel.Subject,
-                UNP = Convert.ToInt32(subjectDtoModel.UNP),
-                PostalAddress = subjectDtoModel.PostalAddress,
-                Phone = subjectDtoModel.Phone
-            };
-            return model;
-        }
-        public List<Subject> MapDtoModelsToModels(List<SubjectDto> subjectDtoModels)
-        {
-            var models = new List<Subject>();
-            foreach (SubjectDto subjectDto in subjectDtoModels)
-            {
-                var model = MapDtoToModel(subjectDto);
-                models.Add(model);
-            }
-            return models;
-        }
+
         
-        public async Task<List<Subject>> AddAllSubjectAsync(List<Subject> models)
+        
+        public async Task<List<Subject>> AddSubjectAsync(List<Subject> subjectsModel)
         {          
-            foreach (var model in models)
+            foreach (var subjectModel in subjectsModel)
             {
                 
-                var tempModel = await _repositorySubject.AddAsync(model);  
+                await _repositorySubject.AddAsync(subjectModel);  
                
             }
-            return models;
+            return subjectsModel;
         }
 
-        public List<SubjectDto> GetSubjectFrom(List<SubjectExcelModel> jsonObjectChildrenList)
-        {
-
-            var subjectsDtoModel = new List<SubjectDto>();
-            foreach (var item in jsonObjectChildrenList)
-            {
-                var subjectDtoModel = new SubjectDto();
-                subjectDtoModel.Subject = item.Subject;
-                subjectDtoModel.UNP = item.UNP;
-                subjectDtoModel.PostalAddress = item.PostalAddress;
-                subjectDtoModel.Phone = item.Phone;
-                
-                subjectsDtoModel.Add(subjectDtoModel);
-            }
-
-            return subjectsDtoModel;
-        }
+       
     }
  }

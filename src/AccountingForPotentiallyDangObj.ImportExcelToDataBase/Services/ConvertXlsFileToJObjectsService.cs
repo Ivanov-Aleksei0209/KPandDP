@@ -40,57 +40,9 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             jsonStream.Position = 0;
             jsonStream.Read(json, 0, (int)jsonStream.Length);
             string jsonString = Encoding.UTF8.GetString(json);
-            JObject jsonObject = JObject.Parse(jsonString);
+            JObject jObject = JObject.Parse(jsonString);
 
-            return jsonObject;
+            return jObject;
         }
-
-        public static List<SubjectExcelModel> MapJObjectsToExcelModelsSubjects(string pathXlsFile)
-        {
-            var jsonObject = ConvertXlsFileToJObject(pathXlsFile);
-
-            var jsonObjectChildrenArray = jsonObject["2022.12.02 Список ПОО"];
-
-            var jsonObjectChildrenList = jsonObjectChildrenArray.Select(x => new SubjectExcelModel
-            {
-                Subject = (string)x["Subject"],
-                UNP = (string)x["UNP"],
-                PostalAddress = (string)x["PostalAddress"],
-                Phone = (string)x["Phone"]
-            }).ToList();
-
-            return jsonObjectChildrenList;
-              
-        }
-
-        public static List<PdoExcelModel> ConvertXlsFileToJObjects(string pathXlsFile)
-        {
-            var jsonObject = ConvertXlsFileToJObject(pathXlsFile);
-
-            var jsonObjectChildrenArray = jsonObject["2022.12.02 Список ПОО"];
-
-            var jsonObjectChildrenList = jsonObjectChildrenArray.Select(x => new PdoExcelModel
-            {
-                Subject = (string)x["Subject"],
-                InstallationLocation = (string)x["InstallationLocation"],
-                JournalPdo = (int)x["JournalPdo"],
-                RegistrationNumber = (int)x["RegistrationNumber"],
-                TypeOfPdoAbb = (string)x["TypeOfPdoAbb"],
-                TypeOfPdoName = (string)x["TypeOfPdoName"],
-                ServiceLife = (int)x["ServiceLife"],
-                YearOfManufacture = (int)x["YearOfManufacture"],
-                DateOfRegistration = (string)x["DateOfRegistration"],
-                TechnicalConditional = (string)x["TechnicalConditional"],
-                Inspector = (string)x["Inspector"],
-                InformationAboutTheTechnicalInspection = (string)x["InformationAboutTheTechnicalInspection"],
-                Capacity = (double)x["Capacity"],
-                ArrowDeparture = (double)x["ArrowDeparture"],
-                NumberOfStops = (int)x["NumberOfStops"],
-                Speed = (double)x["Speed"]
-            }).ToList();
-
-            return jsonObjectChildrenList;
-        }
-
     }
 }
