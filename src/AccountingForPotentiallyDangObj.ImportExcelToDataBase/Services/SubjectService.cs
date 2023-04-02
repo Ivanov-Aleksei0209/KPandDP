@@ -20,15 +20,11 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
         private readonly IRepository<Subject> _repositorySubject;
         private readonly IRepository<DepartmentalAffiliation> _repositoryDepartmentalAffilation;
         private readonly string _connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AccountingForPotentiallyDangObj.DataBase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        //private readonly IMapperConfig _mapperConfig;
 
         public SubjectService()
         {
             var dbContext = new AfPdoDbContext(_connectionString);
             _repositorySubject = new AfPdoRepository<Subject>(dbContext);
-            //_repositoryDepartmentalAffilation = repositoryDepartmentalAffilation;
-            //_mapperConfig = new MapperConfig(new MapperProfile());
-
         }
         
 

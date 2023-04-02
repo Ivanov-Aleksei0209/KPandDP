@@ -14,69 +14,48 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase
 {
     public class Program
     {
-        private readonly IRepository<Subject> _repositorySubject;
-        private readonly IMapperConfig _mapperConfig;
-
-        public Program(IRepository<Subject> repositorySubject, IMapperConfig mapperConfig)
-        {
-            //_repositoryPdo = repositoryPdo;
-            //_repositoryJournalPdo = repositoryJournalPdo;
-            //_repositoryTypeOfPdo = repositoryTypeOfPdo;
-            //_repositoryTechnicalConditional = repositoryTechnicalConditional;
-            //_repositoryInspector = repositoryInspector;
-            _repositorySubject = repositorySubject;
-            _mapperConfig = mapperConfig;
-        }
-       
-
-        //const string filePath = @"c:\dump\json.txt";
-
-        //public static void Serialize(object obj)
-        //{
-        //    var serializer = new JsonSerializer();
-
-        //    using (var sw = new StreamWriter(filePath))
-        //    using (JsonWriter writer = new JsonTextWriter(sw))
-        //    {
-        //        serializer.Serialize(writer, obj);
-        //    }
-        //}
-        //public static object Deserialize(string path)
-        //{
-        //    var serializer = new JsonSerializer();
-
-        //    using (var sw = new StreamReader(path))
-        //    using (var reader = new JsonTextReader(sw))
-        //    {
-        //        return serializer.Deserialize(reader);
-        //    }
-        //}
         static void Main(string[] args)
         {
-            string pathXlsFileSubject = "E:\\GitHub\\KPandDP\\docs\\Subjects.xlsx";
-            //string pathXlsFile = "E:\\GitHub\\KPandDP\\docs\\PdoForDataBase.xlsx";
-            
+
             // Insert Subjects from XlsFile
+            string pathXlsFileSubject = "E:\\GitHub\\KPandDP\\docs\\Subjects.xlsx";
+
             var subjectJObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObject(pathXlsFileSubject);
 
-            var subjectExcelModel = new MappingService();
-            var subjectsExcelModels = subjectExcelModel.MapJObjectsToExcelModelsSubjects(subjectJObject);
-            var subjectDtoModel = new MappingService();
-            var subjectsDtoModels = subjectDtoModel.MapSubjectExelModelToSubjectDto(subjectsExcelModels);
-            var subjectModel = new MappingService();
-            var subjectsModels = subjectModel.MapDtoModelsToModels(subjectsDtoModels);
+            var subjectExcelModel = new MappingSubjectService();
+            var subjectsExcelModels = subjectExcelModel.MapJObjectsToSubjectExcelModels(subjectJObject);
+
+            var subjectDtoModel = new MappingSubjectService();
+            var subjectsDtoModels = subjectDtoModel.MapSubjectExelModelsToSubjectsDto(subjectsExcelModels);
+
+            var subjectModel = new MappingSubjectService();
+            var subjectsModels = subjectModel.MapSubjectDtoModelsToSubjectModels(subjectsDtoModels);
+
             var subjectModelDb = new SubjectService();
             var subjectsModelsDb = subjectModelDb.AddSubjectAsync(subjectsModels).Result;
 
 
 
-            // Insert Subjects from XlsFile
-            //var mainObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObjects(pathXlsFile);
+            // Insert Pdo from XlsFile
 
-            //var listTechnicalSpecification = new TechnicalSpecificationService();
-            //var technicalSpecification = listTechnicalSpecification.GetTechnicalSpecificationFrom(mainObject);
+            string pathXlsFile = "E:\\GitHub\\KPandDP\\docs\\PdoForDataBase.xlsx";
 
-            
+            var pdoJObject = ConvertXlsFileToJObjectsService.ConvertXlsFileToJObject(pathXlsFile);
+
+            var pdoExcelModel = new MappingPdoService();
+            var pdoExcelModels = pdoExcelModel.MapJObjectsToPdoExcelModels(pdoJObject);
+
+            var pdoDtoModel = new MappingPdoService();
+            var pdoDtoModels = pdoDtoModel.MapPdoExelModelsToPdoDtoModels(pdoExcelModels);
+
+            var pdoModel = new MappingPdoService();
+            var pdoModels = pdoModel.MapPdoDtoModelsToPdoModels(pdoDtoModels);
+
+            var pdoModelDb = new PdoService();
+            var pdoModelsDb = pdoModelDb.AddPdoAsync(pdoModels).Result;
+
+
+
         }
     }
 }

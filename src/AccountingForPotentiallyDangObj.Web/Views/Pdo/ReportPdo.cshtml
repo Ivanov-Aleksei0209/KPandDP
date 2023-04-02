@@ -4,7 +4,7 @@
     //var sum = Model.Sum(x => x.Quantity);
     //var sumOld = Model.Sum(x => x.QuantityOld);
 
-    //double percentOld = Math.Round((double)Model.Sum(x => x.QuantityAllOld) / (double)Model.Sum(x => x.QuantityAll) * 100, 1);
+    double percentOld = Math.Round((double)Model.Sum(x => x.QuantityAllOld) / (double)Model.Sum(x => x.QuantityAll) * 100, 1);
 
 }
 <div class="main-window">
@@ -12,7 +12,7 @@
     <div class="text-left">
         <p>
             По состоянию на  @DateOnly.FromDateTime(DateTime.Now) в Гомельском областном управлении Госпромнадзора зарегистрировано <b>@Model.Sum(x => x.QuantityAll)</b> грузоподъемных сооружений и аттракционов,
-            из них <b>@Model.Sum(x => x.QuantityAllOld)</b> отработало назначенный срок службы, что составляет <b>@Model.Select(x => x.PercentAllOld).Last()</b>%
+            из них <b>@Model.Sum(x => x.QuantityAllOld)</b> отработало назначенный срок службы, что составляет <b>@percentOld</b>%
         </p>
     </div>
     <div class="table-conteiner">

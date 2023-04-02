@@ -77,8 +77,9 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         public string SubjectName { get; set; }
 
         [DisplayName("Место установки")]
+        public string? InstallationLocation { get; set; }
         public int InstallationLocationId { get; set; }
-        public InstallationLocation InstallationLocation { get; set; }
+        public InstallationLocation InstallationLocationTable { get; set; }
 
         [DisplayName("Дата снятия")]
         public DateOnly WithdrawalFromRegistration { get; set; }

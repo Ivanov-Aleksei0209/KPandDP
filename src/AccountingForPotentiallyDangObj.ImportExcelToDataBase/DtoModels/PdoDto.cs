@@ -4,30 +4,21 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.DtoModels
 {
     public class PdoDto
     {
-        public int Id { get; set; }
-        //public string? Name { get; set; } = string.Empty;
-        public int JournalPdoId { get; set; }
-        public int JournalNumber { get; set; }
+        public string Subject { get; set; }
+        public string? InstallationLocationAddress { get; set; }
+        public int? JournalPdo { get; set; }
         public int RegistrationNumber { get; set; }
-        public int TypeId { get; set; }
-        public string TypeName { get; set; }
-        public DateTime DateOfRegistration { get; set; }
-        public DateOnly DateOfRegistryDateOnly => DateOnly.FromDateTime(DateOfRegistration);
-        public int YearOfManufacture { get; set; }
-        public TechnicalSpecification TechnicalSpecification { get; set; }
-        public int TechnicalSpecificationId { get; set; }
-        public int ServiceLife { get; set; }
-        public DateTime InformationAboutTheTechnicalInspection { get; set; }
-        public DateOnly InformationAboutTheTechnicalInspectionDateOnly => DateOnly.FromDateTime(InformationAboutTheTechnicalInspection);
-        public int? InspectorId { get; set; }
-        public string? InspectorName { get; set; }
-        public int TechnicalConditionalId { get; set; }
-        public string TechnicalConditionalName { get; set; }
-        public int SubjectId { get; set; }
-        public string SubjectName { get; set; }
-        public int InstallationLocationId { get; set; }
-        public InstallationLocation InstallationLocation { get; set; }
-        public DateTime WithdrawalFromRegistration { get; set; }
-        public DateOnly WithdrawalFromRegistrationDateOnly => DateOnly.FromDateTime(WithdrawalFromRegistration);
+        public string? TypeOfPdoAbb { get; set; }
+        public string? TypeOfPdoName { get; set; }
+        public int? ServiceLife { get; set; }
+        public int? YearOfManufacture { get; set; }
+        public string? DateOfRegistration { get; set; }
+        public string? TechnicalConditional { get; set; }
+        public string? Inspector { get; set; }
+        public string? InformationAboutTheTechnicalInspection { get; set; }
+        public double? Capacity { get; set; }
+        public double? ArrowDeparture { get; set; }
+        public int? NumberOfStops { get; set; }
+        public double? Speed { get; set; }
     }
 }

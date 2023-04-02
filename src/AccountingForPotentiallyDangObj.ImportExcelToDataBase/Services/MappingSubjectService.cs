@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 {
-    public class MappingService
+    public class MappingSubjectService
     {
 
         
-        public List<SubjectExcelModel> MapJObjectsToExcelModelsSubjects(JObject jObject)
+        public List<SubjectExcelModel> MapJObjectsToSubjectExcelModels(JObject jObject)
         {
             var jObjectChildrenArray = jObject["2022.12.02 Список ПОО"];
 
@@ -28,35 +28,9 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 
             return subjectsExcelModel;
         }
-        public List<PdoExcelModel> MapJObjectsToExcelModelsPdo(JObject jObject)
-        {
+        
 
-            var jObjectChildrenArray = jObject["2022.12.02 Список ПОО"];
-
-            var jObjectChildrenList = jObjectChildrenArray.Select(x => new PdoExcelModel
-            {
-                Subject = (string)x["Subject"],
-                InstallationLocation = (string)x["InstallationLocation"],
-                JournalPdo = (int)x["JournalPdo"],
-                RegistrationNumber = (int)x["RegistrationNumber"],
-                TypeOfPdoAbb = (string)x["TypeOfPdoAbb"],
-                TypeOfPdoName = (string)x["TypeOfPdoName"],
-                ServiceLife = (int)x["ServiceLife"],
-                YearOfManufacture = (int)x["YearOfManufacture"],
-                DateOfRegistration = (string)x["DateOfRegistration"],
-                TechnicalConditional = (string)x["TechnicalConditional"],
-                Inspector = (string)x["Inspector"],
-                InformationAboutTheTechnicalInspection = (string)x["InformationAboutTheTechnicalInspection"],
-                Capacity = (double)x["Capacity"],
-                ArrowDeparture = (double)x["ArrowDeparture"],
-                NumberOfStops = (int)x["NumberOfStops"],
-                Speed = (double)x["Speed"]
-            }).ToList();
-
-            return jObjectChildrenList;
-        }
-
-        public List<SubjectDto> MapSubjectExelModelToSubjectDto(List<SubjectExcelModel> subjectsExcelModel)
+        public List<SubjectDto> MapSubjectExelModelsToSubjectsDto(List<SubjectExcelModel> subjectsExcelModel)
         {
 
             var subjectsDtoModel = new List<SubjectDto>();
@@ -73,7 +47,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 
             return subjectsDtoModel;
         }
-        public Subject MapDtoToModel(SubjectDto subjectDtoModel)
+        public Subject MapSubjectDtoToSubjectModel(SubjectDto subjectDtoModel)
         {
             var model = new Subject()
             {
@@ -84,18 +58,17 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             };
             return model;
         }
-        public List<Subject> MapDtoModelsToModels(List<SubjectDto> subjectsDtoModel)
+        public List<Subject> MapSubjectDtoModelsToSubjectModels(List<SubjectDto> subjectsDtoModel)
         {
             var models = new List<Subject>();
             foreach (SubjectDto subjectDto in subjectsDtoModel)
             {
-                var model = MapDtoToModel(subjectDto);
+                var model = MapSubjectDtoToSubjectModel(subjectDto);
                 models.Add(model);
             }
             return models;
         }
-
-
+        
 
     }
 }
