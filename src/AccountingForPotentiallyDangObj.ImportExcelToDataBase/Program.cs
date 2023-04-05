@@ -32,9 +32,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase
             var subjectsModels = subjectModel.MapSubjectDtoModelsToSubjectModels(subjectsDtoModels);
 
             var subjectModelDb = new SubjectService();
-            var subjectsModelsDb = subjectModelDb.AddSubjectAsync(subjectsModels).Result;
-
-
+            var subjectsModelsDb = subjectModelDb.AddSubjectAsync(subjectsModels).Result; 
 
             // Insert Pdo from XlsFile
 
@@ -52,10 +50,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase
             var pdoModels = pdoModel.MapPdoDtoModelsToPdoModels(pdoDtoModels);
 
             var pdoModelDb = new PdoService();
-            var pdoModelsDb = pdoModelDb.AddPdoAsync(pdoModels).Result;
-
-
-
+            var pdoModelsDb = pdoModelDb.AddPdoAsync(pdoModels).Result; 
         }
     }
 }

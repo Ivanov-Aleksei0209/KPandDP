@@ -26,8 +26,8 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
         public int SubjectId { get; set; }
         public string SubjectName { get; set; }
         public int InstallationLocationId { get; set; }
-        public string? InstallationLocation { get; set; }
-        public InstallationLocation InstallationLocationTable { get; set; }
+        public string? InstallationLocationAddress { get; set; }
+        public InstallationLocation InstallationLocation { get; set; }
         public DateTime WithdrawalFromRegistration { get; set; }
         public DateOnly WithdrawalFromRegistrationDateOnly => DateOnly.FromDateTime(WithdrawalFromRegistration);
     }

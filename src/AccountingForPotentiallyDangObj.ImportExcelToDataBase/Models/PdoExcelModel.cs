@@ -10,7 +10,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Models
     {
         public string Subject { get; set; }
         public string? InstallationLocationAddress { get; set; }
-        public int? JournalPdo { get; set; }
+        public int JournalPdo { get; set; }
         public int RegistrationNumber { get; set; }
         public string? TypeOfPdoAbb { get; set; }
         public string? TypeOfPdoName { get; set; }

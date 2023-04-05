@@ -266,4 +266,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="FK_Role_Inspector" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="674609d3-3028-48a9-84d1-86ceeb2778b1" ChangeDateTime="04/04/2023 16:10:53">
+    <Property Name="ElementName" Value="[dbo].[Pdo].[Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pdo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InstallationLocationAddress" />
+  </Operation>
 </Operations>

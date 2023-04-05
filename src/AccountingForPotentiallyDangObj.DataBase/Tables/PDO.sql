@@ -14,5 +14,6 @@
     [SubjectId] INT NULL, 
     [InstallationLocationId] INT NULL, 
     [WithdrawalFromRegistration] DATE NULL, 
-    [Name] NVARCHAR(MAX) NULL
+    [InstallationLocationAddress] NVARCHAR(MAX) NULL, 
+    [Name] NCHAR(10) NULL
 )

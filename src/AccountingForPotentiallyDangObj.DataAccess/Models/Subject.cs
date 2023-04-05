@@ -9,7 +9,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
 {
     public class Subject : BaseModel
     {
-        public int UNP { get; set; }
+        public int? UNP { get; set; }
         public int? DepartmentalAffiliationId { get; set; }
         public DepartmentalAffiliation DepartmentalAffiliation { get; set; }
         public string PostalAddress { get; set; }

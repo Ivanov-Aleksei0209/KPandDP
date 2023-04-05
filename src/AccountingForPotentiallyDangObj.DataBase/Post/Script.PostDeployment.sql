@@ -195,7 +195,7 @@ go
 
 if not exists (SELECT*FROM dbo.Pdo WHERE 
 JournalPdoId=2 and 
-RegistrationNumber=0008 and 
+RegistrationNumber=9999 and 
 TypeId=12 and 
 DateOfRegistration=N'2022-12-05' and 
 YearOfManufacture=1995 and 
@@ -207,12 +207,13 @@ TechnicalConditionalId=1 and
 SubjectId=1 and 
 InstallationLocationId=1 and
 WithdrawalFromRegistration=null and
+InstallationLocationAddress=N'Борщевка' and
 Name='17')
 begin
 insert into dbo.Pdo
 values
 
-(2, 0008, 12, N'2022-12-05', 1995, 1, 25, N'2022-10-20', 3, 1, 1, 1, null, '17')
+(2, 9999, 12, N'2022-12-05', 1995, 1, 25, N'2022-10-20', 3, 1, 1, 1, null, N'Борщевка', '17')
 end
 go
 

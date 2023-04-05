@@ -53,7 +53,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             var pdoExcelModel = jObjectChildrenArray.Select(x => new PdoExcelModel
             {
                 Subject = (string)x["Subject"],
-                //InstallationLocationAddress = (string)x["InstallationLocationAddress"],
+                InstallationLocationAddress = (string)x["InstallationLocationAddress"],
                 JournalPdo = (int)x["JournalPdo"],
                 RegistrationNumber = (int)x["RegistrationNumber"],
                 TypeOfPdoAbb = (string)x["TypeOfPdoAbb"],
@@ -80,7 +80,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             {
                 var pdoDtoModel = new PdoDto();
                 pdoDtoModel.Subject = item.Subject;
-                //pdoDtoModel.InstallationLocationAddress = item.InstallationLocationAddress;
+                pdoDtoModel.InstallationLocationAddress = item.InstallationLocationAddress;
                 pdoDtoModel.JournalPdo = item.JournalPdo;
                 pdoDtoModel.RegistrationNumber = item.RegistrationNumber;
                 pdoDtoModel.TypeOfPdoAbb = item.TypeOfPdoAbb;
@@ -110,22 +110,24 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
         public Pdo MapPdoDtoToPdoModel(PdoDto PdoDtoModel)
         {
             var model = new Pdo();
-
+            var modelsPdo = _repositoryPdo.GetAll().ToList();
+            var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
+            if (modelsPdo.Select(x => x.RegistrationNumber).Contains(PdoDtoModel.RegistrationNumber) && modelsJournalPdo.Select(x => x.JournalNumber).Contains(PdoDtoModel.JournalPdo)) {
+                model.RegistrationNumber = null;
+                Console.WriteLine($"ПОО с регистрационным номером {PdoDtoModel.RegistrationNumber} уже существует");
+            }
+            else { 
             model.RegistrationNumber = PdoDtoModel.RegistrationNumber;
             model.DateOfRegistration = DateTime.Parse(PdoDtoModel.DateOfRegistration);
             model.YearOfManufacture = PdoDtoModel.YearOfManufacture;
             model.ServiceLife = PdoDtoModel.ServiceLife;
-            //if (PdoDtoModel.InstallationLocation != null)
-            //{
-            //model.InstallationLocation = PdoDtoModel.InstallationLocation;
-            //}
+            model.InstallationLocationAddress = PdoDtoModel.InstallationLocationAddress;
 
             if (PdoDtoModel.InformationAboutTheTechnicalInspection != null)
             {
                 model.InformationAboutTheTechnicalInspection = DateTime.Parse(PdoDtoModel.InformationAboutTheTechnicalInspection);
             }
-
-            var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
+                        
             var journalPdoById = modelsJournalPdo.Where(x => x.JournalNumber == PdoDtoModel.JournalPdo).FirstOrDefault();
             model.JournalPdoId = journalPdoById.Id;
 
@@ -155,6 +157,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             var technicalSpecificationService = new TechnicalSpecificationService();
             var technicalSpecificationFromDb = technicalSpecificationService.AddTechnicalSpecificationAsync(technicalSpecificationModel).Result;
             model.TechnicalSpecificationId = technicalSpecificationFromDb.Id;
+            }
 
             return model;
 
@@ -167,6 +170,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             foreach (PdoDto pdoDto in pdoDtoModel)
             {
                 var model = MapPdoDtoToPdoModel(pdoDto);
+                if (model.RegistrationNumber != null)
                 models.Add(model);
             }
             return models;
