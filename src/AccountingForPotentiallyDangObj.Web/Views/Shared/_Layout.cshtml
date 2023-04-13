@@ -11,44 +11,48 @@
 <body>
     <header class="header">
         <div class="logo-header"><a><img src="~/images/logo-gosprom.png" title="Gospromnadzor" /></a></div>
-        <div class="text-header"><h4>Учет потенциально опасных объектов</h4>
+        <div class="text-header">
+            <h4>Учет потенциально опасных объектов</h4>
             <h2>Департамент по надзору за безопасным ведением работ в промышленности (ГОСПРОМНАДЗОР)</h2>
-            <h3>Гомельское областное управление</h3></div>
+            <h3>Гомельское областное управление</h3>
+        </div>
     </header>
     <nav class="navbar">
-            <div class="navbar-div">
-                <ul class="navbar-ul">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Потенциально опасные объекты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Subjects" asp-action="Subject">Субъекты промышленной безопасности</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Directories" asp-action="Directories">Справочники</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Inspectors" asp-action="Inspectors">Инспекторы</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Pdo" asp-action="ReportPdo">Главная</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="navbar-div">
+            <ul class="navbar-ul">
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Pdo" asp-action="ReportPdo">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Потенциально опасные объекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Subjects" asp-action="Subject">Субъекты промышленной безопасности</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Inspectors" asp-action="Inspectors">Инспекторы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Регистрация нового ПОО</a>
+                </li>
+            </ul>
+        </div>
     </nav>
 
-    
-        <main class="main">
+
+    <main class="main">
         <div class="container">
             @RenderBody()
         </div>
-        </main>
-    
+    </main>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - AccountingForPotentiallyDangObj.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+    <footer class="footer">
+        <div class="text-footer">
+                &copy; 2023 - Учет потенциально опасных объектов - Учебная программа, группа ЗИС-21, Иванов Алексей
+        </div>
+        <div class=".text-footer ">
+            
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

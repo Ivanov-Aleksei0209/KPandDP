@@ -1,0 +1,112 @@
+<input type="text" id="regNum" onkeyup="myFunction()" placeholder="Поиск по рег. №..">
+<input type="text" id="typePdo" onkeyup="myFunction()" placeholder="Поиск по типу..">
+<input type="text" id="subject" onkeyup="myFunction()" placeholder="Поиск по субъекту..">
+
+<script>
+        function Journal() {
+            // Объявить переменные
+            var inputJournal, filter, table, tr, td, i, txtValue;
+            inputJornal = document.getElementById("journal");
+                    
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                }
+            }
+        }
+        function Inspector() {
+            // Объявить переменные
+            var inputInspector, filterInspector, table, tr, td, i, txtValue;
+            
+            inputInspector = document.getElementById("inspector");
+            
+            filterInspector = inputInspector.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[11];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filterInspector) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+        function Inspector2() {
+            // Объявить переменные
+            var inputInspector, filterInspector, table, tr, td, i, txtValue;
+            
+            inputInspector = document.getElementById("inspector");
+            
+            filterInspector = inputInspector.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+            // Перебирайте все строки таблицы и скрывайте тех, кто не соответствует поисковому запросу
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[11];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[2];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[3];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[4];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[11];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>

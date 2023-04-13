@@ -2,6 +2,7 @@
 using AccountingForPotentiallyDangObj.DataAccess.Models;
 using AccountingForPotentiallyDangObj.Web.DtoModels;
 using AccountingForPotentiallyDangObj.Web.Interfaces;
+using AccountingForPotentiallyDangObj.Web.Models;
 using Microsoft.CodeAnalysis;
 
 namespace AccountingForPotentiallyDangObj.Web.Services
@@ -137,6 +138,46 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 }
             }
             return reportPdoDto;
+        }
+        public async Task<IEnumerable<PdoDto>> EditPdoAsync(int id)
+        {
+            
+            var model = await _repositoryPdo.GetByIdAsync(id);
+            var modelsJournalPdo = _repositoryJournalPdo.GetAll();
+            var modelsTypeOfPdo = _repositoryTypeOfPdo.GetAll();
+            var modelsTechnicalConditional = _repositoryTechnicalConditional.GetAll();
+            var modelsInspector = _repositoryInspector.GetAll();
+            var modelsSubject = _repositorySubject.GetAll();
+            var modelsDto = _mapperConfig.Mapper.Map<IEnumerable<PdoDto>>(model);
+
+            //var modelDto = new PdoDto();
+            foreach (var modelDto in modelsDto)
+            {
+                var journalPdoById = modelsJournalPdo.Where(x => x.Id == modelDto.JournalPdoId).FirstOrDefault();
+                var typeOfPdoById = modelsTypeOfPdo.Where(x => x.Id == modelDto.TypeId).FirstOrDefault();
+                var techCondModelById = modelsTechnicalConditional.Where(x => x.Id == modelDto.TechnicalConditionalId).FirstOrDefault();
+                var inspectorById = modelsInspector.Where(x => x.Id == modelDto.InspectorId).FirstOrDefault();
+                var subjectById = modelsSubject.Where(x => x.Id == modelDto.SubjectId).FirstOrDefault();
+
+                modelDto.JournalNumber = journalPdoById.JournalNumber;
+                modelDto.TypeName = typeOfPdoById.Abb;
+                modelDto.TechnicalConditionalName = techCondModelById.Name;
+                modelDto.InspectorName = inspectorById.Name;
+                modelDto.SubjectName = subjectById.Name;
+            }
+            return modelsDto;
+        }
+        public async Task<PdoDto> AddNewPdoAsync(PdoDto modelDto)
+        {
+            var PdoViewModel = new PdoViewModel();
+
+            var model = _mapperConfig.Mapper.Map<Pdo>(modelDto);
+
+            model = await _repositoryPdo.AddAsync(model);
+
+            modelDto = _mapperConfig.Mapper.Map<PdoDto>(model);
+
+            return modelDto;
         }
     }
 }

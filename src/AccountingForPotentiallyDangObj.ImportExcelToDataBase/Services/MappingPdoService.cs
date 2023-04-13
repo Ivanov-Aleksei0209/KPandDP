@@ -57,14 +57,21 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
                 JournalPdo = (int)x["JournalPdo"],
                 RegistrationNumber = (int)x["RegistrationNumber"],
                 TypeOfPdoAbb = (string)x["TypeOfPdoAbb"],
-                TypeOfPdoName = (string)x["TypeOfPdoName"],
+                //TypeOfPdoName = (string)x["TypeOfPdoName"],
+                Model = (string)x["Model"],
                 ServiceLife = (int)x["ServiceLife"],
                 YearOfManufacture = (int)x["YearOfManufacture"],
                 DateOfRegistration = (string)x["DateOfRegistration"],
+                YearOfCommissioning = (int)x["YearOfCommissioning"],
+                SerialNumber = (string)x["SerialNumber"],
+                Manufacturer = (string)x["Manufacturer"],
                 TechnicalConditional = (string)x["TechnicalConditional"],
                 Inspector = (string)x["Inspector"],
+                InformationAboutTheLastSurvey = (string)x["InformationAboutTheLastSurvey"],
                 InformationAboutTheTechnicalInspection = (string)x["InformationAboutTheTechnicalInspection"],
+                InformationAboutTheTechnicalDiagnostic = (string)x["InformationAboutTheTechnicalDiagnostic"],
                 Capacity = (double)x["Capacity"],
+                Note = (string)x["Note"],
                 ArrowDeparture = (double)x["ArrowDeparture"],
                 NumberOfStops = (int)x["NumberOfStops"],
                 Speed = (double)x["Speed"]
@@ -84,14 +91,21 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
                 pdoDtoModel.JournalPdo = item.JournalPdo;
                 pdoDtoModel.RegistrationNumber = item.RegistrationNumber;
                 pdoDtoModel.TypeOfPdoAbb = item.TypeOfPdoAbb;
-                pdoDtoModel.TypeOfPdoName = item.TypeOfPdoName;
+                //pdoDtoModel.TypeOfPdoName = item.TypeOfPdoName;
+                pdoDtoModel.Model = item.Model;
                 pdoDtoModel.ServiceLife = item.ServiceLife;
                 pdoDtoModel.YearOfManufacture = item.YearOfManufacture;
                 pdoDtoModel.DateOfRegistration = item.DateOfRegistration;
+                pdoDtoModel.YearOfCommissioning = item.YearOfCommissioning;
+                pdoDtoModel.SerialNumber = item.SerialNumber;
+                pdoDtoModel.Manufacturer = item.Manufacturer;
                 pdoDtoModel.TechnicalConditional = item.TechnicalConditional;
                 pdoDtoModel.Inspector = item.Inspector;
+                pdoDtoModel.InformationAboutTheLastSurvey = item.InformationAboutTheLastSurvey;
                 pdoDtoModel.InformationAboutTheTechnicalInspection = item.InformationAboutTheTechnicalInspection;
+                pdoDtoModel.InformationAboutTheTechnicalDiagnostic = item.InformationAboutTheTechnicalDiagnostic;
                 pdoDtoModel.Capacity = item.Capacity;
+                pdoDtoModel.Note = item.Note;
                 pdoDtoModel.ArrowDeparture = item.ArrowDeparture;
                 pdoDtoModel.NumberOfStops = item.NumberOfStops;
                 pdoDtoModel.Speed = item.Speed;
@@ -112,51 +126,74 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             var model = new Pdo();
             var modelsPdo = _repositoryPdo.GetAll().ToList();
             var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
-            if (modelsPdo.Select(x => x.RegistrationNumber).Contains(PdoDtoModel.RegistrationNumber) && modelsJournalPdo.Select(x => x.JournalNumber).Contains(PdoDtoModel.JournalPdo)) {
+            var modelsTypeOfPdo = _repositoryTypeOfPdo.GetAll().ToList();
+
+            if (modelsPdo.Select(x => x.RegistrationNumber).Contains(PdoDtoModel.RegistrationNumber) && modelsJournalPdo.Select(x => x.JournalNumber).Contains(PdoDtoModel.JournalPdo))
+            {
                 model.RegistrationNumber = null;
                 Console.WriteLine($"ПОО с регистрационным номером {PdoDtoModel.RegistrationNumber} уже существует");
             }
-            else { 
-            model.RegistrationNumber = PdoDtoModel.RegistrationNumber;
-            model.DateOfRegistration = DateTime.Parse(PdoDtoModel.DateOfRegistration);
-            model.YearOfManufacture = PdoDtoModel.YearOfManufacture;
-            model.ServiceLife = PdoDtoModel.ServiceLife;
-            model.InstallationLocationAddress = PdoDtoModel.InstallationLocationAddress;
-
-            if (PdoDtoModel.InformationAboutTheTechnicalInspection != null)
+            else
             {
-                model.InformationAboutTheTechnicalInspection = DateTime.Parse(PdoDtoModel.InformationAboutTheTechnicalInspection);
-            }
-                        
-            var journalPdoById = modelsJournalPdo.Where(x => x.JournalNumber == PdoDtoModel.JournalPdo).FirstOrDefault();
-            model.JournalPdoId = journalPdoById.Id;
+                var journalPdoById = modelsJournalPdo.Where(x => x.JournalNumber == PdoDtoModel.JournalPdo).FirstOrDefault();
+                model.JournalPdoId = journalPdoById.Id;
 
-            var modelsTypeOfPdo = _repositoryTypeOfPdo.GetAll().ToList();
-            var typeOfPdoById = modelsTypeOfPdo.Where(x => x.Abb == PdoDtoModel.TypeOfPdoAbb).FirstOrDefault();
-            model.TypeId = typeOfPdoById.Id;
+                var typeOfPdoById = modelsTypeOfPdo.Where(x => x.Abb == PdoDtoModel.TypeOfPdoAbb).FirstOrDefault();
+                model.TypeId = typeOfPdoById.Id;
 
-            var modelsTechnicalConditional = _repositoryTechnicalConditional.GetAll().ToList();
-            var techCondModelById = modelsTechnicalConditional.Where(x => x.Name == PdoDtoModel.TechnicalConditional).FirstOrDefault();
-            model.TechnicalConditionalId = techCondModelById.Id;
+                model.RegistrationNumber = PdoDtoModel.RegistrationNumber;
 
-            var modelsInspector = _repositoryInspector.GetAll().ToList();
-            var inspectorById = modelsInspector.Where(x => x.Name == PdoDtoModel.Inspector).FirstOrDefault();
-            model.InspectorId = inspectorById.Id;
+                model.DateOfRegistration = DateTime.Parse(PdoDtoModel.DateOfRegistration);
 
-            var modelsSubject = _repositorySubject.GetAll().ToList();
-            var subjectById = modelsSubject.Where(x => x.Name == PdoDtoModel.Subject).FirstOrDefault();
-            model.SubjectId = subjectById.Id;
+                var technicalSpecificationModel = new TechnicalSpecification()
+                {
+                    NumberOfStops = PdoDtoModel.NumberOfStops,
+                    ArrowDeparture = PdoDtoModel.ArrowDeparture,
+                    Capacity = PdoDtoModel.Capacity,
+                    Speed = PdoDtoModel.Speed
+                };
+                var technicalSpecificationService = new TechnicalSpecificationService();
+                var technicalSpecificationFromDb = technicalSpecificationService.AddTechnicalSpecificationAsync(technicalSpecificationModel).Result;
+                model.TechnicalSpecificationId = technicalSpecificationFromDb.Id;
 
-            var technicalSpecificationModel = new TechnicalSpecification()
-            {
-                NumberOfStops = PdoDtoModel.NumberOfStops,
-                ArrowDeparture = PdoDtoModel.ArrowDeparture,
-                Capacity = PdoDtoModel.Capacity,
-                Speed = PdoDtoModel.Speed
-            };
-            var technicalSpecificationService = new TechnicalSpecificationService();
-            var technicalSpecificationFromDb = technicalSpecificationService.AddTechnicalSpecificationAsync(technicalSpecificationModel).Result;
-            model.TechnicalSpecificationId = technicalSpecificationFromDb.Id;
+                model.ServiceLife = PdoDtoModel.ServiceLife;
+
+                var modelsInspector = _repositoryInspector.GetAll().ToList();
+                var inspectorById = modelsInspector.Where(x => x.Name == PdoDtoModel.Inspector).FirstOrDefault();
+                model.InspectorId = inspectorById.Id;
+
+                var modelsTechnicalConditional = _repositoryTechnicalConditional.GetAll().ToList();
+                var techCondModelById = modelsTechnicalConditional.Where(x => x.Name == PdoDtoModel.TechnicalConditional).FirstOrDefault();
+                model.TechnicalConditionalId = techCondModelById.Id;
+
+                var modelsSubject = _repositorySubject.GetAll().ToList();
+                var subjectById = modelsSubject.Where(x => x.Name == PdoDtoModel.Subject).FirstOrDefault();
+                model.SubjectId = subjectById.Id;
+
+                model.InstallationLocationAddress = PdoDtoModel.InstallationLocationAddress;
+
+                model.YearOfManufacture = PdoDtoModel.YearOfManufacture;
+                model.YearOfCommissioning = PdoDtoModel.YearOfCommissioning;
+                model.Model = PdoDtoModel.Model;
+                model.SerialNumber = PdoDtoModel.SerialNumber;
+                model.Manufacturer = PdoDtoModel.Manufacturer;
+
+                if (PdoDtoModel.InformationAboutTheLastSurvey != null)
+                {
+                    model.InformationAboutTheLastSurvey = DateTime.Parse(PdoDtoModel.InformationAboutTheLastSurvey);
+                }
+
+                if (PdoDtoModel.InformationAboutTheTechnicalInspection != null)
+                {
+                    model.InformationAboutTheTechnicalInspection = DateTime.Parse(PdoDtoModel.InformationAboutTheTechnicalInspection);
+                }
+
+                if (PdoDtoModel.InformationAboutTheTechnicalDiagnostic != null)
+                {
+                    model.InformationAboutTheTechnicalDiagnostic = DateTime.Parse(PdoDtoModel.InformationAboutTheTechnicalDiagnostic);
+                }
+
+                model.Note = PdoDtoModel.Note;
             }
 
             return model;
@@ -171,7 +208,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             {
                 var model = MapPdoDtoToPdoModel(pdoDto);
                 if (model.RegistrationNumber != null)
-                models.Add(model);
+                    models.Add(model);
             }
             return models;
         }

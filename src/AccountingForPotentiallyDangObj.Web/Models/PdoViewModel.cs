@@ -33,8 +33,8 @@ namespace AccountingForPotentiallyDangObj.Web.Models
                 }
                 return RegistrationNumber.ToString();
             }
-        } 
-        
+        }
+
 
         [DisplayName("ID Тип ПОО")]
         public int TypeId { get; set; }
@@ -48,6 +48,15 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Год выпуска")]
         public int YearOfManufacture { get; set; }
 
+        [DisplayName("Модель")]
+        public string? Model { get; set; }
+
+        [DisplayName("Заводской номер")]
+        public string? SerialNumber { get; set; }
+
+        [DisplayName("Изготовитель")]
+        public string? Manufacturer { get; set; }
+
         [DisplayName("Технические характеристики")]
         public TechnicalSpecification TechnicalSpecification { get; set; }
         public int TechnicalSpecificationId { get; set; }
@@ -55,8 +64,46 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Срок службы")]
         public int ServiceLife { get; set; }
 
+        [DisplayName("Последнее обследование")]
+        public DateOnly InformationAboutTheLastSurvey { get; set; }
+        public string InformationAboutTheLastSurveyString
+        {
+            get
+            {
+                if (InformationAboutTheLastSurvey.ToString() == "01.01.0001")
+                {
+                    return "";
+                }
+                return InformationAboutTheLastSurvey.ToString();
+            }
+        }
+
         [DisplayName("Дата ТО")]
         public DateOnly InformationAboutTheTechnicalInspection { get; set; }
+        public string InformationAboutTheTechnicalInspectionString
+        {
+            get
+            {
+                if (InformationAboutTheTechnicalInspection.ToString() == "01.01.0001")
+                {
+                    return "";
+                }
+                return InformationAboutTheTechnicalInspection.ToString();
+            }
+        }
+        [DisplayName("Дата ТД")]
+        public DateOnly InformationAboutTheTechnicalDiagnostic { get; set; }
+        public string InformationAboutTheTechnicalDiagnosticString
+        {
+            get
+            {
+                if (InformationAboutTheTechnicalDiagnostic.ToString() == "01.01.0001")
+                {
+                    return "";
+                }
+                return InformationAboutTheTechnicalDiagnostic.ToString();
+            }
+        }
 
         [DisplayName("Инспектор")]
         public string? InspectorName { get; set; }

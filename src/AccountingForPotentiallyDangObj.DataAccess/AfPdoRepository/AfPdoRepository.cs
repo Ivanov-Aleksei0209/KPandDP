@@ -27,7 +27,6 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
         public IQueryable<T> GetAll()
         {
             var entities = AfPdoDbContext.Set<T>(); //ToListAsync();
-            //AfPdoDbContext.SaveChangesAsync();
             return entities;
         }
         //метод для создания записи данных в конкретную таблицу БД
@@ -38,12 +37,6 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
             return entit.Entity;
         }
         // метод для получения записи из таблицы БД по заданному id
-        //public async Task<IQueryable<T>> GetByIdAsync(int id)
-        //{
-        //    var entities = AfPdoDbContext.Set<T>().Where(x => x.Id == id).AsNoTracking();
-        //    await AfPdoDbContext.SaveChangesAsync();
-        //    return (IQueryable<T>)entities;
-        //}
         public virtual async Task<T> GetByIdAsync(int id)
         {
             return await AfPdoDbContext.Set<T>().FindAsync(id);

@@ -39,11 +39,7 @@ body {
     text-align: left;
 }
 
-
-
-
 /*Navigator*/
-
 .navbar {
     display: flex;
     background-color: #BBC2FB;
@@ -74,7 +70,10 @@ body {
         background-color: #095f78;
     }
 
-/*PDO table, ReportPDO table*/
+/*PDO table, ReportPDO table, Inspector*/
+.container {
+    margin-bottom: 10px;
+}
 
 .main {
     display: flex;
@@ -140,9 +139,12 @@ body {
     font-weight: bold;
     background-color: #BBC2FB;
 }
+.weight_td select {
+    width: 300px;
+}
 
 .scroll-table-body {
-    height: 500px;
+    height: 450px;
     overflow-x: auto;
     margin-top: 0px;
     margin-bottom: 20px;
@@ -160,31 +162,70 @@ body {
     text-align: center;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 5px 5px;
     background: #095f78;
     font-size: 14px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
 
-.scroll-table tbody td {
+.scroll-table tbody tr {
     text-align: left;
+    height: auto;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
     text-align: center;
-    padding: 10px 15px;
-    font-size: 14px;
+    padding: 5px 5px;
+    font-size: 12px;
     vertical-align: top;
 }
+
+    .scroll-table tbody tr:nth-child(even) {
+        background: #ddf1f7ff;
+    }
+
     .scroll-table tbody tr:hover {
-        color: white;
-        background-color: #095f78;
+        /*color: white;*/
+        background-color: #6bc9e4;
         padding: 10px;
     }
 
-.scroll-table tbody tr:nth-child(even) {
-    background: #BBC2FB;
+.addNewPdoForm table {
+    width: 100%;
+    height: 400px;
 }
+.addNewPdoForm table th {
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    border: none;
+    padding: 15px 5px 0px 5px;
+    /*background: #095f78;*/
+    font-size: 12px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+
+.addNewPdoForm tbody td {
+    /*text-align: left;*/
+    /*height: auto;*/
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    padding: 15px 5px;
+    font-size: 12px;
+    vertical-align: top;
+}
+    .addNewPdoForm tr:nth-child(even) {
+    background: #eee;
+}
+
+td a:visited, td a:link, td a:hover {
+    text-decoration: none;
+    text-align: left;
+    color: black;
+}
+
 
 
 /*Стили для скролла*/
@@ -215,7 +256,6 @@ body {
 }
 
     .pdo-div-button a:link, .pdo-div-button a:visited {
-        
         color: white;
         font-weight: bold;
         padding: 10px;
@@ -228,3 +268,53 @@ body {
         background-color: #095f78;
         padding: 10px;
     }
+
+.footer {
+    display: flex;
+    background-color: #095f78;
+    width: auto;
+    color: white;
+}
+.text-footer {
+    text-align: left;
+    margin-left: 10px;
+    width: 100%;
+    color: white;
+    /*padding: 0px;*/
+}
+
+
+/*Поиск в ПОО*/
+/*#myInput {*/
+/*background-image: url('/css/searchicon.png');*/ /* Добавить значок поиска для ввода */
+/*background-position: 10px 12px;*/ /* Расположите значок поиска */
+/*background-repeat: no-repeat;*/ /* Не повторяйте изображение значка */
+/*width: 100%;*/ /* Полная ширина */
+/*font-size: 12px;*/ /* Увеличить размер шрифта */
+/*padding: 12px 20px 12px 40px;*/ /* Добавить немного отступов */
+/*border: 1px solid #ddd;*/ /* Добавить серую границу */
+/*margin-bottom: 12px;*/ /* Добавить некоторое пространство под входом */
+/*}*/
+
+/*#myTable {
+    border-collapse: collapse;*/ /* Свернуть границы */
+/*width: 100%;*/ /* Полная ширина */
+/*border: 1px solid #ddd;*/ /* Добавить серую границу */
+/*font-size: 18px;*/ /* Увеличить размер шрифта */
+/*}*/
+
+/*#myTable th, #myTable td {
+        text-align: left;*/ /*Выравнивание текста по левому краю */
+/*padding: 12px;*/ /*Добавить отступ */
+/*}*/
+
+/*#myTable tr {*/
+/* Добавить нижнюю границу для всех строк таблицы */
+/*border-bottom: 1px solid #ddd;*/
+/*}
+
+        #myTable tr.header, #myTable tr:hover {*/
+/* Добавить серый цвет фона для заголовка таблицы и при наведении курсора мыши */
+/*background-color: #f1f1f1;*/
+/*}*/
+

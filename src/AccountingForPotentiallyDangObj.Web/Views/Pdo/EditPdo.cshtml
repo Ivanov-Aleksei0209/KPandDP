@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AccountingForPotentiallyDangObj.Web.Models.PdoViewModel>
+@{
+    ViewData["Title"] = "Potentially Danger Objects";
+}
+<div class="main-window">
+    <h4 class="text-center">Регистрация потенциально опасных объектов</h4>
+    <div class="scroll-table">
+        <div class="scroll-table-body">
+
+            <form>
+                <input type="hidden" value="@Model.Select(x => x.Id).ToList()" name="Id" />
+                <table id="myTable">
+                    <thead>
+                        <tr>
+
+                            <th>@Html.DisplayNameFor(model => model.JournalNumber)</th>
+                            <th><input type="text" value="@Model.Select(x => x.JournalNumber).ToList()" name="JournalNumber" /></th>
+                            @*<th>@Html.DisplayNameFor(model => model.RegistrationNumber)</th>
+                            <th>@Html.DisplayNameFor(model => model.TypeName)</th>
+                            <th>@Html.DisplayNameFor(model => model.SubjectName)</th>
+                            <th>@Html.DisplayNameFor(model => model.InstallationLocationAddress)</th>
+                            <th>@Html.DisplayNameFor(model => model.DateOfRegistration)</th>
+                            <th>@Html.DisplayNameFor(model => model.YearOfManufacture)</th>
+                            <th>@Html.DisplayNameFor(model => model.ServiceLife)</th>
+                            <th>@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</th>
+                            <th>@Html.DisplayNameFor(model => model.TechnicalConditionalName)</th>
+                            <th>@Html.DisplayNameFor(model => model.InspectorName)</th>
+                            <th>@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</th>*@
+                            @*<th></th>*@
+                        </tr>
+                    </thead>
+                    @*<tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                    <td>@item.Id</td>
+                    <td>@item.JournalNumber</td>
+                    <td><a href="/Pdo/EditPdo/@item.Id">@item.RegistrationNumberString</a></td>
+                    <td>@item.TypeName</td>
+                    <td>@item.SubjectName</td>
+                    <td>@item.InstallationLocationAddress</td>
+                    <td>@item.DateOfRegistration</td>
+                    <td>@item.YearOfManufacture</td>
+                    <td>@item.ServiceLife</td>
+                    <td>@item.InformationAboutTheTechnicalInspectionString</td>
+                    <td>@item.TechnicalConditionalName</td>
+                    <td>@item.InspectorName</td>
+                    <td>@item.WithdrawalFromRegistrationString</td>
+                    <td><p><a href="/Pdo/EditPdo/@item.Id">Изменить</a></p></td>
+                    </tr>
+                    }
+                    </tbody>*@
+                </table>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="pdo-div-buttons">
+        <div class="pdo-div-button">
+            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Регистрация нового ПОО</a>
+        </div>
+        <div class="pdo-div-button">
+            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="EditPdo">Внесение изменений, связанных с регистрацией ПОО</a>
+        </div>
+    </div>
+</div>

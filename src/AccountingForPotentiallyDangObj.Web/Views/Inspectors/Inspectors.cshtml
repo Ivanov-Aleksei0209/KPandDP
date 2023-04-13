@@ -1,23 +1,43 @@
-﻿@model IEnumerable<AccountingForPotentiallyDangObj.DataAccess.Models.Inspector>
+﻿@model IEnumerable<AccountingForPotentiallyDangObj.Web.Models.InspectorViewModel>
 @{
     ViewData["Title"] = "Inspectors";
 }
 <div class="main-window">
-    <h4 class="text-center">Инспекторский состав отдела надзора</h4>
-    <div class="text-left">
-    <table>
-        <tr>
-            <td class="_id">ID</td>
-            <td class="_id">Name</td>
-        </tr>
-        @foreach (var item in Model)
-        {
+    <h4 class="text-center">Сотрудники Гомельского областного управления Госпромнадзора</h4>
+    <div class="scroll-table">
+        <div class="scroll-table-body">
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Id)</th>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Role)</th>
 
-            <tr>
-                <td class ="_id">@item.Id</td>
-                <td class="td-text"> @item.Name</td>
-            </tr>
-        }
-    </table>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            @if (item.Role != null)
+                            {
+                                <td class="td-center">@item.Id</td>
+                                <td class="td-center"> @item.Name</td>
+                                <td class="td-center"> @item.Role</td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="pdo-div-buttons">
+        <div class="pdo-div-button">
+            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Добавление нового сотрудника</a>
+        </div>
+        @*<div class="pdo-div-button">
+            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Внесение изменений, связанных с регистрацией ПОО</a>
+        </div>*@
     </div>
 </div>

@@ -130,16 +130,16 @@ if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Иванов А.А.' and R
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Концевой С.Н.' and RoleId=2)
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Полторак А.С.' and RoleId=4)
 if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'Смоловик Г.В.' and RoleId=3)
-if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'снят с учета' and RoleId=7)
+if not exists (SELECT*FROM dbo.Inspector WHERE Name=N'снят с учета' and RoleId=null)
 begin
 insert into dbo.Inspector
 values
-(N'Иванов А.А.', 1), 
-(N'Концевой С.Н.', 1), 
-(N'Полторак А.С.', 1), 
-(N'Смоловик Г.В.', 1),
+(N'Иванов А.А.', 2), 
+(N'Концевой С.Н.', 2), 
+(N'Полторак А.С.', 4), 
+(N'Смоловик Г.В.', 3),
 (N'Рафальский Д.С.', 1),
-(N'снят с учета', 1)
+(N'снят с учета', null)
 end
 go
 
@@ -198,22 +198,29 @@ JournalPdoId=2 and
 RegistrationNumber=9999 and 
 TypeId=12 and 
 DateOfRegistration=N'2022-12-05' and 
-YearOfManufacture=1995 and 
 TechnicalSpecificationId=1 and 
-ServiceLife=25 and 
-InformationAboutTheTechnicalInspection=N'2022-10-20' and 
+ServiceLife=25 and
 InspectorId=3 and 
-TechnicalConditionalId=1 and 
-SubjectId=1 and 
+TechnicalConditionalId=1 and
+SubjectId=1 and
 InstallationLocationId=1 and
-WithdrawalFromRegistration=null and
 InstallationLocationAddress=N'Борщевка' and
+YearOfManufacture=1995 and 
+YearOfCommissioning=1995 and
+Model=N'Model' and
+SerialNumber=N'12457n' and
+Manufacturer=N'ОАО Могилевлифтмаш' and
+InformationAboutTheLastSurvey=null and
+InformationAboutTheTechnicalInspection=N'2022-10-20' and 
+InformationAboutTheTechnicalDiagnostic=null and
+WithdrawalFromRegistration=null and
+Note=null and
 Name='17')
 begin
 insert into dbo.Pdo
 values
 
-(2, 9999, 12, N'2022-12-05', 1995, 1, 25, N'2022-10-20', 3, 1, 1, 1, null, N'Борщевка', '17')
+(2, 9999, 12, N'2022-12-05', 1, 25, 3, 1, 1, 1, N'Борщевка', 1995, 1995, N'Model', N'12457n', N'ОАО Могилевлифтмаш', null, N'2022-10-20', null, null, null, N'17')
 end
 go
 

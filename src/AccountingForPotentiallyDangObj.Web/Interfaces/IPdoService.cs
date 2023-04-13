@@ -1,4 +1,5 @@
-﻿using AccountingForPotentiallyDangObj.Web.DtoModels;
+﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
+using AccountingForPotentiallyDangObj.Web.DtoModels;
 
 namespace AccountingForPotentiallyDangObj.Web.Interfaces
 {
@@ -6,5 +7,7 @@ namespace AccountingForPotentiallyDangObj.Web.Interfaces
     {
         IEnumerable<PdoDto> GetAllPdoAsync();
         public IEnumerable<ReportPdoDto> GetReportPdo();
+        Task<PdoDto> AddNewPdoAsync(PdoDto model);
+        Task<IEnumerable<PdoDto>> EditPdoAsync(int id);
     }
 }
