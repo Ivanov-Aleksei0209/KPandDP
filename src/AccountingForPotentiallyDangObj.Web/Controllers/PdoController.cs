@@ -49,11 +49,11 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
         public IActionResult AddNewPdo()
         {
             var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
-            SelectList journalPdo = new SelectList(modelsJournalPdo, "JournalNumber", "JournalNumber");
-            ViewBag.JournalNumber = journalPdo;
+            SelectList journalNumberString = new SelectList(modelsJournalPdo, "Name", "Name");
+            ViewBag.JournalNumberString = journalNumberString;
             var modelsTypePdo = _repositoryTypeOfPdo.GetAll().ToList();
-            SelectList typePdo = new SelectList(modelsTypePdo, "Abb", "Abb");
-            ViewBag.Abb = typePdo;
+            SelectList abb = new SelectList(modelsTypePdo, "Abb", "Abb");
+            ViewBag.Abb = abb;
             var modelsInspector = _repositoryInspector.GetAll().ToList().SkipLast(1);
             SelectList inspector = new SelectList(modelsInspector, "Name", "Name");
             ViewBag.NameInspector = inspector;
@@ -68,39 +68,49 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
             ViewBag.NameInstallationLocation = installationLocation;
             return View();
         }
-        [HttpPost]
-        public string GetFormJournalPdo(string journalPdo)
-        {
-            return journalPdo;
-        }
-        public string GetFormTypePdo(string typePdo)
-        {
-            return typePdo;
-        }
-        public string GetFormInspector(string inspector)
-        {
-            return inspector;
-        }
-        public string GetFormSubject(string subject)
-        {
-            return subject;
-        }
-        public string GetFormTechnicalConditional(string technicalConditional)
-        {
-            return technicalConditional;
-        }
-        public string GetFormInstallationLocation(string installationLocation)
-        {
-            return installationLocation;
-        }
+        //[HttpPost]
+        //public string GetFormJournalPdo(string journalNumberString)
+        //{
+        //    return journalNumberString;
+        //}
+        //[HttpPost]
+        //public string GetFormTypePdo(string abb)
+        //{
+        //    return abb;
+        //}
+        //[HttpPost]
+        //public string GetFormInspector(string inspector)
+        //{
+        //    return inspector;
+        //}
+        //[HttpPost]
+        //public string GetFormSubject(string subject)
+        //{
+        //    return subject;
+        //}
+        //[HttpPost]
+        //public string GetFormTechnicalConditional(string technicalConditional)
+        //{
+        //    return technicalConditional;
+        //}
+        //[HttpPost]
+        //public string GetFormInstallationLocation(string installationLocation)
+        //{
+        //    return installationLocation;
+        //}
 
         [HttpPost]
         public async Task<IActionResult> AddNewPdo(PdoViewModel model)
         {
 
             var resultModel = _mapperConfig.Mapper.Map<PdoDto>(model);
+            resultModel.JournalNumber = Convert.ToInt32(model.JournalNumberString);
+            resultModel.DateOfRegistration = DateTime.Parse(model.DateOfRegistrationString);
+
+
+
             var resultViewModel = await _pdoService.AddNewPdoAsync(resultModel);
-            return View();
+            return Redirect("Pdo");
         }
 
         //[HttpGet]

@@ -9,8 +9,10 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
     public class Pdo : BaseModel
     {
         public int JournalPdoId { get; set; }
+        public JournalPdo JournalPdo { get; set; }
         public int? RegistrationNumber { get; set; }
         public int TypeId { get; set; }
+        public TypeOfPdo Type { get; set; }
         public DateTime DateOfRegistration { get; set; }
         public TechnicalSpecification TechnicalSpecification { get; set; }
         public int? TechnicalSpecificationId { get; set; }

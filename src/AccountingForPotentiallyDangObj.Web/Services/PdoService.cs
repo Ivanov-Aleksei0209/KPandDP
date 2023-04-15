@@ -32,11 +32,11 @@ namespace AccountingForPotentiallyDangObj.Web.Services
         public IEnumerable<PdoDto> GetAllPdoAsync()
         {
             var models = _repositoryPdo.GetAll();
-            var modelsJournalPdo = _repositoryJournalPdo.GetAll();
-            var modelsTypeOfPdo = _repositoryTypeOfPdo.GetAll();
-            var modelsTechnicalConditional = _repositoryTechnicalConditional.GetAll();
-            var modelsInspector = _repositoryInspector.GetAll();
-            var modelsSubject = _repositorySubject.GetAll();
+            var modelsJournalPdo = models.Select(x => x.JournalPdo).ToList(); //_repositoryJournalPdo.GetAll();
+            var modelsTypeOfPdo = models.Select(x => x.Type).ToList(); //_repositoryTypeOfPdo.GetAll();
+            var modelsTechnicalConditional = models.Select(x => x.TechnicalConditional).ToList(); //_repositoryTechnicalConditional.GetAll();
+            var modelsInspector = models.Select(x => x.Inspector).ToList();//_repositoryInspector.GetAll();
+            var modelsSubject = models.Select(x => x.Subject).ToList(); //_repositorySubject.GetAll();
             var modelsDto = _mapperConfig.Mapper.Map<IEnumerable<PdoDto>>(models);
             foreach (var modelDto in modelsDto)
             {
@@ -169,7 +169,6 @@ namespace AccountingForPotentiallyDangObj.Web.Services
         }
         public async Task<PdoDto> AddNewPdoAsync(PdoDto modelDto)
         {
-            var PdoViewModel = new PdoViewModel();
 
             var model = _mapperConfig.Mapper.Map<Pdo>(modelDto);
 

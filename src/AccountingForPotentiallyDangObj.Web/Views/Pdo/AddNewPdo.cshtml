@@ -7,204 +7,130 @@
     <h4 class="text-center">Регистрация потенциально опасных объектов</h4>
     <div class="">
         <div class="addNewPdoForm">
-            <table>
-                <tr>
-                    <th>Номер журнала ПОО</th>
-                    <th>Регистрационный номер ПОО</th>
-                    <th>Тип ПОО</th>
-                    <th>Дата регистрации</th>
-                    <th>Зарегистрировал инспектор</th>
-                    <th>Владелец, субъект ПБ</th>
-                </tr>
-
-                <tr>
-                    <td>
-                        @using (Html.BeginForm("GetFormJournalPdo", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("journalPdo", ViewBag.JournalNumber as SelectList)
-                        }
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "1234", 1, 5, null)
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("GetFormTypePdo", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("typePdo", ViewBag.Abb as SelectList)
-                        }
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "12.04.2023", 1, 10, null)
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("GetFormInspector", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("inspector", ViewBag.NameInspector as SelectList)
-                        }
-                    </td>
-                    <td class="weight_td">
-                        @using (Html.BeginForm("GetFormSubject", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("subject", ViewBag.NameSubject as SelectList)
-                        }
-                    </td>
-                </tr>
-                <tr>
-                    <th>Год изготовления ПОО</th>
-                    <th>Год ввода в эксплуатацию ПОО</th>
-                    <th>Нормативный срок службы</th>
-                    <th>Марка, модель</th>
-                    <th>Заводской номер</th>
-                    <th>Изготовитель ПОО</th>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.TextArea("text", "2000", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "2000", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "25", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "ЛП0401", 1, 10, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "1234", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "Введите наименование изготовителя", 1, 50, null)
-                    </td>
-                </tr>
-                <tr>
-                    <th>Грузоподъемность, т</th>
-                    <th>Скорость, м/с</th>
-                    <th>Количество остановок, шт</th>
-                    <th>Вылет стрелы, м</th>
-                    <th>Дата следующего ТО</th>
-                    <th>Адрес установки</th>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.TextArea("text", "0,5", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "1,0", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "9", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "18", 1, 5, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "20.03.2024", 1, 10, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "Введите адрес установки ПОО", 1, 50, null)
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <th colspan="2">Место установки</th>
-                    <th>Закрепленный инспектор</th>
-                    <th>Техническое состояние</th>
-                    <th>Дата следующего ТД</th>
-                    <th>Дата последнего обследования</th>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        @using (Html.BeginForm("GetFormInstallationLocation", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("installationLocation", ViewBag.NameInstallationLocation as SelectList)
-                        }
-                    </td>
-                   
-                    
-                    <td>
-                        @using (Html.BeginForm("GetFormInspector", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("inspector", ViewBag.NameInspector as SelectList)
-                        }
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("GetFormTechnicalConditional", "Pdo", FormMethod.Post))
-                        {
-                            @Html.DropDownList("technicalConditional", ViewBag.NameTechnicalConditional as SelectList)
-                        }
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "20.03.2024", 1, 10, null)
-                    </td>
-                    <td>
-                        @Html.TextArea("text", "20.03.2024", 1, 10, null)
-                    </td>
-                </tr>
-            </table>
-            @*<form method="post" action="AddNewPdo">
-            <input type="hidden" value="@Model.Select(x => x.Id).ToList()" name="Id" />
-            <table id="myTable">
-            <tr>
-            <td><p>Выберите номер журнала</p></td>
-            <td>
-            <input list="JournalNumber" name="JournalNumber">
-            <datalist id="JournalNumber">
-            <option>31</option>
-            <option>32</option>
-            <option>33</option>
-            <option>34</option>
-            <option>35</option>
-            <option>36</option>
-            </datalist>
-            </td>
-            </tr>
-            <tr>
-            <td>Выберите тип ПОО</td>
-            <input list="TypeName" name="TypeName">
-            <datalist id="TypeName">
-            <option>КСА</option>
-            <option>32</option>
-            <option>33</option>
-            <option>34</option>
-            <option>35</option>
-            <option>36</option>
-            </datalist>
-            </tr>
-            <td><input type="number" name="JournalNumber" /></td>
-
-            <tbody>
-            @foreach (var item in Model)
+            @*<form method="post" asp-action="AddNewPdo">*@
+            @using (Html.BeginForm("AddNewPdo", "Pdo", FormMethod.Post))
             {
-            <tr>
-            <td>@item.Id</td>
-            <td>@item.JournalNumber</td>
-            <td><a href="/Pdo/EditPdo/@item.Id">@item.RegistrationNumberString</a></td>
-            <td>@item.TypeName</td>
-            <td>@item.SubjectName</td>
-            <td>@item.InstallationLocationAddress</td>
-            <td>@item.DateOfRegistration</td>
-            <td>@item.YearOfManufacture</td>
-            <td>@item.ServiceLife</td>
-            <td>@item.InformationAboutTheTechnicalInspectionString</td>
-            <td>@item.TechnicalConditionalName</td>
-            <td>@item.InspectorName</td>
-            <td>@item.WithdrawalFromRegistrationString</td>
-            <td><p><a href="/Pdo/EditPdo/@item.Id">Изменить</a></p></td>
-            </tr>
+                <table>
+                    <tr>
+                        <th>Номер журнала ПОО</th>
+                        <th>Регистрационный номер ПОО</th>
+                        <th>Тип ПОО</th>
+                        <th>Дата регистрации</th>
+                        <th>Зарегистрировал инспектор</th>
+                        <th>Владелец, субъект ПБ</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.DropDownList("journalNumberString", ViewBag.JournalNumber as SelectList)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.RegistrationNumber)
+                        </td>
+                        <td>
+                            @Html.DropDownList("abb", ViewBag.Abb as SelectList)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.DateOfRegistrationString)
+                        </td>
+                        <td>
+                            @Html.DropDownList("inspector", ViewBag.NameInspector as SelectList)
+                        </td>
+                        <td class="weight_td">
+                            @Html.DropDownList("subject", ViewBag.NameSubject as SelectList)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Год изготовления ПОО</th>
+                        <th>Год ввода в эксплуатацию ПОО</th>
+                        <th>Нормативный срок службы</th>
+                        <th>Марка, модель</th>
+                        <th>Заводской номер</th>
+                        <th>Изготовитель ПОО</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(m => m.YearOfManufacture)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.YearOfCommissioning)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.ServiceLife)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.Model)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.SerialNumber)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.Manufacturer)
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            @Html.TextArea("text", "0,5", 1, 5, null)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "1,0", 1, 5, null)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "9", 1, 5, null)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "18", 1, 5, null)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "20.03.2024", 1, 10, null)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "Введите адрес установки ПОО", 1, 50, null)
+                        </td>
+
+                    </tr>
+                    @*<tr>
+                        <th colspan="2">Место установки</th>
+                        <th>Закрепленный инспектор</th>
+                        <th>Техническое состояние</th>
+                        <th>Дата следующего ТД</th>
+                        <th>Дата последнего обследования</th>
+                    </tr>*@
+                    <tr>
+                        <td colspan="2">
+                            @Html.DropDownList("installationLocation", ViewBag.NameInstallationLocation as SelectList)
+                        </td>
+
+                        <td>
+                            @Html.DropDownList("inspector", ViewBag.NameInspector as SelectList)
+                        </td>
+                        <td>
+                            @Html.DropDownList("technicalConditional", ViewBag.NameTechnicalConditional as SelectList)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "20.03.2024", 1, 10, null)
+                        </td>
+                        <td>
+                            @Html.TextArea("text", "20.03.2024", 1, 10, null)
+                        </td>
+                    </tr>
+
+                </table>
+
+                <div class="pdo-div-buttons">
+                    <div class="pdo-div-button">
+                        <input class="pdo-link" type="submit" value="Зарегистрировать" />
+                    </div>
+
+                </div>
+
+                @*</form>*@
             }
-            </tbody>
-            </table>
-            </form>*@
         </div>
     </div>
 
 
 
-    <div class="pdo-div-buttons">
-        <div class="pdo-div-button">
-            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Зарегистрировать</a>
-        </div>
 
-    </div>
 </div>

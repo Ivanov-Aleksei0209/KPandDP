@@ -10,8 +10,11 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("ID Журнал ПОО")]
         public int JournalPdoId { get; set; }
+
         [DisplayName("Журнал ПОО")]
         public int JournalNumber { get; set; }
+        public string JournalNumberString { get; set; }
+
 
         [DisplayName("Рег. №")]
         public int RegistrationNumber { get; set; }
@@ -39,30 +42,53 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("ID Тип ПОО")]
         public int TypeId { get; set; }
 
+
         [DisplayName("Тип ПОО")]
         public string TypeName { get; set; }
+        public string Abb { get; set; }
+        public string AbbString { get; set; }
+
 
         [DisplayName("Дата регистрации")]
         public DateOnly DateOfRegistration { get; set; }
+        public string DateOfRegistrationString { get; set; }
+
 
         [DisplayName("Год выпуска")]
         public int YearOfManufacture { get; set; }
+        public string YearOfManufactureString { get; set; }
+
+
+        [DisplayName("Год ввода в эксплуатацию")]
+        public int? YearOfCommissioning { get; set; }
+        public string? YearOfCommissioningString { get; set; }
+
 
         [DisplayName("Модель")]
         public string? Model { get; set; }
 
+
         [DisplayName("Заводской номер")]
         public string? SerialNumber { get; set; }
 
+
         [DisplayName("Изготовитель")]
         public string? Manufacturer { get; set; }
+
 
         [DisplayName("Технические характеристики")]
         public TechnicalSpecification TechnicalSpecification { get; set; }
         public int TechnicalSpecificationId { get; set; }
 
+        public string? CapacityString { get; set; }
+        public string? ArrowDepartureString { get; set; }
+        public string? SpeedString { get; set; }
+        public string? NumberOfStops { get; set; }
+
+
         [DisplayName("Срок службы")]
         public int ServiceLife { get; set; }
+
 
         [DisplayName("Последнее обследование")]
         public DateOnly InformationAboutTheLastSurvey { get; set; }
@@ -91,6 +117,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
                 return InformationAboutTheTechnicalInspection.ToString();
             }
         }
+
         [DisplayName("Дата ТД")]
         public DateOnly InformationAboutTheTechnicalDiagnostic { get; set; }
         public string InformationAboutTheTechnicalDiagnosticString
@@ -108,25 +135,32 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Инспектор")]
         public string? InspectorName { get; set; }
 
+
         [DisplayName("ID Инспектор")]
         public int? InspectorId { get; set; }
+
 
         [DisplayName("ID Техническое состояние")]
         public int TechnicalConditionalId { get; set; }
 
+
         [DisplayName("Техническое состояние")]
         public string TechnicalConditionalName { get; set; }
+
 
         [DisplayName("ID Владелец")]
         public int SubjectId { get; set; }
 
+
         [DisplayName("Владелец")]
         public string SubjectName { get; set; }
+
 
         [DisplayName("Место установки")]
         public string? InstallationLocationAddress { get; set; }
         public int InstallationLocationId { get; set; }
         public InstallationLocation InstallationLocation { get; set; }
+
 
         [DisplayName("Дата снятия")]
         public DateOnly WithdrawalFromRegistration { get; set; }
