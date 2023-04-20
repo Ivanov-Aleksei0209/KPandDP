@@ -58,7 +58,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
                 RegistrationNumber = (int)x["RegistrationNumber"],
                 TypeOfPdoAbb = (string)x["TypeOfPdoAbb"],
                 //TypeOfPdoName = (string)x["TypeOfPdoName"],
-                Model = (string)x["Model"],
+                ModelName = (string)x["ModelName"],
                 ServiceLife = (int)x["ServiceLife"],
                 YearOfManufacture = (int)x["YearOfManufacture"],
                 DateOfRegistration = (string)x["DateOfRegistration"],
@@ -92,7 +92,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
                 pdoDtoModel.RegistrationNumber = item.RegistrationNumber;
                 pdoDtoModel.TypeOfPdoAbb = item.TypeOfPdoAbb;
                 //pdoDtoModel.TypeOfPdoName = item.TypeOfPdoName;
-                pdoDtoModel.Model = item.Model;
+                pdoDtoModel.ModelName = item.ModelName;
                 pdoDtoModel.ServiceLife = item.ServiceLife;
                 pdoDtoModel.YearOfManufacture = item.YearOfManufacture;
                 pdoDtoModel.DateOfRegistration = item.DateOfRegistration;
@@ -174,7 +174,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 
                 model.YearOfManufacture = PdoDtoModel.YearOfManufacture;
                 model.YearOfCommissioning = PdoDtoModel.YearOfCommissioning;
-                model.Model = PdoDtoModel.Model;
+                model.ModelName = PdoDtoModel.ModelName;
                 model.SerialNumber = PdoDtoModel.SerialNumber;
                 model.Manufacturer = PdoDtoModel.Manufacturer;
 

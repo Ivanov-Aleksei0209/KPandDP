@@ -13,7 +13,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Журнал ПОО")]
         public int JournalNumber { get; set; }
-        public string JournalNumberString { get; set; }
+        //public string JournalNumberString { get; set; }
 
 
         [DisplayName("Рег. №")]
@@ -46,7 +46,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Тип ПОО")]
         public string TypeName { get; set; }
         public string Abb { get; set; }
-        public string AbbString { get; set; }
+        //public string AbbString { get; set; }
 
 
         [DisplayName("Дата регистрации")]
@@ -56,16 +56,16 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Год выпуска")]
         public int YearOfManufacture { get; set; }
-        public string YearOfManufactureString { get; set; }
+        //public string YearOfManufactureString { get; set; }
 
 
         [DisplayName("Год ввода в эксплуатацию")]
         public int? YearOfCommissioning { get; set; }
-        public string? YearOfCommissioningString { get; set; }
+        //public string? YearOfCommissioningString { get; set; }
 
 
         [DisplayName("Модель")]
-        public string? Model { get; set; }
+        public string? ModelName { get; set; }
 
 
         [DisplayName("Заводской номер")]
@@ -83,7 +83,10 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         public string? CapacityString { get; set; }
         public string? ArrowDepartureString { get; set; }
         public string? SpeedString { get; set; }
-        public string? NumberOfStops { get; set; }
+        public int? NumberOfStops { get; set; }
+        //public double? Capacity { get; set; }
+        //public double? ArrowDeparture { get; set; }
+        //public double? Speed { get; set; }
 
 
         [DisplayName("Срок службы")]
@@ -160,7 +163,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         public string? InstallationLocationAddress { get; set; }
         public int InstallationLocationId { get; set; }
         public InstallationLocation InstallationLocation { get; set; }
-
+        public string InstallationLocationName { get; set; }
 
         [DisplayName("Дата снятия")]
         public DateOnly WithdrawalFromRegistration { get; set; }

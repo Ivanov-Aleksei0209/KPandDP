@@ -28,7 +28,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
         public string? InstallationLocationAddress { get; set; }
         public int? YearOfManufacture { get; set; }
         public int? YearOfCommissioning { get; set; }
-        public string? Model { get; set; }
+        public string? ModelName { get; set; }
         public string? SerialNumber { get; set; }
         public string? Manufacturer { get; set; }
         public DateTime? InformationAboutTheLastSurvey { get; set; }

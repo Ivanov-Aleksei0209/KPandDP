@@ -13,6 +13,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             builder.RegisterType<PdoService>().As<IPdoService>();
             builder.RegisterType<SubjectService>().As<ISubjectService>();
             builder.RegisterType<InspectorService>().As<IInspectorService>();
+            builder.RegisterType<TechnicalSpecificationService>().As<ITechnicalSpecificationService>();
             //builder.RegisterType<TechnicalConditional>().As<ITechnicalConditionalService>();
         }
     }

@@ -14,7 +14,7 @@
     [InstallationLocationAddress] NVARCHAR(MAX) NULL, 
     [YearOfManufacture] INT NULL,
     [YearOfCommissioning] INT NULL,
-    [Model] NVARCHAR(50) NULL,
+    [ModelName] NVARCHAR(50) NULL,
     [SerialNumber] NVARCHAR(50) NULL, 
     [Manufacturer] NVARCHAR(MAX) NULL, 
     [InformationAboutTheLastSurvey] DATE NULL, 

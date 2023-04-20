@@ -273,4 +273,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="InstallationLocationAddress" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="49d9db88-4abd-4780-bf00-69e69dd897a6" ChangeDateTime="04/19/2023 16:40:19">
+    <Property Name="ElementName" Value="[dbo].[Pdo].[Model]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Pdo]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ModelName" />
+  </Operation>
 </Operations>

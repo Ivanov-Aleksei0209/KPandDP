@@ -157,3 +157,7 @@ Convert Excel to Json
 Занятие 15
 
 https://www.c-sharpcorner.com/article/net-entity-framework-core-generic-async-operations-with-unit-of-work-generic-re/
+
+============================14.04.2023============================
+Занятие 16
+

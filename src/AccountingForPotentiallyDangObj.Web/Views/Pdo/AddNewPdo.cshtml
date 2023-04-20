@@ -22,22 +22,24 @@
 
                     <tr>
                         <td>
-                            @Html.DropDownList("journalNumberString", ViewBag.JournalNumber as SelectList)
+                            @Html.DropDownList("journalNumber", ViewBag.JournalNumber as SelectList)
                         </td>
                         <td>
+                            @*<input name="RegistrationNumber" type="number">*@
                             @Html.EditorFor(m => m.RegistrationNumber)
                         </td>
                         <td>
                             @Html.DropDownList("abb", ViewBag.Abb as SelectList)
                         </td>
                         <td>
+                            @*<input name="DateOfRegistrationString" type="text">*@
                             @Html.EditorFor(m => m.DateOfRegistrationString)
                         </td>
                         <td>
-                            @Html.DropDownList("inspector", ViewBag.NameInspector as SelectList)
+                            @Html.DropDownList("inspectorName", ViewBag.InspectorName as SelectList)
                         </td>
                         <td class="weight_td">
-                            @Html.DropDownList("subject", ViewBag.NameSubject as SelectList)
+                            @Html.DropDownList("subjectName", ViewBag.SubjectName as SelectList)
                         </td>
                     </tr>
                     <tr>
@@ -59,7 +61,7 @@
                             @Html.EditorFor(m => m.ServiceLife)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.Model)
+                            @Html.EditorFor(m => m.ModelName)
                         </td>
                         <td>
                             @Html.EditorFor(m => m.SerialNumber)
@@ -68,51 +70,58 @@
                             @Html.EditorFor(m => m.Manufacturer)
                         </td>
                     </tr>
-                    
+                    <tr>
+                        <th>Грузоподъемность, т</th>
+                        <th>Скорость, м/с</th>
+                        <th>Количество остановок</th>
+                        <th>Вылет стрелы, м</th>
+                        <th>Дата следующего ТО</th>
+                        <th>Адрес установки ПОО</th>
+                    </tr>
                     <tr>
                         <td>
-                            @Html.TextArea("text", "0,5", 1, 5, null)
+                            @Html.EditorFor(m => m.CapacityString)
                         </td>
                         <td>
-                            @Html.TextArea("text", "1,0", 1, 5, null)
+                            @Html.EditorFor(m => m.SpeedString)
                         </td>
                         <td>
-                            @Html.TextArea("text", "9", 1, 5, null)
+                            @Html.EditorFor(m => m.NumberOfStops)
                         </td>
                         <td>
-                            @Html.TextArea("text", "18", 1, 5, null)
+                            @Html.EditorFor(m => m.ArrowDepartureString)
                         </td>
                         <td>
-                            @Html.TextArea("text", "20.03.2024", 1, 10, null)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
                         </td>
                         <td>
-                            @Html.TextArea("text", "Введите адрес установки ПОО", 1, 50, null)
+                            @Html.EditorFor(m => m.InstallationLocationAddress)
                         </td>
 
                     </tr>
-                    @*<tr>
+                    <tr>
                         <th colspan="2">Место установки</th>
                         <th>Закрепленный инспектор</th>
                         <th>Техническое состояние</th>
                         <th>Дата следующего ТД</th>
                         <th>Дата последнего обследования</th>
-                    </tr>*@
+                    </tr>
                     <tr>
                         <td colspan="2">
-                            @Html.DropDownList("installationLocation", ViewBag.NameInstallationLocation as SelectList)
+                            @Html.DropDownList("installationLocationName", ViewBag.InstallationLocationName as SelectList)
                         </td>
 
                         <td>
-                            @Html.DropDownList("inspector", ViewBag.NameInspector as SelectList)
+                            @Html.DropDownList("inspectorName", ViewBag.InspectorName as SelectList)
                         </td>
                         <td>
-                            @Html.DropDownList("technicalConditional", ViewBag.NameTechnicalConditional as SelectList)
+                            @Html.DropDownList("technicalConditionalName", ViewBag.TechnicalConditionalName as SelectList)
                         </td>
                         <td>
-                            @Html.TextArea("text", "20.03.2024", 1, 10, null)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnosticString)
                         </td>
                         <td>
-                            @Html.TextArea("text", "20.03.2024", 1, 10, null)
+                            @Html.EditorFor(m => m.InformationAboutTheLastSurveyString)
                         </td>
                     </tr>
 

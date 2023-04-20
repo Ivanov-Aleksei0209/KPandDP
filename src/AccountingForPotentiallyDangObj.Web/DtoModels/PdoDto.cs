@@ -31,7 +31,7 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
 
         public int ServiceLife { get; set; }
 
-        public string? Model { get; set; }
+        public string? ModelName { get; set; }
 
         public string? SerialNumber { get; set; }
 

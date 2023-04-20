@@ -14,12 +14,14 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             CreateMap<PdoDto, Pdo>();
             CreateMap<SubjectDto, Subject>();
             CreateMap<InspectorDto, Inspector>();
+            CreateMap<TechnicalSpecificationDto, TechnicalSpecification>();
 
             // Services to DAL
             //CreateMap<JournalPdo, JournalPdoDto>();
             CreateMap<Pdo, PdoDto>();
             CreateMap<Subject, SubjectDto>();
             CreateMap<Inspector, InspectorDto>();
+            CreateMap<TechnicalSpecification, TechnicalSpecificationDto>();
             // Services to WEB
             //CreateMap<JournalPdoDto, JournalPdoViewModel>();
             CreateMap<PdoDto, PdoViewModel>()
@@ -31,6 +33,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             CreateMap<ReportPdoDto, ReportPdoViewModel>();
             CreateMap<SubjectDto, SubjectViewModel>();
             CreateMap<InspectorDto, InspectorViewModel>();
+
 
             // WEB to Services
             //CreateMap<JournalPdoViewModel, JournalPdoDto>();

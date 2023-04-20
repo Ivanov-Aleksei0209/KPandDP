@@ -9,6 +9,6 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Interfaces
     {
         [Key]
         int Id { get; set; }
-        string Name { get; set; }
+        string? Name { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.DtoModels
         public int RegistrationNumber { get; set; }
         public string? TypeOfPdoAbb { get; set; }
         public string? TypeOfPdoName { get; set; }
-        public string? Model { get; set; }
+        public string? ModelName { get; set; }
         public int? ServiceLife { get; set; }
         public int? YearOfManufacture { get; set; }
         public string? DateOfRegistration { get; set; }
