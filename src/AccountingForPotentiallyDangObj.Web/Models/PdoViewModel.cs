@@ -6,14 +6,12 @@ namespace AccountingForPotentiallyDangObj.Web.Models
     public class PdoViewModel
     {
         public int Id { get; set; }
-        //public string? Name { get; set; } = string.Empty;
 
         [DisplayName("ID Журнал ПОО")]
         public int JournalPdoId { get; set; }
 
         [DisplayName("Журнал ПОО")]
         public int JournalNumber { get; set; }
-        //public string JournalNumberString { get; set; }
 
 
         [DisplayName("Рег. №")]
@@ -45,23 +43,32 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Тип ПОО")]
         public string TypeName { get; set; }
+
         public string Abb { get; set; }
-        //public string AbbString { get; set; }
 
 
         [DisplayName("Дата регистрации")]
         public DateOnly DateOfRegistration { get; set; }
-        public string DateOfRegistrationString { get; set; }
+        public string DateOfRegistrationStringViewModel { get; set; }
+        public string DateOfRegistrationString 
+        {
+            get
+            {
+                if (DateOfRegistration.ToString() == "01.01.0001")
+                {
+                    return "";
+                }
+                return DateOfRegistration.ToString();
+            }
+}
 
 
-        [DisplayName("Год выпуска")]
+[DisplayName("Год выпуска")]
         public int YearOfManufacture { get; set; }
-        //public string YearOfManufactureString { get; set; }
 
 
         [DisplayName("Год ввода в эксплуатацию")]
         public int? YearOfCommissioning { get; set; }
-        //public string? YearOfCommissioningString { get; set; }
 
 
         [DisplayName("Модель")]
@@ -78,15 +85,16 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Технические характеристики")]
         public TechnicalSpecification TechnicalSpecification { get; set; }
+
         public int TechnicalSpecificationId { get; set; }
 
         public string? CapacityString { get; set; }
+
         public string? ArrowDepartureString { get; set; }
+
         public string? SpeedString { get; set; }
+
         public int? NumberOfStops { get; set; }
-        //public double? Capacity { get; set; }
-        //public double? ArrowDeparture { get; set; }
-        //public double? Speed { get; set; }
 
 
         [DisplayName("Срок службы")]
@@ -178,5 +186,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
                 return WithdrawalFromRegistration.ToString();
             }
         }
+        public DateTime? WithdrawalFromRegistrationForDb { get; set; }
+        public string? Note { get; set; }
     }
 }

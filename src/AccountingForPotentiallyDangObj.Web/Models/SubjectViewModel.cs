@@ -13,9 +13,9 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("УНП субъекта")]
         public int UNP { get; set; }
         [DisplayName("ID Ведомственная принадлежность субъекта")]
-        public int departmentalAffiliationId { get; set; }
+        public int DepartmentalAffiliationId { get; set; }
         [DisplayName("Ведомственная принадлежность субъекта")]
-        public string departmentalAffiliationName { get; set; }
+        public string DepartmentalAffiliationName { get; set; }
         public DepartmentalAffiliation DepartmentalAffiliation { get; set; }
         [DisplayName("Почтовый адрес субъекта")]
         public string postalAddress { get; set; }

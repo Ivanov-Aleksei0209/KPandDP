@@ -2,6 +2,7 @@
 using AccountingForPotentiallyDangObj.DataAccess.Models;
 using AccountingForPotentiallyDangObj.Web.DtoModels;
 using AccountingForPotentiallyDangObj.Web.Interfaces;
+using AccountingForPotentiallyDangObj.Web.Models;
 
 namespace AccountingForPotentiallyDangObj.Web.Services
 {
@@ -34,6 +35,27 @@ namespace AccountingForPotentiallyDangObj.Web.Services
 
             }
             return modelsDto;
+        }
+
+        public async Task<InspectorDto> MapInspectorViewModelToInspectorDto(InspectorViewModel model)
+        {
+            var resultModel = _mapperConfig.Mapper.Map<InspectorDto>(model);
+
+            var modelsRole = _repositoryRole.GetAll();
+            var roleById = modelsRole.Where(x => x.Name == model.RoleName).FirstOrDefault();
+            resultModel.RoleId = roleById.Id;
+
+            return resultModel;
+        }
+        public async Task<InspectorDto> AddNewInspectorAsync(InspectorDto modelDto)
+        {
+            var model = _mapperConfig.Mapper.Map<Inspector>(modelDto);
+
+            model = await _repositoryInspector.AddAsync(model);
+
+            modelDto = _mapperConfig.Mapper.Map<InspectorDto>(model);
+
+            return modelDto;
         }
     }
 }

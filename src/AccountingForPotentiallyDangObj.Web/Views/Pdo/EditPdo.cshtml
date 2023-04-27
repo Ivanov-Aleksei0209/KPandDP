@@ -1,68 +1,146 @@
-﻿@model IEnumerable<AccountingForPotentiallyDangObj.Web.Models.PdoViewModel>
+﻿@model AccountingForPotentiallyDangObj.Web.Models.PdoViewModel
 @{
     ViewData["Title"] = "Potentially Danger Objects";
 }
 <div class="main-window">
-    <h4 class="text-center">Регистрация потенциально опасных объектов</h4>
-    <div class="scroll-table">
-        <div class="scroll-table-body">
-
-            <form>
-                <input type="hidden" value="@Model.Select(x => x.Id).ToList()" name="Id" />
-                <table id="myTable">
-                    <thead>
-                        <tr>
-
-                            <th>@Html.DisplayNameFor(model => model.JournalNumber)</th>
-                            <th><input type="text" value="@Model.Select(x => x.JournalNumber).ToList()" name="JournalNumber" /></th>
-                            @*<th>@Html.DisplayNameFor(model => model.RegistrationNumber)</th>
-                            <th>@Html.DisplayNameFor(model => model.TypeName)</th>
-                            <th>@Html.DisplayNameFor(model => model.SubjectName)</th>
-                            <th>@Html.DisplayNameFor(model => model.InstallationLocationAddress)</th>
-                            <th>@Html.DisplayNameFor(model => model.DateOfRegistration)</th>
-                            <th>@Html.DisplayNameFor(model => model.YearOfManufacture)</th>
-                            <th>@Html.DisplayNameFor(model => model.ServiceLife)</th>
-                            <th>@Html.DisplayNameFor(model => model.InformationAboutTheTechnicalInspection)</th>
-                            <th>@Html.DisplayNameFor(model => model.TechnicalConditionalName)</th>
-                            <th>@Html.DisplayNameFor(model => model.InspectorName)</th>
-                            <th>@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</th>*@
-                            @*<th></th>*@
-                        </tr>
-                    </thead>
-                    @*<tbody>
-                    @foreach (var item in Model)
-                    {
+    <h4 class="text-center">Карточка потенциально опасного объекта</h4>
+    <div class="">
+        <div class="addNewForm">
+            @using (Html.BeginForm("EditPdo", "Pdo", FormMethod.Post))
+            {
+                <table>
                     <tr>
-                    <td>@item.Id</td>
-                    <td>@item.JournalNumber</td>
-                    <td><a href="/Pdo/EditPdo/@item.Id">@item.RegistrationNumberString</a></td>
-                    <td>@item.TypeName</td>
-                    <td>@item.SubjectName</td>
-                    <td>@item.InstallationLocationAddress</td>
-                    <td>@item.DateOfRegistration</td>
-                    <td>@item.YearOfManufacture</td>
-                    <td>@item.ServiceLife</td>
-                    <td>@item.InformationAboutTheTechnicalInspectionString</td>
-                    <td>@item.TechnicalConditionalName</td>
-                    <td>@item.InspectorName</td>
-                    <td>@item.WithdrawalFromRegistrationString</td>
-                    <td><p><a href="/Pdo/EditPdo/@item.Id">Изменить</a></p></td>
+                        <th>Номер журнала ПОО</th>
+                        <th>Регистрационный номер ПОО</th>
+                        <th>Тип ПОО</th>
+                        <th>Дата регистрации</th>
+                        <th colspan="2">Владелец, субъект ПБ</th>
                     </tr>
-                    }
-                    </tbody>*@
+
+                    <tr>
+                        <td>
+                            @Html.DropDownList("journalNumber", ViewBag.JournalNumber as SelectList)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.RegistrationNumber)
+                        </td>
+                        <td>
+                            @Html.DropDownList("abb", ViewBag.Abb as SelectList)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.DateOfRegistrationString)
+                        </td>
+                        <td class="weight_td" colspan="2">
+                            @Html.DropDownList("subjectName", ViewBag.SubjectName as SelectList)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Год изготовления ПОО</th>
+                        <th>Год ввода в эксплуатацию ПОО</th>
+                        <th>Нормативный срок службы</th>
+                        <th>Марка, модель</th>
+                        <th>Заводской номер</th>
+                        <th>Изготовитель ПОО</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(m => m.YearOfManufacture)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.YearOfCommissioning)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.ServiceLife)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.ModelName)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.SerialNumber)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.Manufacturer)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Грузоподъемность, т</th>
+                        <th>Скорость, м/с</th>
+                        <th>Количество остановок</th>
+                        <th>Вылет стрелы, м</th>
+                        <th>Техническое состояние</th>
+                        <th>Дата следующего ТО</th>
+                        
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.EditorFor(m => m.CapacityString)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.SpeedString)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.NumberOfStops)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.ArrowDepartureString)
+                        </td>
+                        <td>
+                            @Html.DropDownList("technicalConditionalName", ViewBag.TechnicalConditionalName as SelectList)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
+                        </td>
+                        
+
+                    </tr>
+                    <tr>
+                        <th colspan="2">Адрес установки ПОО</th>
+                        <th>Место установки</th>
+                        <th>Закрепленный инспектор</th>
+                        <th>Дата следующего ТД</th>
+                        <th>Дата последнего обследования</th>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.EditorFor(m => m.InstallationLocationAddress)
+                        </td>
+                        <td>
+                            @Html.DropDownList("installationLocationName", ViewBag.InstallationLocationName as SelectList)
+                        </td>
+                        <td>
+                            @Html.DropDownList("inspectorName", ViewBag.InspectorName as SelectList)
+                        </td>
+                        
+                        <td>
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnosticString)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.InformationAboutTheLastSurveyString)
+                        </td>
+                        
+                    </tr>
+                    <tr>
+                        <th colspan="5">Примечание</th>
+                        <th>Дата снятия с регистрации</th>
+                    </tr>
+                    <tr>
+                        <td colspan ="5">
+                            @Html.TextAreaFor(m => m.Note, 2, 25, null)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.WithdrawalFromRegistrationString)
+                        </td>
+                    </tr>
+
                 </table>
-            </form>
-        </div>
-    </div>
 
-
-
-    <div class="pdo-div-buttons">
-        <div class="pdo-div-button">
-            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Регистрация нового ПОО</a>
-        </div>
-        <div class="pdo-div-button">
-            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="EditPdo">Внесение изменений, связанных с регистрацией ПОО</a>
+                <div class="div-buttons">
+                    <div class="div-button">
+                        <input class="button-link" type="submit" value="Сохранить" />
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>

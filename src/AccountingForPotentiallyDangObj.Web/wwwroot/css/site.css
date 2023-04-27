@@ -190,11 +190,11 @@ body {
         padding: 10px;
     }
 
-.addNewPdoForm table {
+.addNewForm table {
     width: 100%;
     height: 400px;
 }
-.addNewPdoForm table th {
+.addNewForm table th {
     font-weight: bold;
     text-align: center;
     color: black;
@@ -206,7 +206,7 @@ body {
     border-right: 1px solid #ddd;
 }
 
-.addNewPdoForm tbody td {
+.addNewForm tbody td {
     /*text-align: left;*/
     /*height: auto;*/
     border-left: 1px solid #ddd;
@@ -216,7 +216,7 @@ body {
     font-size: 12px;
     vertical-align: top;
 }
-    .addNewPdoForm tr:nth-child(even) {
+    .addNewForm tr:nth-child(even) {
     background: #eee;
 }
 
@@ -242,20 +242,20 @@ td a:visited, td a:link, td a:hover {
 }
 
 
-.pdo-div-buttons {
+.div-buttons {
     display: flex;
     /*width: 70%;*/
     float: right;
 }
 
-.pdo-div-button {
+.div-button {
     background-color: #1027F2;
     /*display: inline;*/
     padding: 10px 0px 10px 0px;
     margin: 10px;
 }
 
-    .pdo-div-button a:link, .pdo-div-button a:visited {
+    .div-button a:link, .div-button a:visited {
         color: white;
         font-weight: bold;
         padding: 10px;
@@ -263,7 +263,7 @@ td a:visited, td a:link, td a:hover {
         /*margin: 10px;*/
     }
 
-    .pdo-div-button a:hover {
+    .div-button a:hover {
         color: white;
         background-color: #095f78;
         padding: 10px;

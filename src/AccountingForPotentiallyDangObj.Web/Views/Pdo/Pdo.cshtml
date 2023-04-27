@@ -10,7 +10,6 @@
             <table id="myTable">
                 <thead>
                     <tr>
-                        <th>№ п/п</th>
                         <th>@Html.DisplayNameFor(model => model.JournalNumber)</th>
                         <th>@Html.DisplayNameFor(model => model.RegistrationNumber)</th>
                         <th>@Html.DisplayNameFor(model => model.TypeName)</th>
@@ -26,15 +25,12 @@
                         <th>@Html.DisplayNameFor(model => model.TechnicalConditionalName)</th>
                         <th>@Html.DisplayNameFor(model => model.InspectorName)</th>
                         <th>@Html.DisplayNameFor(model => model.InformationAboutTheLastSurvey)</th>
-                        <th>@Html.DisplayNameFor(model => model.WithdrawalFromRegistration)</th>
-                        @*<th></th>*@
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.Id</td>
                             <td>@item.JournalNumber</td>
                             <td><a href="/Pdo/EditPdo/@item.Id">@item.RegistrationNumberString</a></td>
                             <td>@item.TypeName</td>
@@ -50,8 +46,6 @@
                             <td>@item.TechnicalConditionalName</td>
                             <td>@item.InspectorName</td>
                             <td>@item.InformationAboutTheLastSurveyString</td>
-                            <td>@item.WithdrawalFromRegistrationString</td>
-                            @*<td><p><a href="/Pdo/EditPdo/@item.Id">Изменить</a></p></td>*@
                         </tr>
                     }
                 </tbody>
@@ -61,9 +55,9 @@
 
     
 
-    <div class="pdo-div-buttons">
-        <div class="pdo-div-button">
-            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Регистрация нового ПОО</a>
+    <div class="div-buttons">
+        <div class="div-button">
+            <a class="button-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Регистрация нового ПОО</a>
         </div>
         @*<div class="pdo-div-button">
             <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="EditPdo">Внесение изменений, связанных с регистрацией ПОО</a>

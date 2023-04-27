@@ -6,7 +6,7 @@
 <div class="main-window">
     <h4 class="text-center">Регистрация потенциально опасных объектов</h4>
     <div class="">
-        <div class="addNewPdoForm">
+        <div class="addNewForm">
             @*<form method="post" asp-action="AddNewPdo">*@
             @using (Html.BeginForm("AddNewPdo", "Pdo", FormMethod.Post))
             {
@@ -16,8 +16,7 @@
                         <th>Регистрационный номер ПОО</th>
                         <th>Тип ПОО</th>
                         <th>Дата регистрации</th>
-                        <th>Зарегистрировал инспектор</th>
-                        <th>Владелец, субъект ПБ</th>
+                        <th colspan="2">Владелец, субъект ПБ</th>
                     </tr>
 
                     <tr>
@@ -25,20 +24,16 @@
                             @Html.DropDownList("journalNumber", ViewBag.JournalNumber as SelectList)
                         </td>
                         <td>
-                            @*<input name="RegistrationNumber" type="number">*@
                             @Html.EditorFor(m => m.RegistrationNumber)
                         </td>
                         <td>
                             @Html.DropDownList("abb", ViewBag.Abb as SelectList)
                         </td>
                         <td>
-                            @*<input name="DateOfRegistrationString" type="text">*@
-                            @Html.EditorFor(m => m.DateOfRegistrationString)
+                            @Html.EditorFor(m => m.DateOfRegistrationStringViewModel)
                         </td>
-                        <td>
-                            @Html.DropDownList("inspectorName", ViewBag.InspectorName as SelectList)
-                        </td>
-                        <td class="weight_td">
+                       
+                        <td class="weight_td" colspan="2">
                             @Html.DropDownList("subjectName", ViewBag.SubjectName as SelectList)
                         </td>
                     </tr>
@@ -75,8 +70,9 @@
                         <th>Скорость, м/с</th>
                         <th>Количество остановок</th>
                         <th>Вылет стрелы, м</th>
+                        <th>Техническое состояние</th>
                         <th>Дата следующего ТО</th>
-                        <th>Адрес установки ПОО</th>
+                        
                     </tr>
                     <tr>
                         <td>
@@ -92,31 +88,30 @@
                             @Html.EditorFor(m => m.ArrowDepartureString)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
+                            @Html.DropDownList("technicalConditionalName", ViewBag.TechnicalConditionalName as SelectList)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.InstallationLocationAddress)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
                         </td>
-
                     </tr>
                     <tr>
-                        <th colspan="2">Место установки</th>
+                        <th colspan="2">Адрес установки ПОО</th>
+                        <th>Место установки</th>
                         <th>Закрепленный инспектор</th>
-                        <th>Техническое состояние</th>
                         <th>Дата следующего ТД</th>
                         <th>Дата последнего обследования</th>
                     </tr>
                     <tr>
                         <td colspan="2">
+                            @Html.EditorFor(m => m.InstallationLocationAddress)
+                        </td>
+                        <td>
                             @Html.DropDownList("installationLocationName", ViewBag.InstallationLocationName as SelectList)
                         </td>
-
                         <td>
                             @Html.DropDownList("inspectorName", ViewBag.InspectorName as SelectList)
                         </td>
-                        <td>
-                            @Html.DropDownList("technicalConditionalName", ViewBag.TechnicalConditionalName as SelectList)
-                        </td>
+                        
                         <td>
                             @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnosticString)
                         </td>
@@ -124,12 +119,20 @@
                             @Html.EditorFor(m => m.InformationAboutTheLastSurveyString)
                         </td>
                     </tr>
+                    <tr>
+                        <th colspan="6">Примечание</th>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            @Html.TextAreaFor(m => m.Note, 2, 25, null)
+                        </td>
+                    </tr>
 
                 </table>
 
-                <div class="pdo-div-buttons">
-                    <div class="pdo-div-button">
-                        <input class="pdo-link" type="submit" value="Зарегистрировать" />
+                <div class="div-buttons">
+                    <div class="div-button">
+                        <input class="button-link" type="submit" value="Зарегистрировать" />
                     </div>
 
                 </div>

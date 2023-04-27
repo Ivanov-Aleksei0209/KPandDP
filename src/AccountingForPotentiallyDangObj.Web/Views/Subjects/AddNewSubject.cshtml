@@ -1,0 +1,48 @@
+﻿@model AccountingForPotentiallyDangObj.Web.Models.SubjectViewModel
+@{
+    ViewData["Title"] = "Potentially Danger Objects";
+}
+<div class="main-window">
+    <h4 class="text-center">Добавление нового субъекта промышленной безопасности</h4>
+    <div class="">
+        <div class="addNewForm">
+            @using (Html.BeginForm("AddNewSubject", "Subjects", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <th>Наименование субъекта</th>
+                        <th>УНП</th>
+                        <th>Адрес</th>
+                        <th>Телефон</th>
+                        <th>Ведомственная принадлежность</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.EditorFor(m => m.Name)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.UNP)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.postalAddress)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.phone)
+                        </td>
+                        <td>
+                            @Html.DropDownList("departmentalAffiliationName", ViewBag.DepartmentalAffiliationName as SelectList)
+                        </td>
+                        
+                </table>
+
+                <div class="div-buttons">
+                    <div class="div-button">
+                        <input class="button-link" type="submit" value="Сохранить" />
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

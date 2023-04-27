@@ -21,6 +21,8 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
 
         public DateOnly DateOfRegistrationDateOnly => DateOnly.FromDateTime(DateOfRegistration);
 
+        public string DateOfRegistrationString { get; set; }
+
         public int YearOfManufacture { get; set; }
 
         public int? YearOfCommissioning { get; set; }
@@ -28,6 +30,14 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
         public TechnicalSpecification TechnicalSpecification { get; set; }
 
         public int TechnicalSpecificationId { get; set; }
+
+        public string? CapacityString { get; set; }
+
+        public string? ArrowDepartureString { get; set; }
+
+        public string? SpeedString { get; set; }
+
+        public int? NumberOfStops { get; set; }
 
         public int ServiceLife { get; set; }
 
@@ -66,11 +76,14 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
         public string? InstallationLocationAddress { get; set; }
 
         public InstallationLocation InstallationLocation { get; set; }
+        public string InstallationLocationName { get; set; }
 
+        public DateTime? WithdrawalFromRegistrationForDb { get; set; }
+        
         public DateTime WithdrawalFromRegistration { get; set; }
-
+  
         public DateOnly WithdrawalFromRegistrationDateOnly => DateOnly.FromDateTime(WithdrawalFromRegistration);
-
+    
         public string? Note { get; set; }
     }
 }

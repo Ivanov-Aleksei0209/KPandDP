@@ -12,5 +12,6 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
         [DisplayName("Должность")]
         public string Role { get; set; }
+        public string RoleName { get; set; }
     }
 }

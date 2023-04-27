@@ -10,5 +10,6 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
 
         public string Role { get; set; }
         public int RoleId { get; set; }
+        public string RoleName { get; set; }
     }
 }

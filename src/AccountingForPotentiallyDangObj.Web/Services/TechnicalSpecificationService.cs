@@ -17,10 +17,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
     {
         private readonly IRepository<TechnicalSpecification> _repositoryTechnicalSpecification;
         private readonly IMapperConfig _mapperConfig;
-        //public TechnicalSpecificationService()
-        //{
-
-        //}
+        
         public TechnicalSpecificationService(IRepository<TechnicalSpecification> repositoryTechnicalSpecification, IMapperConfig mapperConfig)
         {
 
@@ -50,6 +47,18 @@ namespace AccountingForPotentiallyDangObj.Web.Services
 
             }
             return technicalSpecificationModels;
+        }
+
+        public async Task<TechnicalSpecificationDto> UpdateTechnicalSpecificationAsync(TechnicalSpecificationDto technicalSpecificationModelDto)
+        {
+
+            var technicalSpecificationModel = _mapperConfig.Mapper.Map<TechnicalSpecification>(technicalSpecificationModelDto);
+
+            technicalSpecificationModel = await _repositoryTechnicalSpecification.UpdateAsync(technicalSpecificationModel);
+
+            technicalSpecificationModelDto = _mapperConfig.Mapper.Map<TechnicalSpecificationDto>(technicalSpecificationModel);
+
+            return technicalSpecificationModelDto;
         }
     }
 }

@@ -58,7 +58,7 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
             var modelsTypePdo = _repositoryTypeOfPdo.GetAll().ToList();
             SelectList abb = new SelectList(modelsTypePdo, "Abb", "Abb");
             ViewBag.Abb = abb;
-            var modelsInspector = _repositoryInspector.GetAll().ToList().SkipLast(1);
+            var modelsInspector = _repositoryInspector.GetAll().ToList();
             SelectList inspectorName = new SelectList(modelsInspector, "Name", "Name");
             ViewBag.InspectorName = inspectorName;
             var modelsSubject = _repositorySubject.GetAll().ToList();
@@ -72,122 +72,56 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
             ViewBag.InstallationLocationName = installationLocationName;
             return View();
         }
-        //[HttpPost]
-        //public string GetFormJournalPdo(string journalNumberString)
-        //{
-        //    return journalNumberString;
-        //}
-        //[HttpPost]
-        //public string GetFormTypePdo(string abb)
-        //{
-        //    return abb;
-        //}
-        //[HttpPost]
-        //public string GetFormInspector(string inspector)
-        //{
-        //    return inspector;
-        //}
-        //[HttpPost]
-        //public string GetFormSubject(string subject)
-        //{
-        //    return subject;
-        //}
-        //[HttpPost]
-        //public string GetFormTechnicalConditional(string technicalConditional)
-        //{
-        //    return technicalConditional;
-        //}
-        //[HttpPost]
-        //public string GetFormInstallationLocation(string installationLocation)
-        //{
-        //    return installationLocation;
-        //}
 
         [HttpPost]
         public async Task<IActionResult> AddNewPdo(PdoViewModel model)
         {
 
-            var resultModel = _mapperConfig.Mapper.Map<PdoDto>(model);
-            //resultModel.JournalNumber = Convert.ToInt32(model.JournalNumberString);
-            resultModel.DateOfRegistration = DateTime.Parse(model.DateOfRegistrationString);
-
-            if (model.InformationAboutTheLastSurveyString.Length > 0)
-            {
-                resultModel.InformationAboutTheLastSurvey = DateTime.Parse(model.InformationAboutTheLastSurveyString);
-            }
-            if (model.InformationAboutTheTechnicalDiagnosticString.Length > 0)
-            {
-                resultModel.InformationAboutTheTechnicalDiagnostic = DateTime.Parse(model.InformationAboutTheTechnicalDiagnosticString);
-            }
-            if (model.InformationAboutTheTechnicalInspectionString.Length > 0)
-            {
-                resultModel.InformationAboutTheTechnicalInspection = DateTime.Parse(model.InformationAboutTheTechnicalInspectionString);
-            }
-
-            var technicalSpecificationModelDto = new TechnicalSpecificationDto();
-
-            technicalSpecificationModelDto.NumberOfStops = model.NumberOfStops;
-            if (model.ArrowDepartureString != null)
-            {
-                technicalSpecificationModelDto.ArrowDeparture = double.Parse(model.ArrowDepartureString);
-            }
-            else
-            {
-                technicalSpecificationModelDto.ArrowDeparture = null;
-            }
-
-            if (model.CapacityString != null)
-            {
-                technicalSpecificationModelDto.Capacity = double.Parse(model.CapacityString);
-            } else { technicalSpecificationModelDto.Capacity = null; }
-
-            if (model.SpeedString != null)
-            {
-                technicalSpecificationModelDto.Speed = double.Parse(model.SpeedString);
-            }else { technicalSpecificationModelDto.Speed = null; }
-
-            
-
-
-            //var technicalSpecificationService = new TechnicalSpecificationService();
-            var technicalSpecificationFromDb = await _technicalSpecificationService.AddTechnicalSpecificationAsync(technicalSpecificationModelDto);
-            resultModel.TechnicalSpecificationId = technicalSpecificationFromDb.Id;
-
-            var modelsJournalPdo = _repositoryJournalPdo.GetAll();
-            var journalPdoById = modelsJournalPdo.Where(x => x.JournalNumber == model.JournalNumber).FirstOrDefault();
-            resultModel.JournalPdoId = journalPdoById.Id;
-
-            var modelsTypeOfPdo = _repositoryTypeOfPdo.GetAll();
-            var typeOfPdoById = modelsTypeOfPdo.Where(x => x.Abb == model.Abb).FirstOrDefault();
-            resultModel.TypeId = typeOfPdoById.Id;
-
-            var modelsTechnicalConditional = _repositoryTechnicalConditional.GetAll();
-            var technicalConditionalById = modelsTechnicalConditional.Where(x => x.Name == model.TechnicalConditionalName).FirstOrDefault();
-            resultModel.TechnicalConditionalId = technicalConditionalById.Id;
-
-            var modelsInspector = _repositoryInspector.GetAll();
-            var inspectorById = modelsInspector.Where(x => x.Name == model.InspectorName).FirstOrDefault();
-            resultModel.InspectorId = inspectorById.Id;
-
-            var modelsSubject = _repositorySubject.GetAll();
-            var subjectById = modelsSubject.Where(x => x.Name == model.SubjectName).FirstOrDefault();
-            resultModel.SubjectId = subjectById.Id;
-
-            var modelsInstallationLocation = _repositoryInstallationLocation.GetAll();
-            var installationLocationById = modelsInstallationLocation.Where(x => x.Name == model.InstallationLocationName).FirstOrDefault();
-            resultModel.InstallationLocationId = installationLocationById.Id;
-
+            var resultModel = await _pdoService.MapPdoViewModelToPdoDto(model);
 
             var resultViewModel = await _pdoService.AddNewPdoAsync(resultModel);
             return Redirect("Pdo");
         }
 
-        //[HttpGet]
+        [HttpGet]
         public async Task<IActionResult> EditPdo(int id)
         {
-            var resultModelDto = await _pdoService.EditPdoAsync(id);
-            var resultModel = _mapperConfig.Mapper.Map<IEnumerable<PdoViewModel>>(resultModelDto);
-            return View();
+            var resultModelDto = await _pdoService.MapPdoToPdoDto(id);
+
+            var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
+            SelectList journalNumber = new SelectList(modelsJournalPdo, "JournalNumber", "JournalNumber", resultModelDto.JournalNumber);
+            ViewBag.JournalNumber = journalNumber;
+
+            var modelsTypePdo = _repositoryTypeOfPdo.GetAll().ToList();
+            SelectList abb = new SelectList(modelsTypePdo, "Abb", "Abb", resultModelDto.TypeName);
+            ViewBag.Abb = abb;
+
+            var modelsInspector = _repositoryInspector.GetAll().ToList().SkipLast(1);
+            SelectList inspectorName = new SelectList(modelsInspector, "Name", "Name", resultModelDto.InspectorName);
+            ViewBag.InspectorName = inspectorName;
+
+            var modelsSubject = _repositorySubject.GetAll().ToList();
+            SelectList subjectName = new SelectList(modelsSubject, "Name", "Name", resultModelDto.SubjectName);
+            ViewBag.SubjectName = subjectName;
+
+            var modelsTechnicalConditional = _repositoryTechnicalConditional.GetAll().ToList();
+            SelectList technicalConditionalName = new SelectList(modelsTechnicalConditional, "Name", "Name", resultModelDto.TechnicalConditionalName);
+            ViewBag.TechnicalConditionalName = technicalConditionalName;
+
+            var modelsInstallationLocation = _repositoryInstallationLocation.GetAll().ToList();
+            SelectList installationLocationName = new SelectList(modelsInstallationLocation, "Name", "Name", resultModelDto.InstallationLocationName);
+            ViewBag.InstallationLocationName = installationLocationName;
+
+            var resultModel = _mapperConfig.Mapper.Map<PdoViewModel>(resultModelDto);
+            return View(resultModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditPdo(PdoViewModel model)
+        {
+            var resultModel = await _pdoService.MapPdoViewModelToPdoDtoUpdate(model);
+
+            var resultViewModel = await _pdoService.EditPdoAsync(resultModel);
+            return Redirect("Pdo");
         }
     }
 }
