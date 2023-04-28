@@ -29,7 +29,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
         {
             var technicalSpecificationModel = _mapperConfig.Mapper.Map<TechnicalSpecification>(technicalSpecificationModelDto);
 
-            technicalSpecificationModel = await _repositoryTechnicalSpecification.AddAsync(technicalSpecificationModel);
+            technicalSpecificationModel = await _repositoryTechnicalSpecification.CreateAsync(technicalSpecificationModel);
 
             technicalSpecificationModelDto = _mapperConfig.Mapper.Map<TechnicalSpecificationDto>(technicalSpecificationModel);
 
@@ -43,7 +43,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             foreach (var technicalSpecificationModel in technicalSpecificationModels)
             {
 
-                await _repositoryTechnicalSpecification.AddAsync(technicalSpecificationModel);
+                await _repositoryTechnicalSpecification.CreateAsync(technicalSpecificationModel);
 
             }
             return technicalSpecificationModels;

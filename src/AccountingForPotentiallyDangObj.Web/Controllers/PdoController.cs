@@ -14,6 +14,7 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
     public class PdoController : Controller
     {
         private readonly IPdoService _pdoService;
+        private readonly IPdoHelper _pdoHelper;
         private readonly ITechnicalSpecificationService _technicalSpecificationService;
         private readonly IRepository<JournalPdo> _repositoryJournalPdo;
         private readonly IRepository<TypeOfPdo> _repositoryTypeOfPdo;
@@ -22,11 +23,14 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
         private readonly IRepository<Subject> _repositorySubject;
         private readonly IRepository<InstallationLocation> _repositoryInstallationLocation;
         private readonly IMapperConfig _mapperConfig;
-        public PdoController(IPdoService pdoService, ITechnicalSpecificationService technicalSpecificationService, 
-            IRepository<JournalPdo> repositoryJournalPdo, IRepository<TypeOfPdo> repositoryTypeOfPdo, IRepository<TechnicalConditional> repositoryTechnicalConditional,
-            IRepository<Inspector> repositoryInspector, IRepository<Subject> repositorySubject, IRepository<InstallationLocation> repositoryInstallationLocation, IMapperConfig mapperConfig)
+        public PdoController(IPdoService pdoService, IPdoHelper pdoHelper, ITechnicalSpecificationService technicalSpecificationService, 
+            IRepository<JournalPdo> repositoryJournalPdo, IRepository<TypeOfPdo> repositoryTypeOfPdo, 
+            IRepository<TechnicalConditional> repositoryTechnicalConditional,
+            IRepository<Inspector> repositoryInspector, IRepository<Subject> repositorySubject, 
+            IRepository<InstallationLocation> repositoryInstallationLocation, IMapperConfig mapperConfig)
         {
             _pdoService = pdoService;
+            _pdoHelper = pdoHelper;
             _technicalSpecificationService = technicalSpecificationService;
             _repositoryJournalPdo = repositoryJournalPdo;
             _repositoryTypeOfPdo = repositoryTypeOfPdo;
@@ -50,7 +54,7 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
             return View(resultModel);
         }
         [HttpGet]
-        public IActionResult AddNewPdo()
+        public IActionResult CreatePdo()
         {
             var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
             SelectList journalNumber = new SelectList(modelsJournalPdo, "JournalNumber", "JournalNumber");
@@ -74,19 +78,19 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddNewPdo(PdoViewModel model)
+        public async Task<IActionResult> CreatePdo(PdoViewModel model)
         {
 
-            var resultModel = await _pdoService.MapPdoViewModelToPdoDto(model);
+            var resultModel = await _pdoHelper.GetPdoDtoForAddAsync(model);
 
-            var resultViewModel = await _pdoService.AddNewPdoAsync(resultModel);
-            return Redirect("Pdo");
+            var resultViewModel = await _pdoService.CreatePdoAsync(resultModel);
+            return RedirectToAction(nameof(Pdo));
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditPdo(int id)
+        public async Task<IActionResult> UpdatePdo(int id)
         {
-            var resultModelDto = await _pdoService.MapPdoToPdoDto(id);
+            var resultModelDto = await _pdoHelper.GetPdoDtoByIdAsync(id);
 
             var modelsJournalPdo = _repositoryJournalPdo.GetAll().ToList();
             SelectList journalNumber = new SelectList(modelsJournalPdo, "JournalNumber", "JournalNumber", resultModelDto.JournalNumber);
@@ -116,12 +120,12 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
             return View(resultModel);
         }
         [HttpPost]
-        public async Task<IActionResult> EditPdo(PdoViewModel model)
+        public async Task<IActionResult> UpdatePdo(PdoViewModel model)
         {
-            var resultModel = await _pdoService.MapPdoViewModelToPdoDtoUpdate(model);
+            var resultModel = await _pdoHelper.GetPdoDtoForUpdateAsync(model);
 
-            var resultViewModel = await _pdoService.EditPdoAsync(resultModel);
-            return Redirect("Pdo");
+            var resultViewModel = await _pdoService.UpdatePdoAsync(resultModel);
+            return RedirectToAction(nameof(Pdo));
         }
     }
 }

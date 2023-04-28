@@ -36,7 +36,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             foreach (var subjectModel in subjectsModel)
             {
                 
-                await _repositorySubject.AddAsync(subjectModel);  
+                await _repositorySubject.CreateAsync(subjectModel);  
                
             }
             return subjectsModel;

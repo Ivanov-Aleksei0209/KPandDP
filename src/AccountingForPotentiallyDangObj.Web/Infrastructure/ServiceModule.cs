@@ -1,4 +1,5 @@
 ﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
+using AccountingForPotentiallyDangObj.Web.Helpers;
 using AccountingForPotentiallyDangObj.Web.Interfaces;
 using AccountingForPotentiallyDangObj.Web.Services;
 using Autofac;
@@ -14,6 +15,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             builder.RegisterType<SubjectService>().As<ISubjectService>();
             builder.RegisterType<InspectorService>().As<IInspectorService>();
             builder.RegisterType<TechnicalSpecificationService>().As<ITechnicalSpecificationService>();
+            builder.RegisterType<PdoHelper>().As<IPdoHelper>();
             //builder.RegisterType<TechnicalConditional>().As<ITechnicalConditionalService>();
         }
     }

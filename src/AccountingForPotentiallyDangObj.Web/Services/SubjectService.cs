@@ -51,7 +51,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
         {
             var subjectModel = _mapperConfig.Mapper.Map<Subject>(modelDto);
 
-            subjectModel = await _repositorySubject.AddAsync(subjectModel);
+            subjectModel = await _repositorySubject.CreateAsync(subjectModel);
 
             modelDto = _mapperConfig.Mapper.Map<SubjectDto>(subjectModel);
 

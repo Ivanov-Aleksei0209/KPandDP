@@ -25,7 +25,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 
         public async Task<TechnicalSpecification> AddTechnicalSpecificationAsync(TechnicalSpecification technicalSpecificationModel)
         {
-            await _repositoryTechnicalSpecification.AddAsync(technicalSpecificationModel);
+            await _repositoryTechnicalSpecification.CreateAsync(technicalSpecificationModel);
             return technicalSpecificationModel;
         }
 
@@ -36,7 +36,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             foreach (var technicalSpecificationModel in technicalSpecificationModels)
             {
 
-                await _repositoryTechnicalSpecification.AddAsync(technicalSpecificationModel);
+                await _repositoryTechnicalSpecification.CreateAsync(technicalSpecificationModel);
 
             }
             return technicalSpecificationModels;

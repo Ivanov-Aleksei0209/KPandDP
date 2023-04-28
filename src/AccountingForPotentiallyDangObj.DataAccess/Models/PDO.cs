@@ -15,7 +15,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Models
         public TypeOfPdo Type { get; set; }
         public DateTime DateOfRegistration { get; set; }
         public TechnicalSpecification TechnicalSpecification { get; set; }
-        public int? TechnicalSpecificationId { get; set; }
+        public int TechnicalSpecificationId { get; set; }
         public int? ServiceLife { get; set; }
         public int? InspectorId { get; set; }
         public Inspector Inspector { get; set; }

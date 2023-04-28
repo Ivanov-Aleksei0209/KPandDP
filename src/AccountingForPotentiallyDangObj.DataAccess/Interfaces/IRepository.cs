@@ -12,7 +12,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.Interfaces
     {
         AfPdoDbContext AfPdoDbContext { get; set; }
 
-        Task<T> AddAsync(T entity);
+        Task<T> CreateAsync(T entity);
         Task DeleteAsync(T entity);
         IQueryable<T> GetAll();
         Task<T> GetByIdAsync(int id);

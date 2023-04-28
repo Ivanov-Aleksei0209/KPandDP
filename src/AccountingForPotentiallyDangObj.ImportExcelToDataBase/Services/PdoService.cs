@@ -27,7 +27,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             foreach (var PdoModel in PdoModels)
             {
 
-                await _repositoryPdo.AddAsync(PdoModel);
+                await _repositoryPdo.CreateAsync(PdoModel);
 
             }
             return PdoModels;

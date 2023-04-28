@@ -51,7 +51,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
         {
             var model = _mapperConfig.Mapper.Map<Inspector>(modelDto);
 
-            model = await _repositoryInspector.AddAsync(model);
+            model = await _repositoryInspector.CreateAsync(model);
 
             modelDto = _mapperConfig.Mapper.Map<InspectorDto>(model);
 

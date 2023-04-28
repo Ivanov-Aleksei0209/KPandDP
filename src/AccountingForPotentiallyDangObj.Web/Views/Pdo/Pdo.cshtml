@@ -32,7 +32,7 @@
                     {
                         <tr>
                             <td>@item.JournalNumber</td>
-                            <td><a href="/Pdo/EditPdo/@item.Id">@item.RegistrationNumberString</a></td>
+                            <td><a href="/Pdo/UpdatePdo/@item.Id">@item.RegistrationNumberString</a></td>
                             <td>@item.TypeName</td>
                             <td>@item.SubjectName</td>
                             <td>@item.InstallationLocationAddress</td>
@@ -57,7 +57,7 @@
 
     <div class="div-buttons">
         <div class="div-button">
-            <a class="button-link" asp-area="" asp-controller="Pdo" asp-action="AddNewPdo">Регистрация нового ПОО</a>
+            <a class="button-link" asp-area="" asp-controller="Pdo" asp-action="CreatePdo">Регистрация нового ПОО</a>
         </div>
         @*<div class="pdo-div-button">
             <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="EditPdo">Внесение изменений, связанных с регистрацией ПОО</a>

@@ -32,7 +32,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var expectedObj = new T { Name = Name };
 
             // Act
-            var entityAdded = await _repository.AddAsync(expectedObj);
+            var entityAdded = await _repository.CreateAsync(expectedObj);
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
 
             // Assert
@@ -47,7 +47,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var expectedObj = new T { Name = Name };
 
             // Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
 
             //Assert
@@ -62,7 +62,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var expectedObj = new T { Name = Name };
 
             // Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             expectedObj.Name = NameUpdate;
             var expectedObjUpdate = await _repository.UpdateAsync(expectedObj);
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
@@ -79,7 +79,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var expectedObj = new T { Name = Name };
 
             //Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             var entities = (await _repository.GetByIdAsync(expectedObj.Id));
 
             //Assert
@@ -94,7 +94,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             var expectedObj = new T { Name = Name };
 
             //Act
-            var expectedObjAdded = await _repository.AddAsync(expectedObj);
+            var expectedObjAdded = await _repository.CreateAsync(expectedObj);
             await _repository.DeleteAsync(expectedObjAdded);
             var entities = await _repository.GetByIdAsync(expectedObj.Id);
 

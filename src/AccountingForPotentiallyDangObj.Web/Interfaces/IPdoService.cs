@@ -9,11 +9,11 @@ namespace AccountingForPotentiallyDangObj.Web.Interfaces
         IEnumerable<PdoDto> GetAllPdoAsync();
         public IEnumerable<ReportPdoDto> GetReportPdo();
 
-        Task<PdoDto> MapPdoViewModelToPdoDto(PdoViewModel model);
-        Task<PdoDto> AddNewPdoAsync(PdoDto model);
-        Task<PdoDto> EditPdoAsync(PdoDto modelDto);
-        Task<PdoDto> MapPdoToPdoDto(int id);
-        Task<PdoDto> MapPdoViewModelToPdoDtoUpdate(PdoViewModel model);
+        //Task<PdoDto> GetPdoDtoForAddAsync(PdoViewModel model);
+        Task<PdoDto> CreatePdoAsync(PdoDto model);
+        Task<PdoDto> UpdatePdoAsync(PdoDto modelDto);
+        //Task<PdoDto> GetPdoDtoByIdAsync(int id);
+        //Task<PdoDto> GetPdoDtoForUpdateAsync(PdoViewModel model);
 
 
     }

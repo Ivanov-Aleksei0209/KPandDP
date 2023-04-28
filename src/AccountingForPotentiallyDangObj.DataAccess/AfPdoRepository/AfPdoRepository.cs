@@ -30,7 +30,7 @@ namespace AccountingForPotentiallyDangObj.DataAccess.AfPdoRepository
             return entities;
         }
         //метод для создания записи данных в конкретную таблицу БД
-        public async Task<T> AddAsync(T entity)
+        public async Task<T> CreateAsync(T entity)
         {
             var entit = await AfPdoDbContext.Set<T>().AddAsync(entity);
             await AfPdoDbContext.SaveChangesAsync();

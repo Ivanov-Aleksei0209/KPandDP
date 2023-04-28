@@ -27,7 +27,7 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
 
         public int? YearOfCommissioning { get; set; }
 
-        public TechnicalSpecification TechnicalSpecification { get; set; }
+        public TechnicalSpecificationDto TechnicalSpecification { get; set; }
 
         public int TechnicalSpecificationId { get; set; }
 

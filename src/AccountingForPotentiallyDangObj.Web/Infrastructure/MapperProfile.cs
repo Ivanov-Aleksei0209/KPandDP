@@ -36,6 +36,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             CreateMap<ReportPdoDto, ReportPdoViewModel>();
             CreateMap<SubjectDto, SubjectViewModel>();
             CreateMap<InspectorDto, InspectorViewModel>();
+            CreateMap<TechnicalSpecificationDto, TechnicalSpecificationViewModel>();
 
 
             // WEB to Services
@@ -50,6 +51,7 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
                 .ForMember(dest => dest.InformationAboutTheTechnicalDiagnostic, opt => opt.MapFrom(src => src.InformationAboutTheTechnicalDiagnostic.ToDateTime(new TimeOnly())));
             CreateMap<SubjectViewModel, SubjectDto>();
             CreateMap<InspectorViewModel, InspectorDto>();
+            CreateMap<TechnicalSpecificationViewModel, TechnicalSpecificationDto>();
 
         }
 

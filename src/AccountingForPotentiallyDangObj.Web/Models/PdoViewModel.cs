@@ -1,5 +1,7 @@
 ﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AccountingForPotentiallyDangObj.Web.Models
 {
@@ -48,8 +50,12 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
 
         [DisplayName("Дата регистрации")]
+        //[DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
         public DateOnly DateOfRegistration { get; set; }
-        public string DateOfRegistrationStringViewModel { get; set; }
+
+        [Required(ErrorMessage = "Введите дату регистрации")]
+        public string? DateOfRegistrationStringViewModel { get; set; }
+
         public string DateOfRegistrationString 
         {
             get
@@ -84,7 +90,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
 
         [DisplayName("Технические характеристики")]
-        public TechnicalSpecification TechnicalSpecification { get; set; }
+        public TechnicalSpecificationViewModel TechnicalSpecification { get; set; }
 
         public int TechnicalSpecificationId { get; set; }
 

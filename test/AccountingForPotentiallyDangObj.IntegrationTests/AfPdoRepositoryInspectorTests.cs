@@ -18,7 +18,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             };
 
             // Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
             //var testGetById = _repository.GetByIdAsync(expectedObj.Id).Result;
             //var tex = testGetById.ToList().FirstOrDefault().TechnicalSpecification.Id;
@@ -38,7 +38,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
                 Role = new Role()
             };
             // Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
 
             //Assert
@@ -58,7 +58,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             };
 
             // Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             expectedObj.Name = NameUpdate;
             var expectedObjUpdate = await _repository.UpdateAsync(expectedObj);
             var entities = _repository.GetAll().ToList().Where(x => x.Id == expectedObj.Id).FirstOrDefault();
@@ -79,7 +79,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             };
 
             //Act
-            await _repository.AddAsync(expectedObj);
+            await _repository.CreateAsync(expectedObj);
             var entities = await _repository.GetByIdAsync(expectedObj.Id);
 
             //Assert
@@ -98,7 +98,7 @@ namespace AccountingForPotentiallyDangObj.IntegrationTests
             };
 
             //Act
-            var expectedObjAdded = await _repository.AddAsync(expectedObj);
+            var expectedObjAdded = await _repository.CreateAsync(expectedObj);
             await _repository.DeleteAsync(expectedObjAdded);
             var entities = await _repository.GetByIdAsync(expectedObj.Id);
 

@@ -1,14 +1,12 @@
 ﻿@model AccountingForPotentiallyDangObj.Web.Models.PdoViewModel
 @{
-
     ViewData["Title"] = "Potentially Danger Objects";
 }
 <div class="main-window">
-    <h4 class="text-center">Регистрация потенциально опасных объектов</h4>
+    <h4 class="text-center">Карточка потенциально опасного объекта</h4>
     <div class="">
         <div class="addNewForm">
-            @*<form method="post" asp-action="AddNewPdo">*@
-            @using (Html.BeginForm("AddNewPdo", "Pdo", FormMethod.Post))
+            @using (Html.BeginForm("UpdatePdo", "Pdo", FormMethod.Post))
             {
                 <table>
                     <tr>
@@ -30,9 +28,8 @@
                             @Html.DropDownList("abb", ViewBag.Abb as SelectList)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.DateOfRegistrationStringViewModel)
+                            @Html.EditorFor(m => m.DateOfRegistration)
                         </td>
-                       
                         <td class="weight_td" colspan="2">
                             @Html.DropDownList("subjectName", ViewBag.SubjectName as SelectList)
                         </td>
@@ -93,6 +90,8 @@
                         <td>
                             @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
                         </td>
+                        
+
                     </tr>
                     <tr>
                         <th colspan="2">Адрес установки ПОО</th>
@@ -100,6 +99,7 @@
                         <th>Закрепленный инспектор</th>
                         <th>Дата следующего ТД</th>
                         <th>Дата последнего обследования</th>
+                        
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -118,13 +118,18 @@
                         <td>
                             @Html.EditorFor(m => m.InformationAboutTheLastSurveyString)
                         </td>
+                        
                     </tr>
                     <tr>
-                        <th colspan="6">Примечание</th>
+                        <th colspan="5">Примечание</th>
+                        <th>Дата снятия с регистрации</th>
                     </tr>
                     <tr>
-                        <td colspan="6">
+                        <td colspan ="5">
                             @Html.TextAreaFor(m => m.Note, 2, 25, null)
+                        </td>
+                        <td>
+                            @Html.EditorFor(m => m.WithdrawalFromRegistrationString)
                         </td>
                     </tr>
 
@@ -132,17 +137,10 @@
 
                 <div class="div-buttons">
                     <div class="div-button">
-                        <input class="button-link" type="submit" value="Зарегистрировать" />
+                        <input class="button-link" type="submit" value="Сохранить" />
                     </div>
-
                 </div>
-
-                @*</form>*@
             }
         </div>
     </div>
-
-
-
-
 </div>
