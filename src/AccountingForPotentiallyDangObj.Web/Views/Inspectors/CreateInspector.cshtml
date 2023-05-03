@@ -1,0 +1,36 @@
+﻿@model AccountingForPotentiallyDangObj.Web.Models.InspectorViewModel
+@{
+    ViewData["Title"] = "Potentially Danger Objects";
+}
+<div class="main-window">
+    <h4 class="text-center">Добавление нового сотрудника управления</h4>
+    <div class="">
+        <div class="addNewForm">
+            @using (Html.BeginForm("CreateInspector", "Inspectors", FormMethod.Post))
+            {
+                <table>
+                    <tr>
+                        <th>Фамилия, инициалы сотрудника</th>
+                        <th>Должность</th>                        
+                    </tr>
+
+                    <tr>
+                        <td>
+                            @Html.EditorFor(m => m.Name)
+                        </td>
+                        <td>
+                            @Html.DropDownList("roleName", ViewBag.RoleName as SelectList)
+                        </td>
+
+                </table>
+
+                <div class="div-buttons">
+                    <div class="div-button">
+                        <input class="button-link" type="submit" value="Сохранить" />
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

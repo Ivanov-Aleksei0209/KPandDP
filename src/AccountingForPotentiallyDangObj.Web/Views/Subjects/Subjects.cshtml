@@ -20,7 +20,7 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td>@item.Name</td>
+                            <td><a href="/Subjects/UpdateSubject/@item.Id">@item.Name</a></td>
                             <td>@item.UNP</td>
                             <td>@item.DepartmentalAffiliationName</td>
                             <td>@item.postalAddress</td>
@@ -30,11 +30,12 @@
                 </tbody>
             </table>
         </div>
+        <div class="updateObject">Для внесения изменения кликните по наименованию субъекта</div>
     </div>
 
     <div class="div-buttons">
         <div class="div-button">
-            <a class="button-link" asp-area="" asp-controller="Subjects" asp-action="AddNewSubject">Добавление нового субъекта</a>
+            <a class="button-link" asp-area="" asp-controller="Subjects" asp-action="CreateSubject">Добавление нового субъекта</a>
         </div>        
     </div>
 </div>

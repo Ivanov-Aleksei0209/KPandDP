@@ -3,15 +3,15 @@
     ViewData["Title"] = "Potentially Danger Objects";
 }
 <div class="main-window">
-    <h4 class="text-center">Добавление нового субъекта промышленной безопасности</h4>
+    <h4 class="text-center">Карточка сотрудника управления</h4>
     <div class="">
         <div class="addNewForm">
-            @using (Html.BeginForm("AddNewInspector", "Inspectors", FormMethod.Post))
+            @using (Html.BeginForm("UpdateInspector", "Inspectors", FormMethod.Post))
             {
                 <table>
                     <tr>
                         <th>Фамилия, инициалы сотрудника</th>
-                        <th>Должность</th>                        
+                        <th>Должность</th>
                     </tr>
 
                     <tr>

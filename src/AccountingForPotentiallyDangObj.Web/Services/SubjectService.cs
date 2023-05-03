@@ -37,17 +37,8 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             }
             return modelsDto;
         }
-        public async Task<SubjectDto> MapSubjectViewModelToSubjectDto(SubjectViewModel model)
-        {
-            var resultModel = _mapperConfig.Mapper.Map<SubjectDto>(model);
-
-            var modelsDepartmentalAffiliation = _repositoryDepartmentalAffilation.GetAll();
-            var departmentalAffilationById = modelsDepartmentalAffiliation.Where(x => x.Name == model.DepartmentalAffiliationName).FirstOrDefault();
-            resultModel.DepartmentalAffiliationId = departmentalAffilationById.Id;
-
-            return resultModel;
-        }
-        public async Task<SubjectDto> AddNewSubjectAsync(SubjectDto modelDto)
+        
+        public async Task<SubjectDto> CreateSubjectAsync(SubjectDto modelDto)
         {
             var subjectModel = _mapperConfig.Mapper.Map<Subject>(modelDto);
 
@@ -58,18 +49,18 @@ namespace AccountingForPotentiallyDangObj.Web.Services
             return modelDto;
         }
 
-        //public async Task<SubjectDto> EditSubjectAsync(int id)
-        //{
-        //    var modelById = await _repositorySubject.GetByIdAsync(id);
+       
+        public async Task<SubjectDto> UpdateSubjectAsync(SubjectDto modelDto)
+        {
 
-        //    var model = _mapperConfig.Mapper.Map<Subject>(modelDto);
+            var model = _mapperConfig.Mapper.Map<Subject>(modelDto);
 
-        //    model = await _repositorySubject.UpdateAsync(model);
+            model = await _repositorySubject.UpdateAsync(model);
 
-        //    modelDto = _mapperConfig.Mapper.Map<SubjectDto>(model);
+            modelDto = _mapperConfig.Mapper.Map<SubjectDto>(model);
 
-        //    return modelDto;
-        //}
+            return modelDto;
+        }
 
     }
 }

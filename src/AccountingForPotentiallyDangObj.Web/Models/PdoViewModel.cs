@@ -1,7 +1,7 @@
 ﻿using AccountingForPotentiallyDangObj.DataAccess.Models;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering; 
 
 namespace AccountingForPotentiallyDangObj.Web.Models
 {
@@ -50,21 +50,21 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
 
         [DisplayName("Дата регистрации")]
-        //[DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = true)]
-        public DateOnly DateOfRegistration { get; set; }
-
-        [Required(ErrorMessage = "Введите дату регистрации")]
-        public string? DateOfRegistrationStringViewModel { get; set; }
+        //public DateOnly DateOfRegistration { get; set; }
+        [DataType(DataType.Date), Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = false)]
+        public DateTime DateOfRegistration { get; set; }
+        public string DateOfRegistrationStringViewModel { get; set; }
 
         public string DateOfRegistrationString 
         {
             get
             {
-                if (DateOfRegistration.ToString() == "01.01.0001")
+                if (DateOfRegistration.ToString() == "01.01.0001 0:00:00")
                 {
                     return "";
                 }
-                return DateOfRegistration.ToString();
+                return DateOfRegistration.ToShortDateString();
             }
 }
 
@@ -108,44 +108,50 @@ namespace AccountingForPotentiallyDangObj.Web.Models
 
 
         [DisplayName("Последнее обследование")]
-        public DateOnly InformationAboutTheLastSurvey { get; set; }
+        [DataType(DataType.Date), Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = false)]
+        public DateTime InformationAboutTheLastSurvey { get; set; }
         public string InformationAboutTheLastSurveyString
         {
             get
             {
-                if (InformationAboutTheLastSurvey.ToString() == "01.01.0001")
+                if (InformationAboutTheLastSurvey.ToString() == "01.01.0001 0:00:00")
                 {
                     return "";
                 }
-                return InformationAboutTheLastSurvey.ToString();
+                return InformationAboutTheLastSurvey.ToShortDateString();
             }
         }
 
         [DisplayName("Дата ТО")]
-        public DateOnly InformationAboutTheTechnicalInspection { get; set; }
+        [DataType(DataType.Date), Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = false)]
+        public DateTime InformationAboutTheTechnicalInspection { get; set; }
         public string InformationAboutTheTechnicalInspectionString
         {
             get
             {
-                if (InformationAboutTheTechnicalInspection.ToString() == "01.01.0001")
+                if (InformationAboutTheTechnicalInspection.ToString() == "01.01.0001 0:00:00")
                 {
                     return "";
                 }
-                return InformationAboutTheTechnicalInspection.ToString();
+                return InformationAboutTheTechnicalInspection.ToShortDateString();
             }
         }
 
         [DisplayName("Дата ТД")]
-        public DateOnly InformationAboutTheTechnicalDiagnostic { get; set; }
+        [DataType(DataType.Date), Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = false)]
+        public DateTime InformationAboutTheTechnicalDiagnostic { get; set; }
         public string InformationAboutTheTechnicalDiagnosticString
         {
             get
             {
-                if (InformationAboutTheTechnicalDiagnostic.ToString() == "01.01.0001")
+                if (InformationAboutTheTechnicalDiagnostic.ToString() == "01.01.0001 0:00:00")
                 {
                     return "";
                 }
-                return InformationAboutTheTechnicalDiagnostic.ToString();
+                return InformationAboutTheTechnicalDiagnostic.ToShortDateString();
             }
         }
 
@@ -177,10 +183,12 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         public string? InstallationLocationAddress { get; set; }
         public int InstallationLocationId { get; set; }
         public InstallationLocation InstallationLocation { get; set; }
-        public string InstallationLocationName { get; set; }
+        public string? InstallationLocationName { get; set; }
 
         [DisplayName("Дата снятия")]
-        public DateOnly WithdrawalFromRegistration { get; set; }
+        [DataType(DataType.Date), Required]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yy}", ApplyFormatInEditMode = false)]
+        public DateTime WithdrawalFromRegistration { get; set; }
         public string WithdrawalFromRegistrationString
         {
             get
@@ -189,7 +197,7 @@ namespace AccountingForPotentiallyDangObj.Web.Models
                 {
                     return "";
                 }
-                return WithdrawalFromRegistration.ToString();
+                return WithdrawalFromRegistration.ToShortDateString();
             }
         }
         public DateTime? WithdrawalFromRegistrationForDb { get; set; }

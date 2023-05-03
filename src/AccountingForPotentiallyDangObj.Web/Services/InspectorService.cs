@@ -30,28 +30,30 @@ namespace AccountingForPotentiallyDangObj.Web.Services
                 var RoleById = modelsRole.Where(x => x.Id == modelDto.RoleId).FirstOrDefault();
                 if (RoleById != null)
                 {
-                    modelDto.Role = RoleById.Name;
+                    modelDto.RoleName = RoleById.Name;
                 }
 
             }
             return modelsDto;
         }
 
-        public async Task<InspectorDto> MapInspectorViewModelToInspectorDto(InspectorViewModel model)
-        {
-            var resultModel = _mapperConfig.Mapper.Map<InspectorDto>(model);
-
-            var modelsRole = _repositoryRole.GetAll();
-            var roleById = modelsRole.Where(x => x.Name == model.RoleName).FirstOrDefault();
-            resultModel.RoleId = roleById.Id;
-
-            return resultModel;
-        }
-        public async Task<InspectorDto> AddNewInspectorAsync(InspectorDto modelDto)
+       
+        public async Task<InspectorDto> CreateInspectorAsync(InspectorDto modelDto)
         {
             var model = _mapperConfig.Mapper.Map<Inspector>(modelDto);
 
             model = await _repositoryInspector.CreateAsync(model);
+
+            modelDto = _mapperConfig.Mapper.Map<InspectorDto>(model);
+
+            return modelDto;
+        }
+        public async Task<InspectorDto> UpdateInspectorAsync(InspectorDto modelDto)
+        {
+
+            var model = _mapperConfig.Mapper.Map<Inspector>(modelDto);
+
+            model = await _repositoryInspector.UpdateAsync(model);
 
             modelDto = _mapperConfig.Mapper.Map<InspectorDto>(model);
 

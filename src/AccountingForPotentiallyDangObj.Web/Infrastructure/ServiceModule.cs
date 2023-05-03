@@ -16,6 +16,8 @@ namespace AccountingForPotentiallyDangObj.Web.Infrastructure
             builder.RegisterType<InspectorService>().As<IInspectorService>();
             builder.RegisterType<TechnicalSpecificationService>().As<ITechnicalSpecificationService>();
             builder.RegisterType<PdoHelper>().As<IPdoHelper>();
+            builder.RegisterType<InspectorHelper>().As<IInspectorHelper>();
+            builder.RegisterType<SubjectHelper>().As<ISubjectHelper>();
             //builder.RegisterType<TechnicalConditional>().As<ITechnicalConditionalService>();
         }
     }

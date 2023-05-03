@@ -31,9 +31,9 @@
                             @Html.DropDownList("abb", ViewBag.Abb as SelectList)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.DateOfRegistrationStringViewModel)
-                            @Html.ValidationMessageFor(m => m.DateOfRegistrationStringViewModel)
-                            <span asp-validation-for="DateOfRegistrationStringViewModel" class="text-danger"></span>
+                            @Html.EditorFor(m => m.DateOfRegistration)
+                            @*@Html.ValidationMessageFor(m => m.DateOfRegistrationStringViewModel)
+                            <span asp-validation-for="DateOfRegistrationStringViewModel" class="text-danger"></span>*@
                         </td>
                        
                         <td class="weight_td" colspan="2">
@@ -94,7 +94,7 @@
                             @Html.DropDownList("technicalConditionalName", ViewBag.TechnicalConditionalName as SelectList)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspection)
                         </td>
                     </tr>
                     <tr>
@@ -116,10 +116,10 @@
                         </td>
                         
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnosticString)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnostic)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheLastSurveyString)
+                            @Html.EditorFor(m => m.InformationAboutTheLastSurvey)
                         </td>
                     </tr>
                     <tr>

@@ -184,7 +184,9 @@ namespace AccountingForPotentiallyDangObj.Web.Helpers
             modelDto.ArrowDepartureString = technicalSpecificationById.ArrowDeparture.ToString();
             modelDto.NumberOfStops = technicalSpecificationById.NumberOfStops;
             modelDto.SpeedString = technicalSpecificationById.Speed.ToString();
+            if (installationLocationById != null)
             modelDto.InstallationLocationName = installationLocationById.Name;
+
             return modelDto;
 
         }
@@ -215,33 +217,38 @@ namespace AccountingForPotentiallyDangObj.Web.Helpers
                 resultModel.WithdrawalFromRegistration = DateTime.Parse(model.WithdrawalFromRegistrationString);
             }
 
-            var technicalSpecificationModelDto = new TechnicalSpecificationDto();
+            var modelById = await _repositoryPdo.GetByIdAsync(model.Id);
+            var modelTechnicalSpecificationById = await _repositoryTechnicalSpecification.GetByIdAsync(modelById.TechnicalSpecificationId);
+            
+            var resultTechnicalSpecificationModelDto = _mapperConfig.Mapper.Map<TechnicalSpecificationDto>(modelTechnicalSpecificationById);
+
+            //var technicalSpecificationModelDto = modelTechnicalSpecificationById.;
 
 
-            technicalSpecificationModelDto.NumberOfStops = model.NumberOfStops;
+            resultTechnicalSpecificationModelDto.NumberOfStops = model.NumberOfStops;
             if (model.ArrowDepartureString != null)
             {
-                technicalSpecificationModelDto.ArrowDeparture = double.Parse(model.ArrowDepartureString);
+                resultTechnicalSpecificationModelDto.ArrowDeparture = double.Parse(model.ArrowDepartureString);
             }
             else
             {
-                technicalSpecificationModelDto.ArrowDeparture = null;
+                resultTechnicalSpecificationModelDto.ArrowDeparture = null;
             }
 
             if (model.CapacityString != null)
             {
-                technicalSpecificationModelDto.Capacity = double.Parse(model.CapacityString);
+                resultTechnicalSpecificationModelDto.Capacity = double.Parse(model.CapacityString);
             }
-            else { technicalSpecificationModelDto.Capacity = null; }
+            else { resultTechnicalSpecificationModelDto.Capacity = null; }
 
             if (model.SpeedString != null)
             {
-                technicalSpecificationModelDto.Speed = double.Parse(model.SpeedString);
+                resultTechnicalSpecificationModelDto.Speed = double.Parse(model.SpeedString);
             }
-            else { technicalSpecificationModelDto.Speed = null; }
-            technicalSpecificationModelDto.Id = (await _repositoryPdo.GetByIdAsync(model.Id)).TechnicalSpecificationId;
+            else { resultTechnicalSpecificationModelDto.Speed = null; }
+            resultTechnicalSpecificationModelDto.Id = (await _repositoryPdo.GetByIdAsync(model.Id)).TechnicalSpecificationId;
 
-            var technicalSpecificationFromDb = await _technicalSpecificationService.UpdateTechnicalSpecificationAsync(technicalSpecificationModelDto);
+            var technicalSpecificationFromDb = await _technicalSpecificationService.UpdateTechnicalSpecificationAsync(resultTechnicalSpecificationModelDto);
             resultModel.TechnicalSpecificationId = technicalSpecificationFromDb.Id;
 
             var modelsJournalPdo = _repositoryJournalPdo.GetAll();

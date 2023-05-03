@@ -11,7 +11,7 @@
                     <tr>
                         @*<th>@Html.DisplayNameFor(model => model.Id)</th>*@
                         <th>@Html.DisplayNameFor(model => model.Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.Role)</th>
+                        <th>@Html.DisplayNameFor(model => model.RoleName)</th>
 
                     </tr>
                 </thead>
@@ -20,24 +20,23 @@
                     {
 
                         <tr>
-                            @if (item.Role != null)
+                            @if (item.RoleName != null)
                             {
                                 @*<td class="td-center">@item.Id</td>*@
-                                <td class="td-center"> @item.Name</td>
-                                <td class="td-center"> @item.Role</td>
+                                <td class="td-center"> <a href="/Inspectors/UpdateInspector/@item.Id">@item.Name</a></td>
+                                <td class="td-center"> @item.RoleName</td>
                             }
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
+        <div class="updateObject">Для внесения изменения кликните по фамилии сотрудника</div>
     </div>
     <div class="div-buttons">
         <div class="div-button">
-            <a class="inspector-link" asp-area="" asp-controller="Inspectors" asp-action="AddNewInspector">Добавление нового сотрудника</a>
+            <a class="inspector-link" asp-area="" asp-controller="Inspectors" asp-action="CreateInspector">Добавление нового сотрудника</a>
         </div>
-        @*<div class="pdo-div-button">
-            <a class="pdo-link" asp-area="" asp-controller="Pdo" asp-action="Pdo">Внесение изменений, связанных с регистрацией ПОО</a>
-        </div>*@
+        
     </div>
 </div>

@@ -88,7 +88,7 @@
                             @Html.DropDownList("technicalConditionalName", ViewBag.TechnicalConditionalName as SelectList)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspectionString)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalInspection)
                         </td>
                         
 
@@ -113,10 +113,10 @@
                         </td>
                         
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnosticString)
+                            @Html.EditorFor(m => m.InformationAboutTheTechnicalDiagnostic)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.InformationAboutTheLastSurveyString)
+                            @Html.EditorFor(m => m.InformationAboutTheLastSurvey)
                         </td>
                         
                     </tr>
@@ -129,7 +129,7 @@
                             @Html.TextAreaFor(m => m.Note, 2, 25, null)
                         </td>
                         <td>
-                            @Html.EditorFor(m => m.WithdrawalFromRegistrationString)
+                            @Html.EditorFor(m => m.WithdrawalFromRegistration)
                         </td>
                     </tr>
 

@@ -76,7 +76,7 @@ namespace AccountingForPotentiallyDangObj.Web.DtoModels
         public string? InstallationLocationAddress { get; set; }
 
         public InstallationLocation InstallationLocation { get; set; }
-        public string InstallationLocationName { get; set; }
+        public string? InstallationLocationName { get; set; }
 
         public DateTime? WithdrawalFromRegistrationForDb { get; set; }
         

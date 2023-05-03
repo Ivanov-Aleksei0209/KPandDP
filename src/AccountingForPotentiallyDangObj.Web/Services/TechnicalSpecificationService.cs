@@ -38,7 +38,7 @@ namespace AccountingForPotentiallyDangObj.Web.Services
 
 
 
-        public async Task<List<TechnicalSpecification>> AddTechnicalSpecificationsAsync(List<TechnicalSpecification> technicalSpecificationModels)
+        public async Task<List<TechnicalSpecification>> CreateTechnicalSpecificationsAsync(List<TechnicalSpecification> technicalSpecificationModels)
         {
             foreach (var technicalSpecificationModel in technicalSpecificationModels)
             {

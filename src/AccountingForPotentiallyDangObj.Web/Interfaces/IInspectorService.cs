@@ -6,7 +6,9 @@ namespace AccountingForPotentiallyDangObj.Web.Interfaces
     public interface IInspectorService
     {
         IEnumerable<InspectorDto> GetAllInspectorAsync();
-        Task<InspectorDto> AddNewInspectorAsync(InspectorDto modelDto);
-        Task<InspectorDto> MapInspectorViewModelToInspectorDto(InspectorViewModel model);
+
+        Task<InspectorDto> CreateInspectorAsync(InspectorDto modelDto);
+
+        Task<InspectorDto> UpdateInspectorAsync(InspectorDto modelDto);
     }
 }

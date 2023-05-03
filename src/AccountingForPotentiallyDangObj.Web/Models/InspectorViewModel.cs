@@ -10,8 +10,10 @@ namespace AccountingForPotentiallyDangObj.Web.Models
         [DisplayName("Фамилия И.О.")]
         public string Name { get; set; }
 
+        //[DisplayName("Должность")]
+        //public string Role { get; set; }
+
         [DisplayName("Должность")]
-        public string Role { get; set; }
         public string RoleName { get; set; }
     }
 }
