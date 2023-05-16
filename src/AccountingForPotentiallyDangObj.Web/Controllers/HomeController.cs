@@ -12,42 +12,11 @@ namespace AccountingForPotentiallyDangObj.Web.Controllers
 {
     public class HomeController : Controller
     {
-        
-        //private readonly IRepository<Inspector> _repositoryInspector;
-        //private readonly IJournalPdoService _journalPdoService;
-        //private readonly IMapperConfig _mapperConfig;
-
-        //public HomeController(IRepository<Inspector> repositoryInspector)
-        //{
-        //    _repositoryInspector = repositoryInspector;
-        //}
-        //public HomeController(IJournalPdoService journalPdoService, IMapperConfig mapperConfig)
-        //{
-        //    _journalPdoService = journalPdoService;
-        //    _mapperConfig = mapperConfig;
-        //}
-
         public IActionResult Index()
         {
-            //var journalsPdoDto = _journalPdoService.GetAllAsync();
-            //var modelsView = _mapperConfig.Mapper.Map<IEnumerable<JournalPdoViewModel>>(journalsPdoDto);
-                        
             return Redirect("~/Pdo/ReportPdo");
         }
 
-        //public IActionResult IndexOne()
-        //{
-        //    var journalsPdoDto = _journalPdoService.GetAllAsync();
-        //    var modelsView = _mapperConfig.Mapper.Map<IEnumerable<JournalPdoViewModel>>(journalsPdoDto);
-
-        //    return View(modelsView);
-        //}
-
-        //public IActionResult Inspectors()
-        //{
-        //    var inspectors = _repositoryInspector.GetAll().AsEnumerable();
-        //    return View(inspectors);
-        //}
         public IActionResult Privacy()
         {
             return View();

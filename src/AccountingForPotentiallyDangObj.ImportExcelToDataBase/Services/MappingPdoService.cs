@@ -23,11 +23,7 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
         private readonly IRepository<TechnicalConditional> _repositoryTechnicalConditional;
         private readonly IRepository<Inspector> _repositoryInspector;
         private readonly string _connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=AccountingForPotentiallyDangObj.DataBase;Integrated Security=True;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        //private readonly IMapperConfig _mapperConfig;
-
-        //public MappingPdoService(IRepository<Subject> repositorySubject, IRepository<Pdo> repositoryPdo, IRepository<JournalPdo> repositoryJournalPdo,
-        //IRepository<TypeOfPdo> repositoryTypeOfPdo, IRepository<TechnicalConditional> repositoryTechnicalConditional,
-        //    IRepository<Inspector> repositoryInspector, IMapperConfig mapperConfig) { }
+        
         public MappingPdoService()
         {
             var dbContext = new AfPdoDbContext(_connectionString);
@@ -37,13 +33,6 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             _repositoryTypeOfPdo = new AfPdoRepository<TypeOfPdo>(dbContext); ;
             _repositoryTechnicalConditional = new AfPdoRepository<TechnicalConditional>(dbContext); ;
             _repositoryInspector = new AfPdoRepository<Inspector>(dbContext); ;
-            //_repositoryPdo = repositoryPdo;
-            //_repositoryJournalPdo = repositoryJournalPdo;
-            //_repositoryTypeOfPdo = repositoryTypeOfPdo;
-            //_repositoryTechnicalConditional = repositoryTechnicalConditional;
-            //_repositoryInspector = repositoryInspector;
-            //_repositorySubject = repositorySubject;
-            //_mapperConfig = mapperConfig;
         }
         public List<PdoExcelModel> MapJObjectsToPdoExcelModels(JObject jObject)
         {
@@ -115,11 +104,6 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
 
             return PdoDtoModel;
         }
-        //public TechnicalSpecification MapPdoDtoToTechnicalSpecificationModel()
-        //{
-
-        //    return TechnicalSpecificationModel;
-        //}
 
         public Pdo MapPdoDtoToPdoModel(PdoDto PdoDtoModel)
         {
@@ -199,7 +183,6 @@ namespace AccountingForPotentiallyDangObj.ImportExcelToDataBase.Services
             return model;
 
         }
-
 
         public List<Pdo> MapPdoDtoModelsToPdoModels(List<PdoDto> pdoDtoModel)
         {
