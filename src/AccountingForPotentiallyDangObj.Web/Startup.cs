@@ -12,6 +12,8 @@ using Autofac.Extensions.DependencyInjection;
 using Autofac;
 using AccountingForPotentiallyDangObj.DataAccess.Infrastructure;
 using AccountingForPotentiallyDangObj.Web.Infrastructure;
+using AccountingForPotentiallyDangObj.Web.Identity.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccountingForPotentiallyDangObj.Web
 {
@@ -29,8 +31,8 @@ namespace AccountingForPotentiallyDangObj.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<ApplicationDbContext>(options =>
-                //options.UseSqlServer(_connectionString));
+            services.AddDbContext<AppIdentityDbContext>(options =>
+                options.UseSqlServer(_connectionString));
             services.AddRazorPages();
             services.AddControllersWithViews();
             services.AddControllersWithViews()

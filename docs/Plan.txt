@@ -146,6 +146,7 @@ thread.IsBackground = true; // Раскомментировать, иначе б
 Доделать таблицу ПОО -> избавиться от Id
 Перевести БД на русский
 Реализовать алгоритм в сервисах ReportPdo
+
 ============================15.03.2023============================
 Занятие 12
 ============================23.03.2023============================
@@ -160,6 +161,66 @@ https://www.c-sharpcorner.com/article/net-entity-framework-core-generic-async-op
 
 ============================14.04.2023============================
 Занятие 16
+
 ============================27.04.2023============================
 Занятие 17
+
+============================21.06.2023============================
+Занятие 18
+д/з
+1. Migration - миграция базы данных
+https://learn.microsoft.com/ru-ru/ef/core/managing-schemas/
+
+
+2. ASP.NET Core Identity на метаните или msdn
+https://metanit.com/sharp/aspnet5/16.1.php
+https://learn.microsoft.com/ru-ru/aspnet/core/security/authentication/identity?view=aspnetcore-7.0&tabs=visual-studio
+
+============================19.07.2023============================
+Занятие 19
+
+Этапы создания миграции по подходу code-first
+1. Создать проект ASP.NET Core MVC .Net 7.0
+2. Добавить класс (модель) в папку Models
+3. Добавить NugetPackets:
+	Microsoft.EntityFrameworkCore.SqlServer
+	Microsoft.EntityFrameworkCore.Tools
+	Microsoft.EntityFrameworkCore.Design
+Аналогично сработает команда в командной строке с прописанным путем к проекту
+	dotnet tool install --global dotnet-ef 
+4. В проект добавить контекст данных приложения (создать класс : DbContext) 
+ public class ApplicationContext : DbContext
+    {
+        public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
+        {
+        }
+
+        public DbSet<Blog> Blog { get; set; }
+
+    }
+5. В Program.cs добавить сервис, в который через параметр передать строку подключения к базе данных
+		builder.Services.AddDbContext<ApplicationContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+6. В appsettings.json добавить строку подключения
+	"AllowedHosts": "*",
+		"ConnectionStrings": {
+			"DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=НазваниеSolution.DataBase;Trusted_Connection=True;MultipleActiveResultSets=true"
+ 
+7. В командной строке (под Windows) перейти в каталог с проектом и создаем миграцию командой:
+		dotnet ef migrations add InitialCreate 
+В проекте появится папка Migrations, в которой создастся класс с названием InitialCreate - описание создаваемой миграции (таблицы будущей БД)
+
+8. Обновление (создание) базы данных:
+		dotnet ef database update
+На сервере появиться БД с названием, указанным в командной строке и таблицами, соответствующими созданным моделям (классам в папке Models)
+
+9. Расширение (модификация) модели и соответствующей ей таблицы:
+	- в модель добавляется новое свойство;
+	- создается новая миграция 
+		dotnet ef migrations add имя новой миграции
+	- обновляется БД
+		dotnet ef database update
+
+============================02.08.2023============================
+Занятие 20
 
